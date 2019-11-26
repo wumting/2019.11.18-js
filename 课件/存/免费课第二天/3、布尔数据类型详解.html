@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 把其他数据类型转布尔有且只有NaN、null、undfined、0、''这五种是false，其余的都是true
+    // console.log(Boolean(true)); // true
+    // console.log(Boolean(false)); // false
+
+    // console.log(Boolean(NaN)); // false
+    // console.log(Boolean(null)); // false
+    // console.log(Boolean(undefined));
+    // console.log(Boolean(0)); // false
+    // console.log(Boolean('')); // false
+    // console.log(Boolean('   ')); // true
+    // console.log(Boolean([])) // true
+    // console.log(Boolean({})) // true
+
+    console.log(!null) // true
+    console.log(!0) // true
+    console.log(!11)
+    console.log(!!null) // fasle
+    console.log(!!11) // true
+
+    if(!!0){
+        // 括号里的东西会转布尔，如果是true就执行大阔号里的代码，反之就不执行
+        console.log(11111)
+    }
+
+    </script>
+</body>
+</html>

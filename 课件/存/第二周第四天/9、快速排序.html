@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let ary = [3,4,2,1];
+        function quick(ary){
+
+        // 4、如果数组中的length小于等于1，那就结束递归，把原数组return出去
+        if(ary.length<=1){
+            return ary
+        }
+
+        // 1、获取中间的一项作为基准（并且把原数组中的那一项删除）
+            let middleIndex = Math.floor(ary.length/2) // 拿到中间项的索引
+            let middleValue = ary.splice(middleIndex,1)[0];
+        // 2、创建两个数组，循环数组的每一项和基准做比较，如果每一项小于基准，就放到左边数组，反之放右边
+            let leftAry = [];
+            let rightAry = [];
+            for (var i = 0; i < ary.length; i++) {
+               if(ary[i]<middleValue){
+                   leftAry.push(ary[i])
+               }
+               else{
+                   rightAry.push(ary[i])
+               }
+            }
+
+           // 3、不断重复1和2步骤（递归）
+          return  quick(leftAry).concat(middleValue, quick(rightAry))
+        }
+        console.log(quick(ary))
+
+        // return  [1].concat(2, [3,4])
+
+        //       return  [1]             return  [3].concat(4, [])
+        //                                      return  [3]            return  [] 
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function sum(){
+        //     let total = null;
+        //     for (var i = 0; i < arguments.length; i++) {
+        //         let item = Number(arguments[i])
+        //         if(!isNaN(item)){
+        //             total+=item
+        //         }
+        //     }
+        //     return total
+        // }
+        // console.log(sum(1,2,'34',true, false))
+
+        function sum(num){
+            if(num>100){
+                return 0
+            }
+            // num%3 === 0 && num%5=== 0
+            if(num%15 === 0){
+                return num + sum(num+1)
+            }
+            return sum(num+1)
+        }
+        console.log(sum(1))
+    </script>
+</body>
+
+</html>

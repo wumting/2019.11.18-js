@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            box-sizing: border-box;
+            margin: 20px auto;
+            width: 200px;
+            height: 40px;
+            border: 1px solid lightcoral;
+            text-align: center;
+            line-height: 40px;
+            position: relative;
+            /* 鼠标滑过是个小手 */
+            cursor: pointer;
+        }
+
+        .detail {
+
+            box-sizing: border-box;
+            width: 500px;
+            height: 100px;
+            text-align: center;
+            border: 1px solid lightcoral;
+            position: absolute;
+            top: 38px;
+            left: -1px;
+            z-index: -1;
+        }
+    
+    
+    
+    </style>
+
+</head>
+<body>
+    <div class="box" id="box">
+        <span>购物车</span>
+        <div class="detail" id="detail" style="display: none;">
+            购物车的相关信息
+        </div>
+    </div>
+    <script>
+    let box = document.getElementById('box')
+    let detail = document.getElementById('detail')
+    box.onclick = function(){
+        let n = detail.style.display
+        if(n === 'none'){
+            detail.style.display = 'block';
+            box.style.borderBottomColor = '#fff';
+        }else{
+            detail.style.display = 'none';
+            box.style.borderBottomColor = 'lightcoral';
+        }
+
+    }
+    
+    
+    
+    </script>
+</body>
+</html>

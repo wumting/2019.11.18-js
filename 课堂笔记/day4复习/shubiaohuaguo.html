@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding:0;
+    }
+    .box{
+        box-sizing: border-box;
+        margin:20px auto;
+        width: 200px;
+        height: 40px;
+        border: 1px solid lightcoral;
+        text-align: center;
+        line-height: 40px;
+        position: relative;
+
+    }
+    .detail{
+        display: none;
+        box-sizing: border-box;
+        width: 500px;
+        height: 100px;
+        text-align: center;
+        border: 1px solid lightcoral;
+        position: absolute;
+        top: 38px;
+        left: -1px;
+        z-index: -1;
+    }
+    .box:hover{
+        border-bottom-color: white;
+        
+    }
+    .box:hover .detail{
+        display: block;
+
+    }
+    
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        <span>购物车</span>
+        <div class="detail">
+            购物车的相关信息
+        </div>
+    </div>
+</body>
+</html>

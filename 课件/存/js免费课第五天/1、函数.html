@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function fn(n,m){
+        //     console.log(n, m)
+        //     // 在函数中。实参没有给形参赋值，那就是undefined
+        //     // 创建函数的小括号里放的是形参变量，他跟实参是一一对应的
+        //     let num = 12;
+        //     // 把函数体里的值return出去，
+        //     // 阻断代码向下运行
+        //     return num
+        //     console.log('eeeeee')
+        // }
+        // 函数名加小括号就是函数执行,函数执行时传递的参数是实参
+    //     console.log(fn(12,13));
+    //     console.log(fn());
+    //    let ss = fn(12, 13, 15);
+    //    console.log(ss) //12
+        // console.log(num) // 报错
+
+        // function fn(n,m){
+        //     let num = n+m;
+        //     return num
+        // }
+        // console.log(fn(1, 2)) // 
+        // console.log(fn(2, 3))
+        // console.log(fn(3, 4))
+        // console.log(fn(4, 5))
+        // 出现undefined的情况
+        // 1、创一个变量不赋值，获取这个变量是undefined
+        // 2、获取对象里的属性名所对应的属性值获取不到，是undefined
+        // 3、函数里，实参没有给形参变量赋值，那就是undefined
+        // 4、函数里，没有return（没有返回值），函数里执行结果就是undefined
+
+        // 出现null的情况
+        // 1、手动赋值为null
+        // 2、通过Id去获取元素获取不到，那就是null
+            // let num = 12;
+            // function fn(n){
+            //     n = 15;
+            //     return n
+            // }
+            // let m = fn(num)
+            // console.log(m)
+            
+                // let num = 111111111111115
+                // // 函数体里边可以拿函数外边的变量（取变量的时候，如果自己有，就不取外边的了），但是外边不能拿里边的
+                // function fn(){
+                //     console.log(num)
+                // }
+                // fn(10)
+
+                function fn(){
+                    return function(){
+                        return 
+                    }
+                }
+               let s =  fn()
+               console.log(s)
+               console.log(s())
+    </script>
+</body>
+</html>

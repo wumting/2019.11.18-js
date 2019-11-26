@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 冒泡排序：
+        // 原理：数组的每一项进行两两比较，如果前一项大于后一项就交换位置
+        // let ary = [12,23,11,34,10,9];
+        /* 
+        第一轮比较（比较了5次-已经执行过的轮数）
+        12,23  [12,23,11,34,10,9]
+        23,11  [12,11,23,34,10,9]
+        23,34  [12,11,23,34,10,9]
+        34,10  [12,11,23,10,34,9]
+        34,9   [12,11,23,10,9,34]
+
+        第二轮（比较4次  ary.length-1-已经执行过的轮数）
+        12,11  [11,12,23,10,9,34]
+        12,23  [11,12,23,10,9,34]
+        23,10  [11,12,10,23,9,34]
+        23,9   [11,12,10,9,23,34]
+
+        第三轮（比较3次）
+         */
+        // 每比较一轮就会产生一个最大值，当前数组一共六个值，比较五轮就会产生5个最大值，剩下的那个肯定是最小的（ary.length-1）
+        // 每轮比较的次数（ary.length-1-已经执行过的轮数）因为每比较一轮就会产生一个最大值，最大值不需要参与比较
+
+        // let temp = null;
+        // let a = 12;
+        // let b = 13;
+
+        // temp = a; // 12
+        // a = b // 13
+        // b = temp  // 12
+
+        let ary = [12,23,11,34,10,9];
+        function buble(ary){
+            // 控制的比较的轮数
+            for (var i = 0; i < ary.length-1; i++) {
+                // 控制的是每一轮比较的次数
+                for (var j = 0; j < ary.length-1-i; j++) {
+                    // 如果前一项大于后一项就两两交换位置
+                   if(ary[j]>ary[j+1]){
+                       let temp = ary[j];
+                       ary[j] = ary[j+1];
+                       ary[j+1] = temp;
+                   }
+                }
+            }
+            return ary
+        }
+        console.log(buble(ary))
+    </script>
+</body>
+</html>

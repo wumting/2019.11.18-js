@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let ary = [12, 23, 45, 11, 10, 23];
+        function fn(ary) {
+            let handAry = [];
+            handAry.push(ary[0]);
+            for (var i = 1; i < ary.length; i++) {
+                let item = ary[i];// 抓的每一张牌 23
+
+                for (var j = handAry.length - 1; j >= 0; j--) {
+                    let cur = handAry[j];// 手里的每一张牌  12
+                    if (cur < item) {
+                        handAry.splice(j + 1, 0, item);
+                        break;
+                    }
+                    if (j === 0) {
+                        handAry.unshift(item);
+                    }
+                }
+            }
+            return handAry;
+        }
+        console.log(fn(ary));
+
+
+
+
+
+    </script>
+</body>
+
+</html>

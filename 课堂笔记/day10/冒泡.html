@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 冒泡排序
+        // 原理：数组的每一项进行两两比较，如果前一项大于后一项就交换位置
+        let ary = [12, 23, 11, 34, 10, 9];
+        function buble(ary) {
+            for (var i = 0; i < ary.length - 1; i++) {
+                // 控制的是每一轮比较的次数
+                for (var j = 0; j < ary.length - 1 - i; j++) {
+                    // 如果前一项大于后一项就两两交换位置
+                    if (ary[j]>ary[j+1]) {
+                        let tamp = ary[j];
+                        ary[j] = ary[j + 1];
+                        ary[j + 1] = tamp;
+                    }
+                }
+            }
+            return ary;
+        }
+        console.log(buble(ary));
+       
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 300px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        #box div {
+            width: 100%;
+            font-size: 20px;
+            cursor: pointer;
+            height: 30px;
+            line-height: 30px;
+            margin-bottom: 10px;
+        }
+
+        #input {
+            height: 25px;
+        }
+
+        #btn {
+            height: 30px;
+            width: 88px;
+            border: 1px solid #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div>
+            <span id="show">验证码</span>
+            <button id="btn">看不清</button>
+        </div>
+        <input type="text" id="input">
+
+    </div>
+    <script>
+
+        let show = document.getElementById('show');
+        let btn = document.getElementById('btn')
+        let input = document.getElementById('input');
+        btn.onclick = function () {
+            creatCase();
+        }
+        input.onblur = function () {
+            let inputValue = input.value.toLowerCase();
+            let showValue = show.innerText.toLowerCase();
+            if (inputValue === showValue) {
+                alert('恭喜');
+            } else {
+                alert('对不起，验证码错误');
+                creatCase();
+                input.value = '';
+            }
+        }
+        creatCase();
+        function creatCase() {
+            let str = '12345567sakdfjiNIJOOK';
+            let value = '';
+            for (var i = 0; i < 4; i++) {
+                let index = Math.round(Math.random() * (str.length - 1 - 0) + 0);
+                let ss = str[index];
+                value += ss;
+            }
+            show.innerHTML = value;
+        }
+
+
+
+    </script>
+</body>
+
+</html>

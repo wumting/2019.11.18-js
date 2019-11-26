@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            margin: 20px auto;
+            text-align: center;
+            font-size: 16px;
+            color: gold;
+            border: 1px solid #666;
+
+        }
+
+        #list {
+            list-style: none;
+        }
+
+       li {
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px dashed lightcoral;
+        }
+
+        /*  li:nth-child(2n+1){
+        background: lightcoral;
+        }
+        li:nth-child(2n){
+        background: lightgreen;
+        }
+        */
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="list">
+            <li>第一</li>
+            <li>第一</li>
+            <li>第一</li>
+            <li>第一</li>
+            <li>第一</li>
+        </ul>
+    </div>
+    <script>
+        let ul = document.getElementById('list');
+        let list = ul.getElementsByTagName('li');
+        console.log(list);
+       /*  for (var i = 0; i < list.length; i++) {
+            console.log(list[i]);
+            //%就是取余的意思
+            if (i%2 === 0) {
+                // 如果条件成立，那就是奇数行
+                list[i].style.background = 'red';
+            } else {
+                list[i].style.background = 'yellow';
+            }
+            list[i].onmouseenter = function(){
+                color=this.style.background;
+                this.style.background = 'orange';
+            }
+            list[i].onmouseout = function(){
+                this.style.background=color;
+            }
+        } */
+        var color = '';
+        for(var i=0;i<list.length;i++){
+            if(i%2 === 0){
+                list[i].style.backgroundColor = 'red';
+            }else{
+                list[i].style.backgroundColor = 'yellow';
+            }
+            list[i].onmouseenter = function(){
+                color = this.style.backgroundColor;
+                this.style.backgroundColor = 'orange';
+            }
+            list[i].onmouseout = function(){
+                this.style.backgroundColor = color;
+            }
+        }
+
+        
+
+    </script>
+</body>
+
+</html>

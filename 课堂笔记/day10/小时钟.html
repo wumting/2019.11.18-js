@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 900px;
+            height: 300px;
+            /* background: -webkit-linear-gradient(top right, rgb(255, 123, 0),rgb(233, 218, 0), rgb(0, 128, 128), rgb(157, 255, 0)); */
+            background: url(./images/GIF.gif) no-repeat center;
+            line-height: 132px;
+            text-align: center;
+            font-size: 40px;
+            font-weight: 500px;
+            margin: 40px auto;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="box">
+       2019年11月13日 星期三 15:43   
+    </div>
+    <audio src="./music/一条小团团OvO - 白龙马（Cover：樊竹青）.mp3" autoplay loop></audio>
+    <script>
+        let box = document.getElementById('box');
+        // 不足十位补0的方法
+        let addZero = val => val < 10 ? '0' + val : val;
+
+        // 星期几
+        function trans(val) {
+            let obj = {
+                0: '日',
+                1: '一',
+                2: '二',
+                3: '三',
+                4: '四',
+                5: '五',
+                6: '六',
+            }
+            return obj[val];
+        }
+
+        setTime();
+        // 获取时间的方法
+        function setTime() {
+            let time = new Date();
+            let year = time.getFullYear();
+            let month = time.getMonth()+1;
+            let date = time.getDate();
+            let day = time.getDay();
+            let hour = time.getHours();
+            let min = time.getMinutes();
+            let sec = time.getSeconds();
+
+            let value = year +'年'+ addZero(month)+'月'+addZero(date)+'日 星期'+ trans(day)+' '+ addZero(hour)+'时'+addZero(min)+'分'+addZero(sec)+'秒'
+            box.innerText = value;
+        }
+        setInterval(setTime,1000)
+          // 让定时器每间隔一秒就执行一次setTime这个方法（这是实现时钟的核心）
+   /*  function addZero(val){
+                  if(val < 10){
+                      return '0'+val;
+                  }else{
+                      return val;
+                  }
+              }
+               */
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 实现首字母大写，其余的都小写
+        // let str = 'zhufengpeixun';
+        // str = str.substring(0,1).toUpperCase() + str.substring(1);
+        // console.log(str)
+
+        
+
+        // function fn(str) {
+        //     let index = str.indexOf('?');
+        //     let params = str.substring(index + 1);
+        //     let aryParams = params.split('&');
+        //     let obj = {};
+        //     for (var i = 0; i < aryParams.length; i++) {
+        //         let newAry = aryParams[i].split('=');
+        //         obj[newAry[0]] = newAry[1]
+        //     }
+        //     return obj
+        // }
+
+        // let str = 'https://www.baidu.com?name=sunWuKong&age=null&sex=null';
+        // function fn(str){
+        //     let index = str.indexOf('?');
+        //     let params = str.substring(index+1);
+        //     let aryParams = params.split('&');
+        //     let obj = {};
+        //     aryParams.forEach((item, index)=>{
+        //         let newAry = item.split('=');
+        //         obj[newAry[0]] = newAry[1]
+        //     });
+        //     return obj
+        // }
+
+        // console.log(fn(str));
+
+        // 去除字符串中的 's'
+        // let str = 'asdasdasd';
+        // str = str.split('s').join('');
+        // console.log(str)
+
+       
+        // // str = str.replace('-','年').replace('-','月').replace(':','时')+ '分'
+        // let y = str.indexOf('-');
+        // let m = str.lastIndexOf('-');
+        // let d = str.indexOf(' ')
+        // let year = str.substring(0, y);
+        // let month = str.substring(y+1,m);
+        // let day = str.substring(m+1,d);
+
+        // function addZero (val){
+        //     if(val.length === 1){
+        //         return '0'+ val
+        //     }
+        //     return val
+        // }
+        // console.log(addZero(year)+'年'+ addZero(month)+'月'+ addZero(day)+'日')
+        // console.log(str)
+        // let str = '2019-1-2 14:12';
+        // let y = str.indexOf('-');
+        // let m = str.lastIndexOf('-');
+        // let d = str.indexOf(' ');
+        // let year = str.substring(0, y);
+        // let month = str.substring(y+1,m);
+        // let day = str.substring(m+1,d);
+        // console.log(year, month, day)
+
+        // 字符串方法
+        
+        /* 
+        1、charAt():通过索引获取对应的字符串
+        2、charCodeAt()：通过索引获取指定字符串对应的ASCOII码（unicode码）
+
+        3、substr(n,m):从索引n开始，查询m个
+        4、sybstring(n,m):从索引n开始，查询到索引m（不包括索引m对应的那一项）
+        5、slice(n,m):跟substring一样，但是支持负数（用length加上负数就好了）
+
+        6、split('x'):以指定的字符作为间隔符，把字符串转为数组
+        7、replace('老字符','新字符')：字符的替换（原则上一次只能替换第一个，但是结合正则可以全局替换/x/g）
+        8、toUpperCase:转大写
+        9、toLowerCase：转小写
+        10、trim去空格（trimLeft、trimRight）
+        */
+    </script>
+</body>
+
+</html>

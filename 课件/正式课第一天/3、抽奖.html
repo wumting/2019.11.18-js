@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <span id="show"></span>
+    <script>
+        let show =document.getElementById('show');
+        let int = null;
+        let ss = null;
+        function createCode(){
+            if(ss>9){
+                clearInterval(int);
+                return;
+            };
+            ss++;
+            let value = '';
+            for (var i = 0; i < 4; i++) {
+                let num = Math.round(Math.random()*9);
+                value+=num
+            }
+            show.innerText = value; 
+        }
+        createCode();
+        int = setInterval(createCode, 1000)
+
+
+    
+    </script>
+</body>
+</html>

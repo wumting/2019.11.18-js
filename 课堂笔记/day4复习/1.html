@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 普通对象
+        let person = {
+            name: 'yiYang',
+            age: 40,
+            height: '1.85CM',
+            weight: '80KG',
+            0: 100,
+        };
+        // 获取属性名的两种方式  （属性名是数字或者字符串格式）
+        /*    console.log(person.name);
+           console.log(person['age']);
+           console.log(person.sex);//undefined
+           // console.log(person.0) 语法错误
+           console.log(person[0])
+           // 设置属性名属性值  属性名不能重复，如果存在，不属于新增属于修改属性值
+           person.GF = '园园';
+           person.name = '李易峰'
+           console.log(person['GF']);
+           console.log(person.name);
+           //删除属性
+           // 真删除  把属性彻底删除
+           delete person['0'];
+           // 假删除  属性还在，值为空
+           person.weight = null;
+           console.log(person); */
+
+        // 数组
+        //    1.索引
+        //    2.默认有一个属性名length
+        /*  let ary = [12,'haha',true,13];
+            console.log(ary);
+            console.log(ary.length);
+            console.log(ary['length']);
+            console.log(ary[1]);
+            console.log(ary[ary.length-1]);
+            console.log(ary[ary.length] = 100)
+        */
+        let a = 12;
+        let b = a;
+        b = 13;
+        console.log(a) //12
+
+        let n = {
+            name: 'zhudfeng',
+        };
+        let m = n;
+        m.name = 'peixun';
+        console.log(n.name)//'peixun'
+        /* 
+        浏览器想要执行js代码;
+                1.从电脑内存中分配出一块内存，用来执行代码，
+                基本类型:按值操作（直接操作的是值），所以叫作值类型
+                引用类型：操作的是对内存的地址（按引用地址操作的）
+        
+         */
+
+        /*      console.log(typeof 1);
+             let c = 10;
+             console.log(typeof c);
+     
+             if(){
+     
+             }else if{
+     
+             }else{
+     
+             } */
+        /* let a = 10;
+        if(a <= 0){
+            console.log('sd');
+        }else if(a >0&&a<10){
+            console.log('hehr');
+        }else if(a == 10){
+            console.log('heihei');
+        }else{
+            console.log('xixi')
+        };
+        */
+      /*   if (a > 0) {
+            if (a < 10) {
+                a++;
+            } else {
+                a--;
+            }
+        } else {
+            if (a > -10) {
+                a += 2;
+            }
+        }
+        a > 0 ? (a < 10 ? a++ : a--) : (a > -10 ? a += 2 : null); */
+        // switch case
+       /*  let a = 10;
+        switch(a){
+            case 1:
+                console.log('hehe');
+                break;
+            case 5:
+                console.log('haha');
+                break;
+            case 10:
+                console.log('heihei');
+                break;
+            default:
+                console.log('xixi');
+        }        
+ */
+        let a=1;
+        switch(a){
+            case 1:a++
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let url = 'https://www.baidu.com?name=erYa&age=18&sex=girl#index';
+        let index = url.indexOf('?');
+        let index2 = url.indexOf('#');
+        let params = url.substring(index+1,index2);// "name=erYa&age=18&sex=girl"
+        let params2 = url.substring(index2+1); // "index"
+        let ary = params.split('&'); //  ["name=erYa", "age=18", "sex=girl"]
+        let obj={};
+        for (var i = 0; i < ary.length; i++) {
+           let newAry = ary[i].split('='); // ['name','erYa']
+           obj[newAry[0]] = newAry[1]
+        }
+        obj['route'] = params2;
+        console.log(obj)
+        // console.log(ary)
+
+    </script>
+</body>
+</html>

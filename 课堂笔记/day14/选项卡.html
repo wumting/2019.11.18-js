@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box {
+            width: 500px;
+            margin: 10px auto;
+        }
+
+        ul {
+            list-style: none;
+            position: relative;
+            top: 1px;
+            text-align: center;
+            display: flex;
+
+        }
+
+        li {
+            border: 1px solid black;
+            line-height: 50px;
+            height: 50px;
+            font-size: 30px;
+            margin-right: 20px;
+            padding: 0 10px;
+            cursor: pointer;
+        }
+
+        #box div {
+            width: 500px;
+            text-align: center;
+            height: 300px;
+            line-height: 300px;
+            font-size: 50px;
+            color: orangered;
+            border: 1px solid black;
+            display: none;
+        }
+
+        #navList li.active {
+            border-bottom-color: white;
+        }
+
+        #box div.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="navList">
+            <li class="active">erYa</li>
+            <li>jinYu</li>
+            <li>xiaoHua</li>
+        </ul>
+        <div class="active">长的这俊哩</div>
+        <div>你好帅啊</div>
+        <div>哈哈</div>
+    </div>
+    <script>
+        let navList = document.querySelectorAll('#navList li');
+        let tabList = document.querySelectorAll('#box div');
+        /*  第一种方法：自定义属性 
+              for(var i=0;i<navList.length;i++){
+              navList[i].setAttribute('myIndex',i);
+              navList[i].onclick = function(){
+                  fn(this.getAttribute('myIndex'));
+              }
+          } */
+        //第二种方法：闭包 
+        /*   for(var i=0;i<navList.length;i++){
+              navList[i].onclick = (function(index){
+                  //函数return了一个引用数据类型值，而且return的值被外界所接收，所以这个作用域不销毁
+                      return function(){
+                          fn(index);
+                      }
+              })(i)
+          } */
+        //第三种方法：let   ES6中let在for循环的大括号会形成块级作用域
+        for (let i = 0; i < navList.length; i++) { 
+            navList[i].onclick = function () {
+                fn(i)
+            }
+        }
+
+
+
+        function fn(index) {
+            for (var i = 0; i < navList.length; i++) {
+                navList[i].className = '';
+                tabList[i].className = '';
+            }
+            navList[index].className = 'active';
+            tabList[index].className = 'active';
+        }
+
+
+ /*        var num = 1;//1 2
+        var obj = {
+            num: 0,
+            fn: function () {
+                num = 1;//给全局的num重新赋值1
+                (function (num) {//0 1
+                    ++this.num;//2
+                    num++;
+                    console.log(num)//1
+                })(this.num)
+            }
+        }
+        obj.fn();
+        console.log(window.num, obj.num);//2 0
+ */
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 作用域：全局作用域，私有作用域
+        // 全局作用域：
+        // 当你打开一个页面，浏览器就会形成全局作用域为代码执行提供环境，在全局作用域在会生成一个全局的大对象叫window
+        // 全局作用域一般不销毁，直到页面关闭，作用域才会销毁
+        console.log(window.Number)
+
+        // 全局变量
+        // 在全局作用域下声明的变量就是全局变量
+        // let a = 12;
+        // var b =13;
+        // function fn(){}
+    // 1、用var和function声明的变量会在全局作用域下声明一个变量，而且也会给window增加属性，属性名是变量名，属性值是变量名存储的值（let不支持）
+        // var s = 12;
+        // function fn(){}
+        // console.log(window.s)
+        // console.log(window.fn)
+        // let a = 12;
+        // console.log(window.a) // undefined
+
+        // 2、var和function可以重复创建同一个变量名(let不可以)
+        // var a = 12;
+        // var a = 13;
+        // console.log(a)
+        let a = 12; // 报错  SyntaxError（语法错误）
+        let a = 13;
+
+        // function fn(){
+        //     var e = 12
+        // }
+
+
+    </script>
+</body>
+</html>

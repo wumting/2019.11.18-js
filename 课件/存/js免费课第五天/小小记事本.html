@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+            border: 1px solid black;
+            height: 400px;
+            font-size: 20px;
+            overflow: hidden;
+        }
+        li {
+            line-height: 30px;
+        }
+        #box {
+            width: 500px;
+            height: 50px;
+            margin: 0 auto;  
+        }
+        #text {
+            margin-left: 100px;
+            height: 30px;
+            width: 300px;
+        }
+        #btn {
+            height: 30px;
+            width: 40px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul id="note">
+            <li>ssss</li>
+        </ul>
+        <input type="text" id="text"><button id="btn">增加</button>
+    </div>
+    <script>
+    let note = document.getElementById('note');
+    let text = document.getElementById('text');
+    let btn = document.getElementById('btn');
+    btn.onclick=function(){
+        let value = text.value; 
+        let content = note.innerHTML; 
+        note.innerHTML = content + '<li>' + value+'</li>';
+        text.value = ''
+    }
+    </script>
+</body>
+</html>

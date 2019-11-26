@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let ary = [1, 1, 2, 3, 1, 2, 3];
+        // 循环数组的每一项，然后把数组的每一项都放进对象里（让键值对的key和value都等于那一项）
+        function fn(ary) {
+            let newObj = {} // 创建一个新对象用来存储键值对
+
+            // 循环数组的每一项
+            for (var i = 0; i < ary.length; i++) {
+                // 检测一下当前项在对象里有没有，如果有，那以下条件就成立
+                // 也就是说以前就存储过这一项（证明已经是重复项）
+                if (newObj[ary[i]] !== undefined) {
+                    // ary.splice(i, 1); // 删除重复项
+                    // i--; // 防止数组塌陷
+                    ary[i] = ary[ary.length-1]; //用数组的最后一项替换重复的那一项 
+                    ary.length--; // 删除数组最后一项
+                    i-- // 把替换的值还要检测一遍
+                    // continue;
+                    
+                } else {
+                    // 如果对象中没有这个属性名对应的属性值，那就新增这个键值对
+                    newObj[ary[i]] = ary[i];
+                }
+            }
+        }
+        /* 
+        i=0
+           newObj[1] = 1
+        i=1
+           newObj[1] = 1
+        i=2
+            newObj[2] = 2
+        */
+        fn(ary)
+        console.log(ary)
+    </script>
+</body>
+
+</html>

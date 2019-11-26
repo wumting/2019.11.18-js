@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 900px;
+            height: 300px;
+            /* background: -webkit-linear-gradient(top right, rgb(255, 123, 0),rgb(233, 218, 0), rgb(0, 128, 128), rgb(157, 255, 0));  */
+            background: url(./images/GIF.gif) no-repeat center;
+            line-height: 132px;
+            text-align: center;
+            font-size: 40px;
+            font-weight: 500px;
+            margin: 40px auto;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        2019年11月13日 星期三 15:43
+    </div>
+    <script>
+        /* 1.你得有终止的时间
+           2.把现在的时间和终止时间的时间差转换为小时，分钟，秒
+         */
+        let box = document.getElementById('box');
+        let endTime = new Date('2019-11-14 17:49');
+        let num = '';
+
+        // 不足十位补0的方法
+        let addZero = val => val < 10 ? '0' + val : val;
+
+        setTime();//页面初次渲染时，为了防止页面闪，执行一次setTime方法
+        function setTime() {
+            let time = new Date();//创建现在的时间
+            let diffTime = endTime - time;//获得现在时间和结束时间的时间差（单位是毫秒）
+            // console.log(diffTime);
+            //如果时间差为0，那就证明倒计时该结束了
+            if (diffTime <= 0) {
+                clearInterval(num);//清空定时器
+                box.innerText = '时间到';//把div的内容改为时间到
+                return;
+            }
+            let hour = Math.floor(diffTime / 1000 / 60 / 60);//获取小时
+            let min = Math.floor((diffTime - hour * 60 * 60 * 1000) / 1000 / 60);//获取分钟
+            let sec = Math.floor((diffTime - hour * 60 * 60 * 1000 - min * 60 * 1000) / 1000);//获取秒
+            let value = addZero(hour) + '时' + addZero(min) + '分' + addZero(sec) + '秒';
+            box.innerText = value;
+        }
+        num = setInterval(setTime, 1000);
+
+
+
+    </script>
+</body>
+
+</html>

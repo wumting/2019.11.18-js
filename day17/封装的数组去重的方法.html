@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+/*     function fn(ary){
+        let newAry = [];
+        for(var i = 0;i<ary.length;i++){
+            if(!newAry.includes(ary[i])){
+                newAry.push(ary[i]);
+            }
+        }
+        return newAry;
+    }
+    console.log(fn(ary)) */
+    let ary = [1,2,4,1,23,23,2]
+    function myUnique(){
+        console.log(this);
+        let obj = {};
+        for(var i = 0;i<this.length;i++){
+            
+            if(obj[this[i]] !== undefined){
+                this[i] = this[this.length-1];
+                this.length--;
+                i--;
+                continue;
+            }
+            obj[this[i]] = this[i];
+        } 
+        // return this
+    }
+     Array.prototype.myUnique = myUnique;
+     ary.myUnique();
+     console.log(ary)
+
+    //  console.log(ary.myUnique().sort().reverse().slice(1,3))
+    // 如果你想用链式调用，前提是你的方法的返回值必须是当前类的实例
+
+    //内置类的原型不能重定向
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    #box{
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        color: lightseagreen;
+        margin: 20px auto;
+        border: 1px solid #666;
+        text-align: center;
+    }
+    .sss{
+       color: red;
+    }
+    
+    </style>
+</head>
+<body>
+    <div id="box" style="background: chartreuse;">
+        123
+    </div>
+    <script>
+    let box = document.getElementById('box')
+    console.dir(box)
+    box.className = 'sss'
+    console.log(innerHTML);
+    
+    /* 
+    1.style:控制元素的行内样式
+    2.innerHTML:获取元素的内容(可以识别标签)
+    3.innerText:获取元素的内容（不可以识别标签）
+    4.className：获取元素的claas名
+    
+     */
+    
+    </script>
+</body>
+</html>

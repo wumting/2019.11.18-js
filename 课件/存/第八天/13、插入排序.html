@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let ary = [12, 23, 45, 11, 10, 23];
+
+        function insert(ary) {
+            let handAry = []; // 用来存放手里的牌
+            handAry.push(ary[0]); // 抓了第一张牌
+
+            // 这个循环就是抓牌
+            for (var i = 1; i < ary.length; i++) {
+                let item = ary[i] // 抓的每一张牌
+
+                // 控制的是跟我手里的每一张牌去做比较（从右往左比较）
+                for (var j = handAry.length - 1; j >= 0; j--) {
+                    let cur = handAry[j] // 手里的每一张牌
+                    // 如果抓的牌比手里的牌大了，就插入到这张牌的后面，并且停止比较
+                    if (item > cur) {
+                        handAry.splice(j + 1, 0, item);
+                        break;
+                    }
+                    // 如果能运行到这，证明抓的这张牌比我手里的牌都小，就直接放到数组的最前面
+                    if (j === 0) {
+                        handAry.unshift(item);
+                    }
+                }
+            }
+            return handAry
+
+        }
+        console.log(insert(ary))
+    </script>
+</body>
+
+</html>

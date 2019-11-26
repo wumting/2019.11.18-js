@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let url = 'https://www.baidu.com?wd=自行车&name=333&age=18'
+
+
+
+
+        // let obj = {
+        //     wd:'自行车',
+        //     name:333,
+        //     age:18
+        // }
+        // 1、拿到url的参数
+
+        function fn(url) {
+            let index = url.indexOf('?');
+            let params = url.substring(index + 1);
+            // 'wd=自行车&name=333&age=18'
+            let ary = params.split('&');
+            // ["wd=自行车", "name=333", "age=18"]
+            console.log(ary);
+            let obj = {}; // 创建一个存放参数的对象
+            for (var i = 0; i < ary.length; i++) {
+                let newAry = ary[i].split('=');
+                // 把数组的每一项以分隔符 '='分割为数组
+
+                obj[newAry[0]] = newAry[1]
+                // 往对象里新增键值对，属性名是数组的第一项，属性值是数组的第二项
+                /* 
+                i=0
+                let newAry = ary[i].split('=');
+                 ['wd':'自行车']
+                 obj[newAry[0]] = newAry[1]
+                 obj['wd'] = '自行车'
+
+                 i=1
+                let newAry = ary[i].split('=');
+                 ['name':'333']
+                 obj[newAry[0]] = newAry[1]
+                 obj['name'] = '333'
+                */
+            }
+            return obj
+        }
+        console.log(fn(url))
+
+        // let url = 'https://www.baidu.com?wd=自行车&name=333&age=18#index'
+        // 把以上url的参数转换为一下格式内容
+         // let obj = {
+        //     wd:'自行车',
+        //     name:'333',
+        //     age:'18',
+        //     route:'index'
+        // }
+    </script>
+</body>
+
+</html>

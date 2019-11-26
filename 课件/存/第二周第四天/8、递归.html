@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>递归</title>
+</head>
+<body>
+    <script>
+    /* 
+    递归：就是函数自己调用自己，直到满足某些条件就停止递归
+    */  
+
+    // 实现1到5之间的偶数的和
+    function sum(num){
+        if(num>5){
+            return 0
+        }
+        if(num%2 === 0){
+            return num + sum(num+1)
+        }
+        return sum(num+1)
+    }
+    console.log(sum(1)) // 6
+
+    // function sum(1){
+    //     return sum(1+1) // 6
+    // }
+
+    // function sum(2){
+    //         return 2 + sum(2+1) // 4
+    // }
+
+    // function sum(3){
+    //     return sum(3+1) // 4
+    // }
+
+    // function sum(4){
+    //         return 4 + sum(4+1) // 0
+    // }
+
+        // function sum(5){
+    //     return sum(5+1) // 0
+    // }
+
+    // function sum(6){
+    //         return 0
+    // }
+    </script>
+</body>
+</html>

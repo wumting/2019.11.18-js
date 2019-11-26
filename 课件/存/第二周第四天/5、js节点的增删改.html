@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            background: red;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="one">1111</div>
+    <script>
+    /*js节点的动态增删改 
+        createElement:创建元素节点
+        createTextNode:创建文本节点
+        容器.appendChild(节点)：把节点插入到容器的末尾
+        容器.insertBefore(新节点, 老节点)：把节点插入到老节点的前面
+        容器.removeChild(节点)：移除容器中的节点
+    */
+        let box = document.createElement('div'); // 动态创建一个元素节点
+        let one = document.getElementById('one');
+        box.style.width = '200px';
+        box.style.height = '200px';
+        box.id="box";
+        box.className = 'box';
+
+        let text = document.createTextNode('123455');// 动态创建一个文本节点
+        box.appendChild(text); // 把文本节点插入到元素的末尾
+        // document.body.appendChild(box) // 把box插入到元素的末尾
+        document.body.insertBefore(box, one) // 把box插入到one的前面
+        // document.body.removeChild(one) // 移除节点
+        console.dir(text)
+        console.log(box)
+    </script>
+</body>
+</html>

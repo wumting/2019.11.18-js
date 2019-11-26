@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let url = 'https://www.baidu.com?wd=自行车&name=333&age=18#index'
+        function fn(url) {
+            let str = url.indexOf('?');
+            let ary = url.indexOf('#');
+            let parems1 = url.substring(str + 1, ary);
+            let parems2 = url.substring(ary + 1);
+            let num = parems1.split('&');// ["wd=自行车", "name=333", "age=18"]
+            console.log(num) 
+            let obj = {};
+            for (var i = 0; i < num.length; i++) {
+                let newNum = num[i].split('=');
+                console.log(newNum)
+                obj[newNum[0]] = newNum[1];
+
+            }
+            obj.route = parems2;
+            return obj;
+        }
+        console.log(fn(url))
+       
+
+
+
+
+
+    </script>
+</body>
+
+</html>

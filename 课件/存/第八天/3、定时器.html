@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /* 
+    1、setTimeout(函数, 间隔时间, 函数的实参)：他是一次性的函数，到了规定的时间只会执行一次
+    2、setInterval(函数, 间隔时间, 函数的实参)：他是周期性的函数，间隔一段时间就会执行一次(如果不手动清除，他一直执行)
+    3、间隔时间的单位是毫秒
+    4、定时器的返回值是一个数字，代表当前定时器在页面中的位置（假如页面中有两个定时器，第一个定时器的返回值是1，第二个定时器的返回值是2）
+    5、clearInterval（定时器的返回值）
+    6、clearTimeout（定时器的返回值）
+
+     */
+    //  let num1 = setTimeout(function(){}, 1000);
+    //  let num2 = setInterval(()=>{}, 1000);
+    //  console.log(num1, num2)
+
+    // setTimeout((m)=>{
+    //     console.log(m)
+    // }, 2000, 100);
+
+    let num = null;
+    let ss = setInterval(()=>{
+        if(num === 5){
+            clearInterval(ss)
+        }
+        console.log(2)
+        num++
+    }, 2000)
+
+    </script>
+</body>
+</html>

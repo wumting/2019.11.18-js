@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取dom的方式</title>
+</head>
+<body>
+    <div id="box">
+        <ul id="navList">
+            <li class="aaa">我是第1个li</li>
+            <li>我是第2个li</li>
+            <li>我是第3个li</li>
+        </ul>
+        <div>
+            <b>111</b>
+        </div>
+        <div>
+            <span>222</span>
+        </div>
+        <div>
+            <p>333</p>
+        </div>
+        <li class="aaa">我是第4个li</li>
+    </div>
+    <script>
+
+
+            /* 
+               1、 document.getElementById():在document上下文中获取元素（通过Id获取的元素是一个元素对象，获取不到就是null）
+
+               2、context.getElementsByTagName('标签名')：在指定的上下文中通过标签名获取元素，获取的是一个元素集合，如果没有获取到元素,那就是空元素集合
+
+               3、context.getElementsByClassName('')：在指定的上下文中通过class名获取元素，获取的是一个元素集合，如果没有获取到元素,那就是空元素集合【在IE6~8下不兼容】
+
+               4、document.body/document.head/document.documentElement（获取body、头部、html）
+
+               5、context.querySelector() : 在指定上下文中通过选择器获取第一个元素, 获取不到就是null【在IE6~8下不兼容】
+
+               6、context.querySelectorAll():在指定上下文中通过选择器获取一组元素集合，获取不到就是空元素集合【在IE6~8下不兼容】
+            */
+
+
+        // 获取元素
+        // let nav = document.getElementById('navList');
+        // 1、let box = document.getElementById('box');
+        // 通过Id获取的元素是一个元素对象，获取不到就是null
+
+        // let lists = nav.getElementsByTagName('i');
+                    // context.getElementsByTagName('标签名')// 通过指定的上下文获取指定的标签，获取的是一个元素集合，如果没有获取到元素,那就是空元素集合
+        // console.log(lists)
+
+        // 2、context.getElementsByClassName()
+        // let box = document.getElementById('navList');
+        // let list = document.getElementsByClassName('a');
+        // console.log(list)
+
+        // 3、document.body/document.head/document.documentElement
+        // console.log(document.body) // 获取body
+        // console.log(document.head) // 获取头部
+        // console.log(document.documentElement) // 获取html
+
+        // 5、context.querySelector
+        // let box = document.getElementById('box')
+        //    let ss =  box.querySelector('#navList .a');
+           // 在指定上下文中通过选择器获取第一个元素, 获取不到就是null
+        //    console.log(ss)
+
+        // 6、context.querySelectorAll()
+        // 在指定上下文中通过选择器获取一组元素集合，获取不到就是空元素集合
+        // let list = document.querySelectorAll('#navList li:nth-child(2)'); // 获取的是一个元素集合，获取不到就是空元素集合
+        // console.log(list)
+
+        // console.log(box)
+
+    </script>
+</body>
+</html>

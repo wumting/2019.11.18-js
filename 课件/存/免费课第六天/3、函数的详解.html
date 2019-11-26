@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //    function fn(){
+    //        console.log(arguments)
+    //     // let total = n+m;
+    //     // total = total/2;
+    //     // return total;
+    //    }
+    //    let num = fn()
+    //    console.log(num);
+
+
+       //arguments：他是函数的实参集合，代表了所有的实参，是一个类数组,他不受实参和形参的影响
+
+       // 任意数的求和
+    //     function fn(){
+    //         let total = null; // 创建一个变量，用来累计求和
+    //         for (var i = 0; i < arguments.length; i++) {
+    //            let item = arguments[i] // 代表数组的每一项
+    //            item = Number(item); // 把item转数字
+    //           // 验证item是否是一个非有效数字，如果是有效数字，这个条件就成立
+    //           if(!isNaN(item)){
+    //             // total= total+item
+    //             // 进行数字累计求和
+    //             total+=item;
+    //           }
+    //         }
+    //         // 把最后的总和return出去
+    //         return total;
+    //     }
+    //    let num =  fn(12, 34, true, '12', NaN);
+    //    console.log(num);
+
+    // callee 代表函数本身
+
+    // function fn(){
+    //     // console.log(111)
+    //     // arguments.callee: 他就是函数本身
+    //     arguments.callee() // 在严格模式下已经禁止使用
+    // }
+    // fn();
+
+    // 函数表达式
+    // let fn = function(){}
+    // fn()
+
+    // 箭头函数(ES6)
+//     function fn(){} // (这是ES5的)
+//    let  fn = ()=>{
+//         console.log(1)
+//     }
+//     fn();
+    /* 
+    1、如果只有一个形参，可以省略小括号
+    2、如果函数中只有return一行代码，可以省略大括号和return
+    3、如果函数只有return {}一行代码，要加上()
+    4、箭头函数没有this
+    5、箭头函数没有arguments
+    */
+//    function fn(m){
+//        consol.log(m)
+//    }
+//    let fn = m =>{
+//        console.log(m)
+//    }
+    // let fn=(m)=> m
+    // console.log(fn(3))
+
+
+    // let fn = ()=>{
+    //     return {}
+    // }
+    // let fn = ()=>({})
+    // console.log(fn())
+
+
+
+    // function fn(m){
+    //     return function (n){
+    //         console.log(1)
+    //     }
+    // }
+    // 从里往外一层一层转箭头函数
+    // function fn(m){
+    //     return  (n)=>{
+    //         console.log(1)
+    //     }
+    // }
+
+    // let fn = (m)=>{
+    //     return  (n)=>{
+    //         console.log(1)
+    //     }
+    // }
+
+    // let fn = m=> n=>{console.log(1)}
+    
+    // let s = fn();
+    // s()
+
+
+
+    // function fn(){
+    //     return function(){
+    //         return function(){console.log(3)}
+    //     }
+    // }
+    // console.log(fn()()())
+
+
+    // 给形参赋默认值(ES6)
+    // 如果函数执行不传实参，那就走默认值，如果函数执行传了实参，那就走实参的值
+    // function fn(n=0,m=0){
+    //     console.log(n,m);
+    //     let total = n+m;
+    //     return total;
+    // }
+    // fn(20,30);
+
+
+    // 展开/收缩运算符(ES6)
+        //  let  fn= (...a)=>{
+        //      // 把所有的实参收集到变量a里（以数组的形式）
+        //      console.log(a) // [1,2,3,4] 收缩运算符
+
+        //      let ary = [1,2,3,4]
+        //      console.log(...ary) // 1 2 3 4  展开运算符
+          
+        // }
+        // fn(1,2,3,4)
+
+        // let ary = [1,2,3,4,3];
+        // let ary1 = [...ary]; 
+        // console.log(ary1)  // [1,2,3,4,3]
+        // console.log(ary == ary1) // fasle 空间地址发生了变化
+
+        // let fn = (...a)=>{
+        //     console.log(a) // [1,2,3,4]
+        // }
+        // fn(1,2,3,4)
+
+            // let ary = [1,2,3,4];
+            // ary = [...ary,12] // 向数组末尾新增一项
+            // console.log(ary) // [1,2,3,4,12]
+    </script>
+</body>
+</html>

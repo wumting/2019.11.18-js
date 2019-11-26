@@ -1,0 +1,48 @@
+```
+    1、 !(!"Number(undefined)");  (字符串里面的方法不执行，直接进行字符串的转换)
+    2、 isNaN(parseInt({})) + Number([1]) + parseFloat(undefined)
+    3、 Boolean(Number("")) + !isNaN(Number(null)) + Boolean("parseInt([])") +  !null;
+    4、 parseFloat("1.6px") + parseInt("1.2px") + parseInt(null).toString();
+    5、 isNaN(Number(!!Number(parseInt("0.8"))));//
+    ```
+
+- 三、 输出以下结果
+
+    ```
+    [] == []//
+    '' == 0//
+    [0] == false//
+    true == 1//
+    ({}) == ''//
+    [] == 0//
+    0 == null//
+    '{}' == 1//
+    undefined == null//
+    null == undefined //
+    ({name:1}) == ({name:1})//
+    undefined == 0//
+    ```
+     var a = 'abc' + 123 + 456;//=>
+    var b = '456' - '123';//
+    var c = 100 + true + 21.2 + null + undefined + "Tencent" + [] + null + false;
+    //
+    let d = [] + [];//=>
+    let e = [] + {};//=>
+    let f = 1 + true + null + [3.1415926] + '小花' + [] + null + undefined;
+    //
+    let g = 3 - '1px';//
+    let z = 316*417+3+undefined//=>
+
+    Number('')//=>
+    Number('-1')//=>
+    Number(23.2.2)//=>
+    Number(null)//=>
+    Number('12px')//=>
+    !parseInt('')//=>
+    !!parseInt('12.5px')//
+    parseFloat('12.5px')//
+    isNaN('')//
+    isNaN('12px')//
+    isNaN(NaN)//=>
+    !Boolean( Number( isNaN(undefined) ) )//=>
+    !Boolean( !Number( !isNaN(undefined) ) )//=>

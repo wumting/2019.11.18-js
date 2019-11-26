@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>各行变色</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;;
+        }
+        #box {
+            width: 500px;
+            margin: 20px auto;  
+            text-align: center;
+            border: 1px solid black;
+        }
+        li {
+            font-size: 20px;
+            color: pink;
+            line-height: 30px;
+            border-bottom:1px solid black;
+        }
+        /* li:nth-child(odd) {
+            background: red;
+        }
+        li:nth-child(even) {
+            background: green;
+        } */
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul id="list">
+            <li>1</li> 
+            <li>2</li> 
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+
+    <script>
+        // 1、想操作谁就获取谁
+        let ul = document.getElementById('list');
+
+        // 通过元素名获取一组元素,得到的是一个类数组
+        let list = ul.getElementsByTagName('li');
+        console.log(list)
+        let color = null;
+        // 循环每一个li
+        for(var i=0;i<list.length;i++){
+            console.log(list[i]) // 代表每一个li
+            // %就是取余的意思
+            if(i%2 === 0){
+                // 如果这个条件成立(i是偶数)，那对应的就是奇数行
+                // 把当前li的背景颜色改为红色
+                list[i].style.background = 'red';
+            }
+            else {
+                // 如果上边的条件不成立，那就是偶数行
+                // 把当前li的背景颜色改为绿色
+                list[i].style.background = 'green';
+            }
+
+            // 给每一个元素绑定鼠标输入事件
+            list[i].onmouseenter = function(){
+                //this // 当前你操作的元素是谁，this就是谁
+                // 在你划入元素之后，改变颜色之前，先把人家原来的颜色保存下来，存到color变量里
+                color = this.style.background;
+                this.style.background="orange";
+            }
+            // 给每一个元素绑定鼠标划出事件
+            list[i].onmouseout=function(){
+                // 当你划出这个元素的时候，在把人家之前的颜色赋值给人家
+                this.style.background=color;
+            }
+        }
+
+    </script>
+</body>
+</html>

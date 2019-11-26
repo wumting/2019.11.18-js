@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 三个循环  for  for in   while
+        // 1.for 循环
+        /*      四部曲： 1.初始化一个变量i=0
+                        2.判断条件是否成立
+                        3.执行循环体
+                        4.执行i++ 
+                当条件不成立时，终止循环
+                i++在自身基础上+1
+                i++  是先取值，在运算
+                ++i  是先运算，在赋值
+        */
+       /*  let arr = [100,2,7,8,3,4,5]
+        for(let i=0;i<7;i++){
+            console.log(i)
+        } */
+       /*  let a = 10
+        let b = ++a
+        console.log(b) */ //=>11
+       /*  let a = 10
+        let b = a++
+        console.log(b) */ //=>10
+
+       /*  let c = 10
+        let d = --c
+        console.log(d) */ //=>9
+       /*  let c = 10
+        let d = c++
+        console.log(d)  *///=>10
+        // 求和
+        /* let total = 0;
+        for(let i=1;i<5;i++){
+            total += i
+        }
+        console.log(total) */
+
+        // break 终止for循环
+        /* for(var i=0;i<6;i++){
+            if(i>4){
+                break;
+            }
+            console.log(100)
+        }
+        console.log(i) */
+        // continue: 终止本轮循环
+       /*  for(let i=0;i<6;i++){
+            console.log(100);
+            continue;
+            console.log(200)
+        } */
+
+        // 逻辑且：&&左右两边都成立，这个条件成立
+      /*   if(1 == '1'&&2 === '2'){
+            console.log(100)
+        }
+        if(1==true||2===3){
+            console.log(200)
+        } */
+        // 
+        /* let obj = {a:1}
+        console.log(obj["a"]) */
+       /*  let obj = {name:'zhufeng',age:10,6:9,1:8}
+        for(let key in obj){
+            console.log(obj[key])
+        } */
+        // while
+       /*  for(var i=1;i<9;i++){
+        if(i<5){
+            i+=2;
+            continue;
+        }
+        if(i>7){
+            i++;
+            break;
+        }
+        i+=2
+    }
+    console.log(i) */
+        let name = null,
+        ifantName = null,
+        ary = ['erYa', true, 'xiaoHua', false];
+        ary.length = ary.length - 1;
+        ary[2] = 'wu';
+         name = ary[2];
+        ary[ary.length] = 'Sheng';
+        ifantName = ary[ary.length-1];
+        ary.length = 0;
+        console.log(name, ifantName, ary);
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

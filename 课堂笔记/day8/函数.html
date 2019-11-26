@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* // arguments
+        function fn() {
+            let total = null;
+            for (var i = 0; i < arguments.length; i++) {
+                let item = arguments[i];
+                item = Number(item);
+                if (!isNaN(item)) {
+                    total += item;
+                }
+            }
+            return total;
+        }
+        let num = fn(12, 34, true, '12', NaN);
+        console.log(num)
+        // 函数表达式 (es5)
+        let fn = function(){}
+        fn()
+        // 箭头函数 (es6)
+        let fn = ()=>{
+            console.log(1);//=>1
+        }
+        fn() */
+        /*  let fn = ()=>{
+                  return{}
+      }
+      console.log(fn())  */
+
+        /* let fn = () => ({})
+        console.log(fn()) */
+
+        /*   function fn(m){
+            return function(n){console.log(1)}
+          }
+          function fn(m){
+            return (n)=>{console.log(1)}
+          }
+          let fn = (m) =>(n)=>{console.log(1)} */
+        /*  let fn = m =>n=>{console.log(1)}
+         console.log(fn());
+         console.log(fn()()); */
+        let fn = (...a) => {
+            console.log(a)//=>a= [1,2,3,4]
+            let ary = [3, 4, 5, 6]
+            console.log(...ary)
+        }
+        fn(1, 2, 3, 4)
+
+    </script>
+
+</body>
+
+</html>

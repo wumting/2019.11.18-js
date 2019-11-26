@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //     # 正式课第二周第一天作业
+
+        // - 1、你是如何理解作用域链与原型链的？ （腾讯二面）
+        /* 
+        作用域链：在私有作用域中，函数执行，如果要使用一个变量，私有作用域要是有，就用自己本身的，如果没有就向上级作用域查找，上级作用域有，就用上级作用域的，如果没有，就再向上一级作用域查找，知道找到全局作用域，如果还没有就报错
+        原型链：在对象里查找一个属性，先看自己的私有作用域有没有，如果有，直接用，如果没有就通过__proto__找到自己所属类的原型，看看原型上有没有，如果有，直接用，如果没有，就在向当前原型的原型查找，直到找到object类的原型上为止
+         */
+        // - 2、实现数组去重你有哪些办法？（腾讯一面）
+        // let ary = [1,2,3,34,2,3]
+        // Array.prototype.myUniq = function  (){ let obj = {};
+        //     for(var i = 0;i<this.length;i++){
+        //         if(obj[this[i]] !== undefined){
+        //             this[i] = this[this.length-1];
+        //             this.length--;
+        //             i--;
+        //             continue;
+        //         }
+        //         obj[this[i]] = this[i];
+        //     }
+        // } 
+        // ary.myUniq();
+        // console.log(ary)
+        // - 3、编写一个方法：hasPubProperty来检测当前属性是否是对象的公有属性
+        // let ary = [1,2,3]
+        // Object.prototype.hasPubProperty= function (value){
+        //     let sry = ['Number','string'];
+        //     if(!sry.includes(typeof(value))){
+        //         return false;
+        //     }
+        //     let n = value in this;
+        //     let m = this.hasOwnProperty(value);
+        //     if(n === true&m === false){
+        //         return true;
+        //     }else{
+        //         return false;
+        //     }
+        // }
+        // console.log(ary.hasPubProperty([]));
+        // - 4、一个url后面好多key:value，如localhost?key=val&key2=val2&key3=val3，封装一个函数 getParam(‘key’) 通过key获得相应等号后面的值（百度一面）
+        //     ```
+        //     例如效果：
+        var url = "locallhost?key1=val1&key2=val2&key3=val3";
+        //     console.log(url.getParam("key3")); //=>'val3'
+        //     ```
+        function getParam(url) {
+            var index = url.indexOf('?');
+            var index1 = url.indexOf('&');
+            var param = url.substr(index + 1);
+            var param1 = param.split('&')
+                console.log(param1)
+        }
+        getParam(url)
+        // - 4、编写两个方法 plus / minus 实现如下的执行效果
+        // ```
+        //     let n = 10;
+        //     let m = n.plus(10).minus(5);
+        //     console.log(m);//=>15（10+10-5）
+        // ```
+        /* ~function(){
+            //x是需要加减的数字,必须是有效数字
+            function checkX(x){
+                
+                x = Number(x);
+                return isNaN(x)?0:x;
+            }
+            function plus(x){
+            //this是我们要操作的原始值数字
+                x = checkX(x);
+                return this + x;
+            }
+            function minus(x){
+                x = checkX(x);
+                return this - x;
+            }
+            Number.prototype.plus = plus;
+            Number.prototype.minus = minus;
+        }() */
+        // - 5、重写数组的slice的方法(这个今天可以做不完，这周做完就好)
+        // ```
+        // 1、传参的各种情况都要考虑到了
+        // 2、(n,m):一般情况在是从索引n开始截取到索引m(不包括m对应的那一项)
+        // 3、(n):从索引n截取到末尾
+        // 4、():克隆原数组
+        // 5、负数：(-n,-m):把两个参数都加上数组的length在计算；如果加上length之后n还大于m，那就是返回数组(-5, -1)
+        // ```
+
+        // let ary = [1, 2];
+        // let obj = {}
+        // let num = 1
+        // console.log(Object.prototype.toString.call(num)) // 他的返回值是一个字符串，里边是 '[object 你当前实例的所属类]'
+    </script>
+
+</body>
+
+</html>

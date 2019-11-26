@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            margin: 20px auto;
+            text-align: center;
+            font-size: 20px;
+            color: chartreuse;
+            cursor: pointer;
+        }
+
+        #box img {
+            display: none;
+            width: 300px;
+        }
+
+        /*  #box .hide {
+            display: block;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <p id="btn">猜猜这是谁</p>
+        <img id="pig"
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573150275632&di=8a7f6c6ddf4656c1a67b519bb7244be9&imgtype=jpg&src=http%3A%2F%2Fimgsa.baidu.com%2Fexp%2Fw%3D500%2Fsign%3Df0c47dd191504fc2a25fb005d5dfe7f0%2F6d81800a19d8bc3e6edff713888ba61ea9d34510.jpg">
+    </div>
+    <script>
+        /*  let btn = document.getElementById('btn')
+         let pig = document.getElementById('pig')
+         btn.onclick = function () {
+             let value = btn.innerText;
+             if (value === '猜猜这是谁') {
+                 btn.innerText = 'this is you';
+                 // pig.style.display = 'none';
+                 // 给元素增加class名
+                 pig.className = 'hide'
+ 
+             } else {
+                 btn.innerText = '猜猜这是谁';
+                 // pig.style.display = 'block';
+                 pig.className = ''
+             }
+         } */
+        /*  let btn = document.getElementById('btn');
+         let pig = document.getElementById('pig');
+         btn.onclick = function(){
+             let value = btn.innerText;
+             if(value === '猜猜这是谁'){
+                 btn.innerText = 'this is you';
+                 pig.style.display = 'block';
+             }else{
+                 btn.innerText = '猜猜这是谁';
+                 pig.style.display = 'none';
+             }
+         }
+  */
+        let btn = document.getElementById('btn');
+        let pig = document.getElementById('pig');
+        btn.onclick = function(){
+            let value = btn.innerText;
+            if(value === '猜猜这是谁'){
+                btn.innerText = 'this is you';
+                pig.style.display = 'block';
+            }else{
+                btn.innerText = '猜猜这是谁';
+                pig.style.display = 'none';
+            }
+        }
+     
+
+
+    </script>
+</body>
+
+</html>

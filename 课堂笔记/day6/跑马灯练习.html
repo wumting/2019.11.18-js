@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #time {
+            box-sizing: border-box;
+            border: 1px solid #666666;
+            width: 300px;
+            height: 200px;
+            background: lightgreen;
+            text-align: center;
+            line-height: 200px;
+            font-size: 20px;
+            margin: 0 auto;
+            position: relative;
+            top: -300px;
+            transition: all 2s;
+        }
+    </style>
+</head>
+
+<body style="background: pink;">
+    <div id="time">时间到了</div>
+    <script>
+        let body = document.body;
+        let time = document.getElementById('time');
+        let flag = 1;
+        function fn() {
+            let color = body.style.background;
+            switch (color) {
+                case 'pink':
+                    body.style.background = 'orange';
+                    break;
+                case 'orange':
+                    body.style.background = 'yellow';
+                    break;
+                case 'yellow':
+                    body.style.background = 'green';
+                    break;
+                default:
+                    body.style.background = 'pink';
+            }
+            flag++;
+            if (flag > 30) {
+                console.log(flag)
+                clearInterval(int);
+                body.style.background = 'white';
+                time.style.top = '0'
+            }
+        }
+
+        let int = setInterval(fn, 100)
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        方法的含义
+        方法的参数
+        方法的返回值
+        原数组是否发生改变
+        */
+       // 数组的增删改
+       /* 
+       let ary = [12,23,34]
+        1、push向数组末尾增加内容
+        push、ary[ary.length] = 'xxx'
+        ary = [...ary,x]
+        splice(ary.length,0,x)
+
+        2、unshift向数组开头增加
+        unshift、ary = [x,...ary]、splice(0,0,x)
+
+        3、pop删除数组末尾一项
+        pop、ary.length--、splice(ary.length-1,1)
+        ary.length = 0 // 清空
+        ary.length-=2 // 末尾删除两项
+
+        4、shift数组开头删除一项
+        splice(0,1)
+
+        5、splice 删除（实现数组的增删改）
+        let ary = [12,23,45,56]
+        splice(n,m):从索引n开始，删除m个
+        console.log(ary.splice(3,4))
+        console.log(ary)
+       */
+       
+        // splice(n,m):从索引n开始，删除m个
+        // console.log(ary.splice(3,4))
+        // console.log(ary.splice(0,100))
+        // console.log(ary.splice(0))
+        // console.log(ary.splice())
+        // let ary = [12,23,45,56]
+        // splice(n,m,x):从索引n开始，删除m个,用x替换
+        // console.log(ary.splice(1, 1,'gouSheng'))
+        // console.log(ary.splice(0,1,'erYa')) // ary[0] = 'erYa'
+        // console.log(ary.splice(ary.length-1,1,'erYa')) // ary[ary.length-1] = 'erYa'
+
+        // splice(n,0,x):从索引n开始，删除0个,把x放到n索引对应的值的前面
+        // console.log(ary.splice(2,0,'xuHuLu'))
+        // console.log(ary)
+
+        // 截取和拼接
+        //1、slice(n,m):从索引n开始，截取到索引m（不包括索引m对应的那一项）
+        // let ary = [12,23,45,56]
+        // console.log(ary.slice(0,ary.length)) // 克隆数组
+        // console.log(ary.slice(0))// 克隆数组
+        // console.log(ary.slice(1,2)) // [23]
+        // 从索引n截取到索引m
+        // console.log(ary.slice(n,m+1))
+
+         // 2、concat
+        //  let ary = [12,23,45,34]
+        // //  ary.push([11])
+        // console.log(ary.concat([11]))
+        //  console.log(ary)
+         // 排序
+         /* 
+         1、reverse：倒叙
+         */
+        // let ary = [12, 34, 56];
+        // let num = ary.reverse()
+        // console.log(num)
+        // console.log(ary)
+        // console.log(num === ary)
+
+        // function fn(ary){
+        //     ary[0] = 'jinYu'
+        //     return ary
+        // }
+        // let num = fn(ary)
+        // console.log(ary == num) //true
+        // console.log(ary) // ['jinYu', 34, 56]
+
+        // 2、sort
+        // let ary = [12,23,45,67,9];
+        // console.log(ary.sort())
+        // console.log(ary.sort((a,b)=>{
+        //     return a-b
+        // }))
+
+        // console.log(ary.sort((a,b)=>{
+        //     return b-a
+        // }))
+        // 检测数组中是否包含某一项
+        // indexOf:返回被检测的值第一次出现的位置,如果被检测的值数组里没有，那就返回-1
+        // let ary = [12,23,45,67,9,12,23,45,67,9];
+        // (n,m):是被检测的值，m是开始检测的位置
+        // console.log(ary.indexOf(9)) // 4
+        // console.log(ary.indexOf(23, 3))
+        // // lastIndexOf返回被检测的值最后一次出现的位置,如果被检测的值数组里没有，那就返回-1
+        // // (n,m):是被检测的值，m是检测结束的位置
+        // console.log(ary.lastIndexOf(23, 3)) // 1
+
+        // // includes:检测数组中是否包含某一项，有就是true，没有就是false
+        // let ary = [12,23,45,67,9,12,23,45,67,9];
+        // function fn(ary){
+        //     let newAry = [];
+        //     for (var i = 0; i < ary.length; i++) {
+        //        if(newAry.indexOf(ary[i]) === -1){
+        //            newAry.push(ary[i])
+        //        }
+        //     }
+        //     return newAry
+        // }
+        // console.log(fn(ary))
+
+        // 数组转字符串
+        // toString()
+     /* join 把数组以特定的分隔符换为字符串 
+        方法的含义：把数组以特定的分隔符换为字符串 
+        方法的参数：字符串格式的分隔符
+        方法的返回值：字符串
+        原数组是否发生改变：否
+         */
+    // let ary  =[12,23,45,67,34];
+    // console.log(ary.join()) // '12,23,45,67,34' 如果不传值，那分割符就是逗号
+    // console.log(ary.join(' ')) // '12 23 45 67 34'
+    // console.log(ary)
+
+    // 遍历数组
+        //     forEach
+        // 方法的含义：遍历数组
+        //     方法的参数：函数
+        //     方法的返回值：无
+        //     原数组是否发生改变：否
+        let ary  =[1,true,2,NaN,3];
+        // ary.forEach((item, index)=>{
+        //     // item是数组的每一项
+        //     // index是每一项的索引
+        //     // 有多少项就循环多少轮
+        //     console.log(item, index)
+        // })
+
+        // 任意数求和
+        let fn = (...arg)=>{
+            let total = null;
+            arg.forEach((item,index)=>{
+                // item是数组的每一项
+                // index是数组的每一项的索引
+                // 数组有多少项就会循环多少轮
+                if(!isNaN(Number(item))){
+                    total+=item
+                }
+            })
+            return total
+        }
+        console.log(fn(1,true,2,NaN,3))
+    </script>
+</body>
+</html>

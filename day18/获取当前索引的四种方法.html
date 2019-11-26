@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <script>
+        let list = document.getElementsByTagName('button');
+        //===============方法一 let  =====================
+        // for (let i = 0; i < list.length; i++) {
+        //    list[i].onclick = function(){
+        //        alert(i)
+        //    }
+        // }
+
+        //===============方法二  闭包===================== 
+        // for (var i = 0; i < list.length; i++) {
+        //    list[i].onclick = (function(index){
+        //     return function(){
+        //         alert(index)
+        //     }
+        //    })(i)
+        // }
+
+        //===============方法三 自定义 ===============
+        // for (var i = 0; i < list.length; i++) {
+        //     list[i].index = i
+        //    list[i].onclick = function(){
+        //     alert(this.index)
+        //    }
+        // }
+
+        //===============方法三 自定义 ===============
+        for (var i = 0; i < list.length; i++) {
+            list[i].setAttribute('index', i)
+            list[i].onclick = function () {
+                alert(this.getAttribute('index'))
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 1、parseInt和parseFloat
+/*  > 把字符串转换为数字
+    > 从左到右依次查找有效数字，一旦发现非有效数字，立即停止查找，把找到的数字返回出去（paeseInt不可以识别小数点，parseFloat可以识别小数点）
+    > 如果从一开始就是非有效数字，那结果就是NaN
+    > 如果你要转换的值不是字符串类型的，先转换为字符串类型，在查找
+    > true、false、null、undefined、{}、NaN 转都是NaN
+    > 数组是先转换为字符串，在进行查找 */
+
+    let num = '3.141.5926';
+    console.log(parseInt(num)) // 3
+    console.log(parseFloat(num)) // 3.141
+    let s = true;
+    console.log(parseInt(s)) // 'true' // NaN
+    console.log(parseInt([])) // '' NaN
+    console.log(parseFloat({})) // '[object Object]' NaN
+
+    //  isNaN检测一个值是否是一个非有效数字，如果是就是true，反之就是false
+    // (这个值如果是有效数字，那结果就是false，反之就是true)
+    // 如果你要检测的值不是数字类型的，先转换为数字类型，在检测
+    console.log(isNaN(3)) //false
+    console.log(isNaN(NaN)) // true
+    console.log(isNaN(true)) // false
+    console.log(isNaN(false)) // false
+    console.log(isNaN(undefined)) // true
+    console.log( isNaN( Number( isNaN(NaN) ) ) ) // true=>1=>false
+    console.log( isNaN( Number( parseFloat( isNaN({}) ) ) ) )
+    //true=>NaN=>NaN=>true
+    </script>
+</body>
+</html>

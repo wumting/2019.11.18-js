@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 500px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        #box p {
+            font-size: 40px;
+            color: orangered;
+            cursor: pointer;
+        }
+        #box img{
+            display: block;
+            width: 500px;
+        }
+        #box .hide {
+            display: none
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p id="btn">隐藏</p>
+        <img id="pig" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573150275632&di=8a7f6c6ddf4656c1a67b519bb7244be9&imgtype=jpg&src=http%3A%2F%2Fimgsa.baidu.com%2Fexp%2Fw%3D500%2Fsign%3Df0c47dd191504fc2a25fb005d5dfe7f0%2F6d81800a19d8bc3e6edff713888ba61ea9d34510.jpg" alt="">
+    </div>
+
+    <script>
+        // 1、箱操作谁就获取谁
+        let btn = document.getElementById('btn');
+        let pig = document.getElementById('pig');
+        console.dir(btn)
+        // 2、给相应的元素绑定相应的事件
+        btn.onclick=function(){
+            let value = btn.innerText; // 获取元素中的内容
+            console.log(value)
+            // 如果获取的内容是隐藏，那就把他改为显示，反之就给为隐藏
+            if(value === '隐藏'){
+                btn.innerText = '显示';
+                // pig.style.display="none";
+
+                // 给元素增加class名
+                pig.className = 'hide';
+            }
+            else {
+                btn.innerText = '隐藏';
+                // pig.style.display="block";
+
+                // 给元素清空class名
+                pig.className = '';
+            }
+        }
+    </script>
+</body>
+</html>

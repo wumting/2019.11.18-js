@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 500px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            color: orangered;
+            background: rgba(255, 166, 0, 0.151);
+            font-size: 50px;
+            margin: 0 auto;
+            position: relative;
+            top: -300px;
+            transition: all 1s;
+        }
+    </style>
+</head>
+<body style="background: red;">
+    <div id="time">时间到</div>
+    <script>
+    let box = document.body;
+    let time = document.getElementById('time');
+    let flag = 1;
+    function fn(){
+        let color = box.style.background;
+        switch(color){
+            case 'red':
+                box.style.background = 'green';
+                break;
+            case 'green':
+                box.style.background = 'orange';
+                break;
+            case 'orange':
+                box.style.background = 'yellow';
+                break;
+            default:
+                box.style.background = 'red';
+        }
+        flag++;
+        if(flag>50){
+            clearInterval(int);
+            box.style.background = 'white';
+            time.style.top = '0'
+
+        }
+    }
+   let int= setInterval(fn,100)
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* if(1 == 1){
+            console.log(100)
+        }else{
+            console.log(200)
+        } */
+        // == 是两个值进行比较,会默认进行数据类型之间的转换在比较,比较的结果一定是个布尔值
+        // 1.数字 == 字符串 字符串转换成数字，然后和数字进行比较
+        /*  console.log(1 == '1')//=>true
+         console.log(1 == '1px')//=>false */
+        //2.数字 == 布尔  布尔转数字，然后进行比较
+        /*   console.log(2 == true)//=>false
+          console.log(0 == false)//=>true */
+        // 3.数字 == 对象(对象数据类型) 对象先转字符串，再转为数字
+        //数字NaN和自己也不相等
+        console.log(1 == {})//=>false
+        console.log(NaN == {})//=>false
+        // 4.对象 == 对象   在js中只要遇到{}，都会开辟一个新的空间地址
+        console.log(({}) == ({})) //=>false
+        console.log(([]) == ([])) //=>false
+        //5.对象 == 字符串  对象转字符串，然后进行比较
+        console.log('' == ' ')
+        // 6. 对象 == 布尔
+        // ! ：先将后面的值转成布尔值，然后在取反
+        console.log([] == false)//=>true
+        console.log(![] == false)//=>true
+        console.log([] == ![])//=>true (![]:先转布尔是true，然后取反，false)
+        console.log([] !== [])//=>true
+        // 7.布尔 == 字符串 布尔转数字，字符串转数字
+        console.log(false == '')//=>0 0=>true
+        console.log(true == '1px')//=>1 NaN=>false
+        // 8.null == undefined //=>true
+        // 9.NaN == NaN  //=>false
+
+
+    </script>
+</body>
+
+</html>

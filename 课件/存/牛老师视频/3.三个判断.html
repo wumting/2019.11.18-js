@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // function  判断语句 循环语句；
+    // 三个判断 ：
+    // 1. if else
+    // 2. 三元运算符
+    // 3. switch case
+
+
+    // 1. if else;
+    // if(条件){
+    //     条件成立执行的代码
+    // }else{
+    //     条件不成立执行的代码
+    // }
+    // 1. 如果括号中只有一个值，是默认转布尔值；
+   /* let  obj = {age:10};
+    // 如果在对象中，属性名不存在，那么获取的属性值永远是undefined；
+    if(obj.name){
+        // Boolean : Boolean("1px")
+        console.log(100);
+    }else{
+        console.log(200);
+    }
+    // 2. ==
+    if(({})=={}){
+        // Boolean : Boolean("1px")
+        console.log(100);
+    }else{
+        console.log(200);
+    }
+    // 3 . if(){}else if(){}else if(){}else{}
+    if([]=={}){
+
+    }
+
+    if(true){
+
+    }else{
+
+    }
+
+    if(Number("1")){
+        console.log(100);
+    }else if(NaN==NaN){
+        console.log(200);
+    }else if(![]==[]){
+        console.log(300);
+    }else{
+        console.log(400);
+    }*/
+
+    // 2. 三元运算符: 适合简单的if else;
+  /*  if(1==1){
+        console.log(100)
+    }else{
+        console.log(200)
+    }*/
+    // 前面是条件?条件成立执行的代码
+    // ： 后面是不成立执行的代码；
+    /*if([]==false){
+        if([]==[]){
+            console.log(100);
+        }else{
+            console.log(200);
+        }
+    }else{
+        console.log(300);
+    }*/
+    //[]==false?([]==[]?console.log(100):console.log(200)): console.log(300);
+    //1==2?console.log(100):console.log(200);
+
+    // = : 赋值
+    // == : 会进行比较，返回一个布尔值；会默认进行数据类型之间的转换
+    // === : 绝对比较；不进行数据类型转换，只要数据类型不一样，返回false
+    // console.log(1 === true);//
+
+    // switch  case
+
+   /* switch (num){
+        // num 和case 后面的值会进行绝对比较
+        case "100":
+            console.log(100);// 该条件成立时执行的代码；
+        case "100px":
+            console.log(200);
+        case 1:
+            console.log(300);
+        default:
+            //break;//中断代码执行
+            console.log(500)
+    }*/
+   // switch 中让小括号中的值和case后面的值进行绝对比较；
+    let num = 80;
+    switch (num){
+       case 80:
+       case 200:
+           console.log(999)
+    }
+
+</script>
+</body>
+</html>

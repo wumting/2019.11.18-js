@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>节点的操作</title>
+</head>
+<body>
+    <div id="box"><li id="one">孙悟空</li>
+        <li>猪八戒</li>
+        <li id="three">沙悟净</li>
+        <li>白龙马</li>
+        <li>红孩儿</li>
+        <li>erYa</li>
+        <li>xioaHha</li>
+    </div>
+    <script>
+    /* 
+        节点（node）：页面中所有的东西都是节点，所有的节点都是对象
+
+        节点名      nodeType     nodeName        nodeValue
+        元素节点       1       大写的标签名          null
+        文本节点       3         '#text'         文本的内容
+        注释节点       8         '#comment'       注释的内容
+        文档节点       9         '#document'        null
+    */
+        // 元素节点就是页面中的标签
+        // 文本节点包括内容、空格、回车（换行）
+        // 注释节点就是你写的注释
+        // 文档节点就是整个大文档（页面）
+        var box = document.getElementById('box');
+        var three = document.getElementById('three')
+        // console.log(box.childNodes)
+
+    // 操作节点的属性
+    /* 
+         childNodes:获取的所有的子节点
+         children:获取所有的元素子节点【在IE6~8下不兼容】
+         firstChild: 获取第一个子节点
+         firstElementChild: 获取第一个元素子节点【在IE6~8下不兼容】
+         lastChild:获取最后一个子节点
+         lastElementChild：获取最后一个元素子节点【在IE6~8下不兼容】
+         previousSibling: 获取上一个哥哥节点
+         previousElementSibling:获取上一个哥哥元素节点【在IE6~8下不兼容】
+         nextSibling：获取下一个兄弟节点
+         nextElementSibling获取下一个兄弟元素节点【在IE6~8下不兼容】
+         parentNode:获取父节点
+    */
+
+        //======================================
+        // childNodes:获取的所有的子节点
+        // children:获取所有的元素子节点
+        // console.log(box.childNodes.length);
+        // console.log(box.children.length); // [在IE6~8下不兼容]
+
+
+        // 封装一个children
+        // function children(context){
+        //     var child = context.childNodes;// 获取元素的所有子节点
+        //     var  ary = []; // 创建一个新数组，用来存放元素子节点
+        //     // 循环每一个子节点
+        //     for (var i = 0; i < child.length; i++) {
+        //         // 如果子节点的nodeType的值为1，那就说明该子节点是元素子节点
+        //         // if(child[i].nodeType === 1){
+        //         //     // 把元素子节点push到新数组中
+        //         //     ary.push(child[i])
+        //         // }
+        //         child[i].nodeType === 1?ary.push(child[i]):null;
+        //     }
+        //     return ary
+        // }
+        // console.log(children(box).length)
+        //=======================================
+        // box.firstChild // 获取第一个子节点
+        // box.firstElementChild // 获取第一个元素子节点【在IE6~8下不兼容】
+        // box.lastChild // 获取最后一个子节点
+        // box.lastElementChild // 获取最后一个元素子节点【在IE6~8下不兼容】
+        // console.log(box.firstChild)
+        // console.log(box.firstElementChild)
+
+        // console.log(box.lastChild)
+        // console.log(box.lastElementChild)
+        // ==========================================
+        // three.previousSibling: 获取上一个哥哥节点
+        // three.previousElementSibling:获取上一个哥哥元素节点
+        // console.log(three.previousSibling)
+        // console.log(three.previousElementSibling)
+
+        // 封装一个获取上一个哥哥元素节点的方法
+            // function prev(context){
+            //     var pre = context.previousSibling;
+            //     // if(pre === null){
+            //     //     return pre
+            //     // }
+            //     while(pre.nodeType !==1){
+            //         pre = pre.previousSibling
+            //     }
+            //     return pre
+            // }
+            // console.log(prev(three)) 
+                // console.log(one.previousSibling)
+
+            //=============
+            console.log(three.parentNode.parentNode) // box
+            document.body.parentNode.parentNode.parentNode // null
+    </script>
+</body>
+</html>

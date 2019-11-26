@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跑马灯</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 200PX;
+            height: 200PX;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" style="background: red"></div>
+    <script>
+        // 1、想操作谁就获取谁
+        let box = document.getElementById('box');
+        console.dir(box);
+        // 2、给相应的元素绑定相应的事件
+        // 3、在事件里做你想做的事
+        box.onclick = function(){
+            // conosle.log(1)
+            let color = box.style.background; // 获取box元素的background样式；
+            console.log(color)
+            switch(color){
+                case 'red':
+                box.style.background = 'green';
+                break;
+                case 'green':
+                box.style.background = 'orange';
+                break;
+                case 'orange':
+                box.style.background = 'red';
+                break;
+                // default: 
+                // box.style.background = 'red';
+            }
+        }
+    </script>
+</body>
+</html>

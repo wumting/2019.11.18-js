@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // =======方法一includes
+         /*   let ary = [12, 23, 34, 12, 23, 34] 
+           function fn(ary) {
+               let newAry = [];
+               for (var i = 0; i < ary.length; i++) {
+                   let item = ary[i];
+                   if (!newAry.includes(item)) {
+                       newAry.push(item);
+                   }
+               }
+               return newAry;
+           }
+           console.log(fn(ary)); */
+   
+        // ========方法二  splice
+    /*     let ary = [12, 23, 34, 12, 23, 34]
+        function fn(ary){
+            for(var i = 0; i < ary.length; i++){
+                let item = ary[i];
+                for(var j = i+1; j < ary.length; j++){
+                    let cur = ary[j]
+                    if(cur === item){
+                        // ary.splice(j,1);
+
+                        j--;
+                    }
+                }
+            }
+            return ary
+        }
+        console.log(fn(ary)) */ 
+        // ========方法三 对象 undefined
+     /*    let ary = [12, 23, 34, 12, 23, 34];
+        function fn(ary){
+            let newobj = {};
+            for(var i=0;i<ary.length;i++){
+                if(newobj[ary[i]] !== undefined ){
+                    ary[i] = ary[ary.length-1];
+                    ary.length--;
+                    i--;
+                }else{
+                    newobj[ary[i]] = ary[i];
+                }
+            }
+            return ary
+
+
+
+        }
+        console.log(fn(ary),ary) */
+    </script>
+</body>
+
+</html>

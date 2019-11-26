@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /* 
+    三个判断:
+        1. if else
+            - 如果括号中只有一个值，是默认转布尔
+        2. 三元运算符
+        3. switch case
+
+    
+    
+     */
+    //  1. if else
+        /* if(Number('1px')){
+            console.log(100)
+        }else if(NaN == NaN){
+            console.log(200)
+        }else if(![] == []){
+            console.log(300)
+        }else{
+            console.log(400)
+        } */
+    // 2. 三元运算符:适合简单的if else
+        // if(1 == 1){
+        //     console.log(100)
+        // }else{
+        //     console.log(200)
+        // }
+            // 1 == 1? console.log(100): console.log(200)
+    
+    //  3. switch case
+    /* switch中让小括号中的值和case后面的值进行绝对比较
+    = 赋值
+    == 比较
+     === 不进行数据类型的转换，只要数据类型不一样，返回false
+     */
+         let num = 'redd';
+         switch (num){
+            case 'red':
+                console.log('red');
+            break;  
+            case 'redd' :
+                console.log('black')
+            case 'green':
+                console.log('green')
+            default:console
+         }   
+    </script>
+</body>
+</html>

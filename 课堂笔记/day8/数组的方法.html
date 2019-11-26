@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /*
+            方法的定义
+            方法的参数
+            方法的返回值
+            原有数组是否发生改变
+             */
+        // 数组的增删改
+        /*1. push
+            方法的定义：向数组的末尾增加内容
+            方法的参数：传递多个值
+            方法的返回值：新数组的length
+            原有数组是否发生改变：是
+         */
+        /*  let ary = [12, 23,45]
+         console.log(ary.push(12));// 4
+         console.log(ary)//[12, 23,45,12]第一种方法
+         ary[ary.length] = 'xxx'//第二种方法
+        ary = [...ary,12,13]//第三种方法
+        */
+
+
+        /*  2. unshift
+            方法的定义：向数组的开头增加内容
+            方法的参数：传递多个值
+            方法的返回值：新数组的length
+            原有数组是否发生改变：是
+        */
+        /*  let ary = [12, 23,45]
+         console.log(ary.unshift(23,34))//5  第一种方法
+         console.log(ary)//[23,34,12, 23,45]
+         ary = [23,34,...ary] */
+
+
+        /* 3. pop
+            方法的定义：向数组的末尾删除一项
+            方法的参数：无
+            方法的返回值：删除的那一项
+            原有数组是否发生改变：是
+        */
+        /*  let ary = [12, 23,45]
+            console.log(ary.pop(),ary);//  第一种方法
+            ary.length--//第二种方法 
+            ary.length-=2
+         */
+
+
+        /*4.shift
+            方法的定义：向数组的开头删除一项
+            方法的参数：无
+            方法的返回值：删除的那一项
+            原有数组是否发生改变：是
+        */
+        /*  let ary = [12, 23,45]
+         console.log(ary.shift(),ary) //12 
+         */
+
+
+        /*5.splice
+            方法的定义：实现数组的增删改
+            方法的参数：不定
+            方法的返回值：是一个新的数组，数组里边存储的是删除的内容
+            原有数组是否发生改变：是
+         */
+        // （n,m）:从索引n开始，删除m个
+        // 如果只传一个参，那就是从索引n开始删除到末尾
+        // let sry = [12,23,45,'erya']
+        // console.log(sry.splice(0,1))//=>[12]删除数组的开头一项
+        // console.log(sry.splice(3,1))//=>['erya']删除数组的最后一项
+        // console.log(sry.splice(0))//=>清空数组
+        // console.log(ary.splice())//=>返回一个空数组，啥也不删除
+        // （n,m,x）:从索引n开始，删除m个，用x替换
+        // console.log(sry.splice(1,2,'ergou'),sry)//=>[23,45] [12,'ergou','erya']
+        // （n,0,x）:从索引n开始，删除0个，把x放到索引n对应的值前面
+        // console.log(sry.splice(0,0,'ergou'),sry)//=>[] ['ergou',12,'ergou','erya']
+        // 向数组末尾增加一项
+        // console.log(sry.splice(sry.length,0,'huangRong'),sry)
+
+        // 数组的查询与拼接
+        /* 6. slice
+            方法的定义：实现数组的截取（查询）
+            方法的参数：不定
+            方法的返回值：是一个新的数组，数组里边存储的是截取的内容
+            原有数组是否发生改变：否
+         */
+        // let ary = ['siMao','sanMao','erYa',12,23,34]
+        // n,m:从索引n开始，截取到索引m（索引m对应的不算）
+        // console.log(ary.slice(1,2))//['sanMao']
+        /* 从索引n截取到索引m
+        console.log(ary.slice(n,m+1)) */
+
+        /* 7. concat
+            方法的定义：实现数组的拼接
+            方法的参数：可以是多个值
+            方法的返回值：是一个拼接后的新数组
+            原有数组是否发生改变：否
+         */
+        /*  let ary = [12,23,34,45]
+         console.log(ary.concat([23,34,45],[44],true))
+         console.log(ary.concat()) *///克隆数组
+
+
+        // 数组排序
+        /* 8. reverse
+            方法的定义：实现数组的倒叙
+            方法的参数：无
+            方法的返回值：排序之后的数组
+            原有数组是否发生改变：是
+         */
+        /*  let ary = [12,23,45,67,13];
+            console.log(ary.reverse());
+            console.log(ary); 
+        */
+
+        /* 9.sort 排序 
+            方法的定义：实现数组的排序
+            方法的参数：无，可以传一个函数
+            方法的返回值：排序之后的数组
+            原有数组是否发生改变：是
+        */
+        // 如果不传参，只能排列一位数的数组（按照左边第一位从小到大排列）
+        /*  let ary = [5,2,1,3,5];
+            console.log(ary.sort()); *///=>[1, 2, 3, 5, 5]
+         /*    let ary = [29,31,114,9,20];
+            console.log(ary.sort()); *///[114, 20, 29, 31, 9] 不能用这种方式
+
+            // 传一个函数
+        /*         let ary = [29,31,114,9,20]
+            console.log(ary.sort( (a,b)=>{
+                //    如果a-b 那就是从小到大的排列，反之b-a就是从大到小排列
+                //    return a-b;//[9, 20, 29, 31, 114]
+                return b-a;//[114, 31, 29, 20, 9]
+            }))
+         */
+
+
+        /* 检测数组中是否包含某一项 */
+        // 10.indexOf 和 lastIndexOf 
+        //      方法的定义：检测数组中是否包含某一项
+        //      方法的参数：不定
+        //      方法的返回值：如果检测是有，不定，如果没有就是-1
+        //      原有数组是否发生改变：否
+        /* 
+         indexOf 是找的检测的值第一次出现的位置
+        （n，m）：n是被检测的值，m是开始检测的位置
+        （n）：从头开始检测
+         */
+        /*  let ary = [12,23,45,23,45,36]
+            console.log(ary.indexOf(23))//1
+            console.log(ary.indexOf(89))//-1 */
+        //   console.log(ary.indexOf()) //不传参按没有找到处理 -1
+        // lastIndexOf 是找的检测的值最后一次出现的位置
+        // （n,m）：n代表被检测的值，m代表检测到的位置
+        // （n）：检测到末尾
+        //    let ary = [12,23,45,23,45,36];
+            // console.log(ary.lastIndexOf(23,3)); //1
+            // console.log(ary.lastIndexOf(23));//3
+
+        // 11. includes
+        /* 
+            方法的定义：检测数组中是否包含某一项
+            方法的参数：检测的值
+            方法的返回值：有返回true，没有返回false
+            原有数组是否发生改变：否
+        */
+        /*  let ary = [23, 14, 34, 23, 14];
+            function fn(ary) {
+                let newAry = [];
+                for (var i = 0; i < ary.length; i++) {
+                    let item = ary[i];
+                    if (!newAry.includes(item)) {
+                        newAry.push(item);
+                    }
+                }
+                return newAry;
+            }
+            console.log(fn(ary)) 
+        */
+      /*   let ary = [23, 14, 34, 23, 14];
+        function fn(ary){
+            let newAry = [];
+            for(var i=0;i<ary.length;i++){
+                let item = ary[i];
+                if (newAry.indexOf(item) === -1){
+                    newAry.push(item);
+                }
+            }
+            return newAry;
+        }
+        console.log(fn(ary)) */
+
+
+
+        /* let ary = [23, 14, 34, 23, 14];
+        function fn(...ary){
+            let total = null;
+            ary.forEach( (item,index)=>{
+                if(!isNaN(Number(item))){
+                    total+=item;
+                }
+            })
+            return total;
+        }
+       console.log(fn(...ary)) */
+    </script>
+</body>
+
+</html>

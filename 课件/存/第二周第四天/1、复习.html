@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        Math
+        1、PI：3.1415926
+        2、abs
+        3、ceil
+        4、floor
+        5、max
+        6、min
+        7、round
+        8、sqrt
+        9、pow(n,m):取n的m次方
+        10、random():0到1之间的随机小数
+
+        想获取3到5之间的随机整数(n,m)
+        random()*(5-3)+3 
+        Math.round(Math.random()*(m-n)+n )
+         */
+        //  想获取2到4之间的随机整数(n,m)
+        // console.log(Math.round(Math.random()*(4-2)+2))
+        // console.log(Math.max(...[23,35,67,78]))
+        // let ary = [78,35,67,13];
+        // ary.sort((a,b)=>{
+        //    return a-b
+        // })
+        // console.log(ary[ary.length-1])
+        // // 我想截取数组的n项到m项
+        // console.log(ary.slice(n,m+1))
+        // ary[ary.length-1]
+        // pop
+        // ary.splice(ary.length-1,1)[0]
+        // ary.slice(ary.length-1)[0]
+        // console.log()
+
+        // Date  日期函数  使用的是Date的返回值，是一个实例化的对象
+        let time = new Date(); //获取的是当前的时间
+        console.log(time.getTime()) // 获取当前时间和1970年1月1号 00:00之间的时间差（单位是毫秒）【时间戳】
+        // console.dir(time)
+        // let year = time.getFullYear();
+        // let month = time.getMonth()+1;// 0-11(1-12月)
+        // let day = time.getDay();//(0-6)(0是星期日，其余是一一对应的)
+        // console.log(year, month, day)
+
+        // function trans(val){
+        //     let obj = {
+        //         0:'星期日',
+        //         1:'星期一',
+        //         5:'星期五'
+        //     }
+        //     return obj[val]
+        // }
+        // console.log(trans(day))
+        // let time = new Date('2020-11-11 12:23');
+        // let sec = time.getSeconds();
+        // console.log(sec) // 如果没有这个时间，那就是0
+        // let year = time.getFullYear();
+        // console.log(year)
+
+    // let num1 =  setTimeout(()=>{}, 10000);
+    // let num2 =  setInterval(() => {
+            
+    //     }, 1000);
+
+    //     clearInterval(num2)
+    //     clearTimeout(num1)
+    </script>
+</body>
+</html>

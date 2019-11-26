@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>递归</title>
+</head>
+<body>
+    
+    <script>
+    
+    //实现1-5之间的偶数的和
+    function sum(num){
+        if(num>5){
+            return 0;
+        }
+        if(num%2 === 0){
+            return num+sum(num+1);
+        }
+        return sum(num+1);
+    }
+    
+    console.log(sum(1))//6
+    /* num = 1;
+       function sum(1){
+             sum(1+1);//6
+    }
+       function sum(2){ 
+            return 2+sum(2+1);//2+4=6
+        
+    }
+       function sum(3){  
+        return sum(3+1);//4
+    }
+       function sum(4){ 
+              4+sum(4+1);//4+0=4
+       
+    }
+       function sum(5){  sum(5+1);//0
+    }
+       function sum(6){ 
+            return 0; 
+    }
+    
+     */
+    
+    </script>
+</body>
+</html>

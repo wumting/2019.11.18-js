@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let monkey = {
+            'name': 'sunWuKong',
+            age: null,
+            speed: 10000,
+            ifantName: 'badMonkey',
+            3: 'xxx'
+        };
+        console.log(monkey);
+        //对对象进行增删改查
+        // 1、查询属性名所对应的的属性值：对象名.属性名/对象名['属性名']；如果属性名是数字，不能用对象名.属性名的方式去获取对应的值
+        // console.log(monkey.name) // 'sunWuKong'
+        // console.log(monkey['name'])  //  'sunWuKong'
+        // console.log(monkey[3]) // 'xxx'
+        // console.log(monkey['3']) // 'xxx'
+        // 新增和修改 对象名.属性名 = 'xxx'
+        // 新增的属性名如果存在，就是修改属性值，如果没有就是新增
+        // 新增
+        // monkey.ss = '3333';
+
+        monkey['ss'] = '3333';
+        // monkey.name = 'ssss'
+        // console.log(monkey)
+
+        // 删除
+        // - 假删除 对象名.属性名 = null;
+        monkey.name = null;
+        console.log(monkey)
+        // - 真删除 delete 对象名.属性名
+        // delete monkey.name;
+        console.log(monkey);
+
+        let a = 12,b = 13;// =>let a = 12;let b = 13;
+        let a = 12,
+            b = 13,
+            c = 13,
+            d = 14
+
+    </script>
+</body>
+
+</html>

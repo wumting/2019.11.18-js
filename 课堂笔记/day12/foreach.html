@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let ary = [true, NaN, false, 3, 5];
+        function fn(ary) {
+            let total = null;
+            ary.forEach(item => {
+                if (!isNaN(Number(item))) {
+                    total += item;
+                }
+
+            });
+            return total;
+        }
+        console.log(fn(ary))
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 判断
+    /*if(1==2){
+        // 如果这个小括号中值是true，那么执行这个大括号中的代码；如果false，直接执行下面那行代码；
+        console.log(100)
+    }else{
+        console.log(200);
+    }*/
+    // == ： 是两个值进行比较,会默认进行数据类型之间的转换再比较；比较的结果是一个布尔值
+    // 基本数据类型和引用数据类型
+    // 基本数据类型： Number  string  boolean  null undefined symbol
+    // 引数据类型分为对象数据类型和函数数据类型
+    // 对象数据类型： 普通对象  数组  正则  Math  Date的实例 ...
+    // 函数数据类型: 函数  类；
+    // 1. 数字==字符串 字符串调用Number转换成数字，然后和数字进行比较；
+    /*console.log(1 == "1");
+
+    console.log(0 == "");
+    console.log(1 == "1px");
+    console.log(1 == "[1]");*/
+    // 2. 数字==布尔  布尔转数字，然后进行比较
+    // true--> 1   false--->0
+    //console.log(1 == true);// true
+    //console.log(0 == false);// true
+
+    // 3.数字 == 对象（对象数据类型） 对象先转成字符串，然后再转成数字；
+    // NaN 和自己不相等；
+    // console.log(NaN=={})
+
+    // 4. 对象==对象 比较的是空间地址，空间地址不同，就false；
+    // 在JS中，只要遇到{} ,都会开辟一个新的空间地址；
+    // 当浏览器解析代码时，会形成两个虚拟的内存，分别是栈内存和堆内存
+    // 栈内存提供代码的运行环境，并且存储基本数据类型值，堆内存存储引用数据类型的值；
+    // 堆内存:
+    // 栈内存:
+    /*let c =100;
+    let a = {};
+    let b = {};
+    console.log(a == b);
+    //console.log(({}) == ({}));
+    //console.log(c);
+    console.log([] == []);*/
+
+    // 5. 对象== 字符串 :对象转成字符串，然后进行比较
+    /*console.log(({name:1}).toString());// "[object Object]"
+    let str="";
+    let str1 = " ";
+    console.log(str1.length);
+    console.log("" == " ");*/
+
+    // 6.对象==布尔 : 对象转字符串，字符串转数字，布尔直接转数字，然后进行比较；
+    // ! : 先将后面的值转成布尔值，然后再取反；
+    /*console.log([] == false);// true
+    console.log(![] == false);// true
+    console.log([] == ![]);// true
+    console.log([] !== []);*/ // true
+    // 7. 布尔==字符串  : 布尔值转数字 字符串转数字
+    //console.log(false == ""); // true
+    //console.log(true == "1px");// false
+
+
+
+
+    // 1. 数字 ==字符串 字符串调用Number转换成数字，然后和数字进行比较；
+    // 2. 数字 ==布尔  布尔转数字，然后进行比较
+    // 3. 数字 == 对象（对象数据类型） 对象先转成字符串，然后再转成数字；
+    // 4. 对象==对象 比较的是空间地址，空间地址不同，就false；
+    // 5. 对象==字符串 :对象转成字符串，然后进行比较
+    // 6. 对象==布尔 : 对象转字符串，字符串转数字，布尔直接转数字，然后进行比较；
+    // 7. 布尔==字符串  : 布尔值转数字 字符串转数字
+    // 8. null == undefined  : true
+    // 9. NaN ==NaN  false
+
+
+
+
+</script>
+</body>
+</html>

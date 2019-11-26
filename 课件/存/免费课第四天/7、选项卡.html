@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选项卡</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+            display: flex;
+            position: relative;
+            top: 1px;
+        }
+        li {
+            width: 150px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 30px;
+            color: black;
+            border:1px solid black;
+            margin-right: 10px;
+        }
+        #box div {
+            width: 500px;
+            border:1px solid black;
+            text-align: center;
+            height: 300px;
+            line-height: 300px;
+            font-size: 30px;
+            display: none;
+        }
+        #box {
+            width: 502px;
+            margin: 20px auto;
+        }
+        #box div.active {
+            display: block;
+        }
+        #box li.active {
+            border-bottom-color:white
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul  id="navList">
+            <li class="active">孙悟空</li>
+            <li >猪无能</li>
+            <li>沙悟净</li>
+        </ul>
+        <div class="active">俺老孙来也</div>
+        <div >趁早分家得了</div>
+        <div>二师兄说的对啊</div>
+        <script>
+            // 1、想操作谁就获取谁
+            let nav = document.getElementById('navList');
+            let navList = nav.getElementsByTagName('li');
+            let tabList = document.getElementById('box').getElementsByTagName('div');
+            console.log(navList,tabList);
+            //2、给相应的元素绑定相应的事件
+            for (var i = 0; i < navList.length; i++) {
+                // 当循环时，把对应的i存储到自己身上
+                navList[i].myIndex = i;
+                navList[i].onclick = function(){
+                        // fn(i)
+                        // 点击谁，this就是谁（你当前操作的元素）
+                        console.log(this.myIndex)
+                        fn(this.myIndex)
+                }
+            }
+            let ss = document.querySelectorAll('#navList li')
+            console.log(ss)
+            // 用户点击事件的时候发生在页面渲染完成之后，那时候for循环早已执行结束，此时的i已经变为3，事件运行，获取的i肯定是3
+          /* 
+          i=0
+           navList[0].myIndex = 0;
+           navList[0].onclick = function(){
+                        // fn(i)
+                        console.log(i)
+                }
+
+           i=1
+           navList[1].myIndex = 1;
+           navList[1].onclick = function(){
+                        // fn(i)
+                        // console.log(i)
+                }
+
+           i=2
+           navList[2].myIndex = 2;
+           navList[2].onclick = function(){
+                        // fn(i)
+                        console.log(i)
+                } 
+            i=3
+           */
+
+            function fn(index){
+                // 1、把三个li和三个div的class名清除
+                for (var i = 0; i < navList.length; i++) {
+                    navList[i].className = '';
+                    tabList[i].className = '';
+                }
+                // 2、给你点击的元素增加class名
+                navList[index].className = 'active';
+                tabList[index].className = 'active';
+            }
+        </script>
+    </div>
+</body>
+</html>

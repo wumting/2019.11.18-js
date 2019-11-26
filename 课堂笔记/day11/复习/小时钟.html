@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 600px;
+            height: 300px;
+            margin: 50px auto;
+            background: -webkit-linear-gradient(right top, pink, rgb(209, 192, 255), rgb(255, 128, 0), rgb(255, 0, 155));
+            text-align: center;
+            line-height: 300px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        2019年11月13日 星期三 15:43
+    </div>
+    <script>
+        let box = document.getElementById('box');
+      
+        let num = '';
+        let addZero = val => val < 10 ? '0' + val : val;
+        
+
+        function trans(val) {
+            let obj = {
+                0: '日',
+                1: '一',
+                2: '二',
+                3: '三',
+                4: '四',
+                5: '五',
+                6: '六',
+            }
+            return obj[val];
+        }
+        setTime();
+        function setTime() {
+            let time = new Date();
+            let year = time.getFullYear();
+            // console.log(year)
+            let mon = time.getMonth() + 1;
+            let date = time.getDate();
+            let day = time.getDay();
+            let hour = time.getHours();
+            let min = time.getMinutes();
+            let sec = time.getSeconds();
+            let nowTime = year + '年' + addZero(mon) + '月' + addZero(date) + '日 星期' +trans(day)+' '+addZero(hour)+ '时'+addZero(min)+'分'+addZero(sec)+'秒';
+            box.innerText = nowTime;
+        }
+        num = setInterval(setTime,1000);
+        
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #box {
+        font-size: 30px;
+        /* color: orangered; */
+        width: 200px;
+        text-align: center;
+        margin: 20px auto;
+    }
+    .sss {
+        color: red;
+    }
+    </style>
+</head>
+<body>
+    <div id = "box" style="background: green" class="xxx">
+        123
+    </div>
+    <script>
+    //1、操作谁就获取谁
+    let box =document.getElementById('box');
+    console.dir(box)
+    /* 
+    1、style ：控制元素的行内样式
+    2、innerHTML:获取元素的内容（可以识别标签）
+    3、innerText:获取元素的内容（不可以识别标签）
+    4、className：获取元素的class名
+    */
+
+    // 给元素加class名
+    box.className = 'sss';
+
+    // 获取元素的内容
+    console.log(box.innerHTML)
+    console.log(box.innerText)
+    // 修改元素的内容
+    // // box.innerHTML = '<span>666</span>';
+    // box.innerText = '<span>666</span>';
+        // box.innerHTML="<b>666</b>"
+        // box.innerText="<b>666</b>"
+    
+    </script>
+</body>
+</html>

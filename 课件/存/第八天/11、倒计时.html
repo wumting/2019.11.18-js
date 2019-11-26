@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            * {
+                padding: 0;
+                margin: 0;
+    
+            }
+    
+            #box {
+                width: 1000px;
+                height: 300px;
+                background: -webkit-linear-gradient(top right, rgba(255, 0, 242, 0.281), rgba(128, 0, 128, 0.13), rgba(200, 255, 0, 0.199));
+                line-height: 300px;
+                text-align: center;
+                font-size: 50px;
+                font-weight: 700;
+                margin: 100px auto;
+                color: orangered;
+            }
+        </style>
+</head>
+<body>
+    <div id="box">111</div>
+    <script>
+        /* 
+        1、你得有终止的时间
+        2、把现在的时间和终止时间的时间差转换为小时，分钟，秒
+         */
+         let box = document.getElementById('box');
+         let endTime = new Date('2019-11-13 17:15');
+         let num = null;
+         // 不足十位补0方法
+         let addZero = val => val < 10 ? '0' + val : val;
+
+         setTime();// 页面初次渲染时，为了防止页面闪，执行一次setTime方法
+         function setTime(){
+             let time  = new Date();// 创建现在的时间
+             let diffTime = endTime - time; // 获得现在时间和结束时间的时间差（单位是毫秒）
+             // 如果时间差为0，那就证明倒计时该结束了
+             if(diffTime<=0){
+                clearInterval(num); // 清空定时器
+                box.innerText = '时间到';// 把div的内容改为时间到了
+                return;
+             }
+            //  console.log(diffTime)
+            let hour = Math.floor(diffTime/1000/60/60); // 获取小时
+            let min = Math.floor((diffTime-hour*60*60*1000)/1000/60); // 获取分钟
+            let sec = Math.floor((diffTime-hour*60*60*1000-min*60*1000)/1000); // 获取秒
+            let value = addZero(hour)+ '时' + addZero(min) +'分'+addZero(sec)+'秒'
+            box.innerText = value;
+         }
+         num = setInterval(setTime, 1000)
+    </script>
+</body>
+</html>

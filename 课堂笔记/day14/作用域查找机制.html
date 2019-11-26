@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*   var n = 1;
+          function fn() {
+              var n = 2;
+  
+              function f() {
+                  n--;
+                  console.log(n);
+              }
+              f();
+              return f;
+          }
+          var x = fn();
+          x();
+          console.log(n); */
+
+        /* 
+        i = 5
+        fn : fn   function (n) { console.log(n + (5)); } 
+        f :fn(1)=>  function (n) { console.log(n + (2)); }=>4  9
+        
+         */
+        /*         var i = 5;
+                function fn(i) {
+                    /* 
+                    i = 1  2 3 4  7
+                    n = 2
+                    
+                     */
+        /*             return function (n) {
+                        console.log(n + (++i));
+                    }
+                }
+                var f = fn(1); 
+                f(2);
+                fn(3)(4);
+                fn(5)(6);
+                f(7);
+                console.log(i);//5
+         */
+        /*     var num = 1;
+            var obj = {
+                num: 10,
+                fn: (function (num) {//1  
+                    var num = 2;//3 4 5
+                    return function (n) {
+                        console.log(n * (num++));//10*2=20,20*3=60,
+                    }
+                })(num)
+            }
+            var f = obj.fn; 
+            f(10);//
+            f(20);
+            obj.fn(30);//30*4=120,
+            obj.fn(40);//40*5=200 */
+
+        /*       var a = 9;
+              function fn() {
+                  a = 0; // 
+                  return function (b) { //  
+                      return b + a++; //      
+                  }
+              }
+              var f = fn();
+              var m = f(5);
+              alert(m);// 5
+              var n = fn()(5);
+              alert(n);// 5
+              var x = f(5);
+              alert(x);//6
+              alert(a);//2 */
+
+        var i = 20//18 19 20  18  19  17  18  19
+        function fn() {
+            i -= 2;
+            return function(n){ //1  2  3  4  5
+                console.log((++i)-n);//18  18  16   14    14
+            }
+        }
+        var f =fn();
+        f(1);//18
+        f(2);
+        fn()(3)
+        fn()(4)
+        f(5);
+        console.log(i) //19
+
+    </script>
+</body>
+
+</html>

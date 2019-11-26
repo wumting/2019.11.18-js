@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 500px;
+            margin: 20px auto;
+            /* border: 1px solid #666666; */
+
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            position: relative;
+            top: 1px;
+
+        }
+
+        ul li {
+            width: 150px;
+            height: 40px;
+            border: 1px solid #666;
+            font-size: 18px;
+            line-height: 40px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        #box div {
+            width: 500px;
+            height: 300px;
+            border: 1px solid #666;
+            text-align: center;
+            line-height: 300px;
+            display: none;
+        }
+        .active{
+            border-bottom-color: white;
+        }
+        /*  #box div.active{
+        display: block;
+    }
+    #box li.active{
+        border-bottom-color: white;
+    } */
+    </style>
+
+</head>
+
+<body>
+    <div id="box">
+        <ul id="navList">
+            <li class="active">孙悟空</li>
+            <li>猪无能</li>
+            <li>沙悟净</li>
+        </ul>
+        <div class="active" style="display: block;">俺老孙来也</div>
+        <div>趁早分家得了</div>
+        <div>二师兄说的对啊</div>
+    </div>
+    <script>
+        let box = document.getElementById('box');
+        let nav = document.getElementById('navList');
+        let navList = nav.getElementsByTagName('li');
+        let tabList = box.getElementsByTagName('div');
+        console.log(navList, tabList);
+        for (var i = 0; i < navList.length; i++) {
+            navList[i].myIndex = i;
+            navList[i].onclick = function () {
+                fn(this.myIndex);
+            }
+
+        }
+        function fn(index) {
+            // navList[0].className = '';
+            for (var i = 0; i < 3; i++) {
+                navList[i].style.display = '';
+                tabList[i].style.display = '';
+                navList[i].style.borderBottomColor = '';
+               
+            }
+            navList[index].style.display = 'block';
+            tabList[index].style.display = 'block';
+            navList[index].style.borderBottomColor = 'white';
+
+        }
+
+
+    </script>
+</body>
+
+</html>

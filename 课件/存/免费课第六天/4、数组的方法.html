@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let ary = [12,23,34];
+        // console.log(ary)
+        /* 
+        方法的定义
+        方法的参数
+        方法的返回值
+        原有数组是否发生改变
+        */
+
+       /* 数组的增删改(原数组都会改变)
+       1、push
+        方法的定义：向数组末尾增加内容
+        方法的参数：传递多个值
+        方法的返回值：新数组的length
+        原有数组是否发生改变：是
+       */
+        // let ary = [12,23,45];
+        // // console.log(ary.push(12,66,'erYa')) // 6
+        // // console.log(ary) // [12,23,45,12,66,'erYa']
+        // // ary[ary.length] = 'xxx'
+        // ary = [...ary,23,'erYa'] // 原来地址发生变化
+        // console.log(ary)
+
+        /* 
+        
+        2、unshift
+        方法的定义：向数组开头增加内容
+        方法的参数：传递多个值
+        方法的返回值：新数组的length
+        原有数组是否发生改变：是*/
+
+        // let ary = [12,23,45];
+        // // console.log(ary.unshift(23,34)) // 5
+        // // console.log(ary) // [23,34,12,23,45];
+        // // ary[-1] = 'xxx' // 不能这么写
+        // ary = [23,34,...ary]
+        // console.log(ary)
+
+        /* 
+         3、pop
+        方法的定义：向数组末尾删除一项
+        方法的参数：无
+        方法的返回值：删除的那一项
+        原有数组是否发生改变：是
+        */
+    //    let ary = [12,23,45];
+    // //    console.log(ary.pop()) // 45
+    //     ary.length-- // 删除数组末尾一项
+    //     ary.lrngth-=2; // 删除数组末尾两项
+    //     ary.length = 0; // 清空数组
+    //    console.log(ary)
+
+    /* 
+     4、shift
+        方法的定义：向数组开头删除一项
+        方法的参数：无
+        方法的返回值：删除的那一项
+        原有数组是否发生改变：是
+    */
+//    let ary = [12,23,45];
+//    console.log(ary.shift()) // 12
+//    console.log(ary);
+
+
+    /* 5、splice
+        方法的定义：实现数组的增删改
+        方法的参数：不定
+        方法的返回值：是一个新的数组，数组里边存储的是删除的内容
+        原有数组是否发生改变：是
+    */
+   // (n,m):从索引n开始，删除m个
+   // (n)：如果只传一个参数，那就是从索引n开始,删除到末尾
+//    let ary  =[12,23,45,'erYa'];
+//    console.log(ary.splice(1,2)); // [23,45]
+//    console.log(ary.splice(0,1)) // [12] // 删除数组的开头一项
+//    console.log(ary.splice(ary.length-1,1)); // 删除数组的最后一项
+//    console.log(ary.splice(0)); // 清空数组，从索引0开始，删除到末尾
+        // console.log(ary.splice()) // [] 啥也不干
+        // console.log(ary.splice(3,0)); // [] 啥也不干
+//    console.log(ary); // [12,'erYa']
+   // (n,m,x):从索引n开始，删除m个，用x替换
+   // (n,0,x):从索引n开始，删除0个，把x放到索引n对应的值的前面
+    // console.log(ary.splice(1,2,'erGou', 'gouDan')); // [23, 45]
+    // console.log(ary.splice(0,0,'daGou')) // [] 项数组开头 增加一项
+    // console.log(ary.splice(ary.length,0,'huangRong')) // 向数组末尾增加一项
+    // console.log(ary.splice(-1,2))
+    // console.log(ary) // [12, "erGou", "gouDan", "erYa"]
+
+    // 删除数组末尾一项
+    // ary.length--、pop、splice(ary.length-1)
+    // // 项数组开头删除一项
+    // shift、splice(0,1)
+    // // 项数组开头增加
+    // unshift、splice(0,0,x)、[x,...ary]
+    // // 数组末尾增加
+    // push、ary[ary.length] = 'xxx'、splice(ary.length,0,x)、[x,...ary]
+
+    // 数组的拼接和截取(原数组都不会改变)
+    /* 
+    6、slice
+        方法的定义：实现数组的截取（查询）
+        方法的参数：不定
+        方法的返回值：是一个新的数组，数组里边存储的是截取的内容
+        原有数组是否发生改变：否
+     */
+    // let  ary = ['siMao','sanMao','erYa',12,23,45];
+    // (n,m):从索引n开始，截取到索引m（索引m对应的值不算）
+    // console.log(ary.slice(1,2)) // ['sanMao']
+    // console.log(ary.slice(2,5)) // ["erYa", 12, 23]
+    // console.log(ary.slice(0,ary.length)) // 克隆数组
+    // console.log(ary.slice(0))// 克隆数组   从索引0开始，截取到末尾
+    // console.log(ary.slice(0,0)) // 什么也不做
+    // console.log(ary)
+
+    // 7、concat（拼接）
+
+    // 方法的定义：实现数组的拼接
+    // 方法的参数：可以是多个值
+    // 方法的返回值：是一个拼接后的新数组
+    // 原有数组是否发生改变：否
+    // let ary =[12,23,45,45];
+    // console.log(ary.concat([12,23],[66],true)) //[12, 23, 45, 45, 12, 23, 66, true]
+    // console.log(ary.concat()) // 克隆数组
+    // console.log(ary)
+   
+
+    // 数组的排序(会改变原数组)
+    // 8、reverse
+    /* 
+    // 方法的定义：实现数组的倒叙
+    // 方法的参数：无
+    // 方法的返回值：排序之后的数组
+    // 原有数组是否发生改变：是
+     */
+    // let ary = [12,23,45,67,13];
+    // console.log(ary.reverse()); // []
+    // console.log(ary)
+
+
+    // 9、sort（排序）
+    // 方法的定义：实现数组的排序
+    // 方法的参数：无，可以传一个函数
+    // 方法的返回值：排序之后的数组
+    // 原有数组是否发生改变：是
+
+    // 如果不传参，只能排列一位数的数组（按照左边第一位从小到大排列）
+    // let ary = [5,2,1,3,5];
+    // console.log(ary.sort())
+    // console.log(ary)
+    // let ary  =[29,31,114,9,20];
+    // console.log(ary.sort())
+
+    // 传一个函数
+    // console.log(ary.sort( (a,b)=>{
+    //     // 如果a-b那就是从小到大排列，反之(b-a)就是从大到小排列
+    //     return a-b
+    // } ))
+
+
+    // 检测数组中是否包含某一项
+    // 10、indexOf和lastIndexOf
+    // 方法的定义：检测数组中是否包含某一项
+    // 方法的参数：不定
+    // 方法的返回值：如果检测是有，不定，如果没有就是-1
+    // 原有数组是否发生改变：否
+
+    // indexOf是找的检测的值第一次出现的位置
+    // (n,m):n是被检测的值，m是开始检测的位置
+    // (n):从头开始检测
+    // let ary = [12,23,45,23,45,36];
+    // console.log(ary.indexOf(23,2)) // 3
+    // console.log(ary.indexOf(23)) // 3
+    // console.log(ary.indexOf(89)) // -1
+    // console.log(ary.indexOf()) // 不传参按没有找到处理 -1
+
+    // lastIndexOf: 是找的检测的值最后一次出现的位置
+    // (n,m):n是被检测的值，m是检测到的位置
+    // (n):检测到末尾
+    // console.log(ary.lastIndexOf(23,2)) // 1
+    // console.log(ary.lastIndexOf(23)) // 1
+
+    // 11、includes
+    // 方法的定义：检测数组中是否包含某一项
+    // 方法的参数：检测的值
+    // 方法的返回值：有返回true，没有返回false
+    // 原有数组是否发生改变：否
+    // let ary  =[12,23,45,66];
+    // console.log(ary.includes(12))
+    // console.log(ary.includes(122))
+    // console.log(ary.includes()) // 不传参按没有找到处理
+
+    // 数组去重的第一种方式
+    let ary = [12,23,34,12,23];
+
+    function fn(ary){
+        let newAry = []; // 创建一个新数组
+        for (var i = 0; i < ary.length; i++) {
+           let item = ary[i] // 代表数组的每一项
+            // 检测新数组中是否包含某一项，如果包含了，就不让条件成立
+           if(!newAry.includes(item)){
+            newAry.push(item);
+           }
+        }
+        return newAry
+    }
+
+    console.log(fn(ary))
+
+
+
+
+        </script>
+</body>
+</html>

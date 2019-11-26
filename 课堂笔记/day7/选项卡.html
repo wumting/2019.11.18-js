@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    #box{
+        width: 400px;
+        margin: 20px auto;
+    }
+    ul{
+        list-style: none;
+        display: flex;
+        position: relative;
+        top: 1px;
+    }
+    ul li{
+        width: 130px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 18px;
+        color: black;
+        border: 1px solid #666666;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+    #box div{
+        width: 400px;
+        height: 300px;
+        border: 1px solid #333333;
+        line-height: 300px;
+        text-align: center;
+        font-size: 18px;
+        color: black;
+        display: none;
+    }
+    #nav li.active{
+        border-bottom-color: orangered;
+        background: orangered;
+    }
+    #box div.active{
+        display: block;
+        background: orangered;
+    }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul id="nav">
+            <li class="active">孙悟空</li>
+            <li>猪无能</li>
+            <li>沙和尚</li>
+        </ul>
+        <div class="active">俺老孙来也</div>
+        <div>趁早分家</div>
+        <div>二师兄说的对</div>
+    </div>
+    <script>
+    let box = document.getElementById('box');
+    let nav = document.getElementById('nav');
+    let navList = nav.getElementsByTagName('li');
+    let tabList = box.getElementsByTagName('div');
+    for(var i=0;i<navList.length;i++){
+        navList[i].myIndex = i;
+        navList[i].onclick = function(){
+            fn(this.myIndex)
+        }
+    }
+    function fn(index){
+
+        for(var i=0;i<navList.length;i++){
+            navList[i].className = '';
+            tabList[i].className = '';
+        }
+        navList[index].className = 'active';
+        tabList[index].className = 'active';
+    }
+    
+    
+    
+    </script>
+</body>
+</html>

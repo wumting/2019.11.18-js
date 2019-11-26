@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    //========构造函数===========
+        // function CreatPerson(name,age){
+            /* 
+            1、默认生成一个空对象
+            2、让函数里的this指向这个对象
+            3、代码执行
+            4、默认return这个对象
+             */
+            //    this.name = name;
+            //    this.age = age;  } 
+                 
+    //new : 它是js里的关键字
+   // CreatPerson()//普通函数执行
+  // let f =  new CreatPerson()//构造函数运行模式，此时的CreatPerson就是自定义类，函数执行之后的返回结果就是一个对象，叫做实例对象(f 就是CreatPerson的实例)
+
+/*    function Fn(n) {
+            let m = 10;
+            this.total = m + n;
+            this.say = function () {
+                console.log(this.total)
+            }
+        }
+        let f1 = new Fn(10);
+        let f2 = new Fn(20);
+        console.log(f1.n)//undefined
+        console.log(f2.m)//undefined
+        console.log(f1.total)//20
+        f2.say()//30
+        console.log(f1 === f2)//false */
+      /*   function Fn(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        let f1 = new Fn('erYa',18);
+        let f2 = new Fn('jinYu',18)
+        console.log(f1,f2) */
+        function Fn(x, y) {
+            this.x = x;
+            this.y = y;
+            this.getX = function () {
+                 console.log(this.x);
+             }
+        }
+
+        Fn.prototype.getX = function () {
+            console.log(this.x);
+        }
+        Fn.prototype.getY = function () {
+            console.log(this.y);
+        }
+        var f1 = new Fn(100, 200);
+        f1.__proto__.a = 300;
+        var f2 = new Fn(100, 200);
+        console.log(f1.getX == f2.getX);//    false
+        console.log(f1.getY == f2.getY);//true 
+        console.log(f1.x == f2.x);//true
+        console.log(Fn.prototype.getX === f1.getX);//false 
+        console.log(Fn.prototype.getX === f1.__proto__.getX);//true
+        f1.getX()//100
+        Fn.prototype.getX();//undefined
+        f2.__proto__.getX();//undefined
+        Fn.prototype.getY();//undefined
+        console.log(f1.a);//300
+        console.log(f1.toString);//f
+
+    </script>
+</body>
+
+</html>

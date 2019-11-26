@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" style="background: lightcoral">
+
+    </div>
+    <!-- import js -->
+    <script>
+        // 1.想操作谁就获取谁
+        let box = document.getElementById('box')
+        console.dir(box);
+        // 2.给相应的元素绑定相应的事件
+        box.onclick = function () {
+            // 获取box元素的background样式
+            let color = box.style.backgroundColor;
+            let color2 = '';
+            // 3.在时间里做你想做的事
+            switch (color) {
+                case 'lightcoral':
+                    color2 = 'green';
+                    break;
+                case 'green':
+                    color2 = 'yellow';
+                    break;
+                default:
+                    color2 = 'red';
+            }
+            box.style.backgroundColor = color2
+        }
+
+
+
+    </script>
+</body>
+
+</html>

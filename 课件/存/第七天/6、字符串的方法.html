@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 字符串的方法
+        // let str = 'asdfgh';
+        // 字符串有length代表字符串的长度
+        // str[0] // 'a'
+        // str[str.length-1]
+        // str.length--
+        // console.log(str)
+        // 字符串不可以通过length进行增删改
+        // 字符串的所有方法都不改变原字符串
+        // 返回值都是处理之后的字符串
+        // ======= 字符串的获取
+        
+    // 1、charAt(n):通过索引获取对应的字符串
+        // let str = 'absdfgh';
+        // console.log(str.charAt(0)) // 'a'
+        // console.log(str[0])
+        // console.log(str.charAt(100))// ''
+        // console.log(str[100]) // undefined
+
+    // 2、charCodeAt():通过索引获取到对应的ASCLL码（unicode）
+        // String.fromCharCode(98):把ASCLL转换为对应的字符
+        // console.log(str.charCodeAt(1))
+
+        // 字符串的截取
+    //  3、substr(n,m)：从索引n开始，截取m个
+        // console.log(str.substr(1,3)) //'bsd'
+        // console.log(str.substr(0)) // 克隆 截取到末尾
+        // console.log(str.substr()) // 克隆 截取到末尾
+    // 4、substring(n,m):从索引n开始，截取到索引m（不包括m对应的那一项）
+        // let str = 'absdfgh';
+        // console.log(str.substring(1,3)) // 'bs'
+        // console.log(str.substring(0)) // 克隆 截取到末尾
+        // console.log(str.substring()) // 克隆 截取到末尾
+    // 5、slice(n,m)从索引n开始，截取到索引m（不包括m对应的那一项）[支持负数:把参数加上length]
+        // console.log(str.slice(-5,-1)) //(2, 6) 'sdfg' 
+
+    // 6、split():把字符串以特定的分隔符转数组,参数是字符串的分隔符
+        // let str = 'as|da|sd|asd'
+        // console.log(str.split('|')) //  ["as", "da", "sd", "asd"]
+        // console.log(str.split('')) //   ["a", "s", "|", "d", "a", "|", "s", "d", "|", "a", "s", "d"]
+
+        // let str = 'sasasasas';
+        // console.log(str.split('a').join('')) //  ["s", "s", "s", "s", "s"] => 'sssss'
+
+    // 7、replace(n,m):把字符串中的n替换为m(只替换第一个)
+        // let str = 'asdsfsgh';
+        // console.log(str.replace('s', '$').replace('s', '$'))
+        // console.log(str.replace(/s/g, '$')) // 全部替换
+        // console.log(str.replace('z','x')) //如果替换不成功，返回原字符串
+    // 8、toUpperCase:转大写
+    // 9、toLowerCase：转小写
+    // 10、trim去空格（trimLeft、trimRight）
+
+
+        // 把字符串开头首字母转大写
+        // let www = 'yangayng';
+        // console.log(www.substring(0,1).toUpperCase() + www.substring(1))
+        // console.log(www.replace('y', 'Y'))
+    </script>
+</body>
+</html>

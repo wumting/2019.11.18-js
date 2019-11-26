@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //私有作用域：
+    /*   全局作用域生成之后才会有私有作用域，私有作用域是属于全局作用域的
+         函数执行会形成一个私有栈内存（私有作用域）【为代码执行提供环境】
+    */
+    
+/*     function fn(){
+        /* 函数定义：
+            1、首先开辟一个堆内存生成一个16进制的空间地址
+            2、把函数体里的代码以字符串的格式存进去
+            3、把16进制的地址赋值给函数名
+         */
+/*     }
+    fn(); */
+    /* 
+    函数执行：
+        1、首先开辟一个私有作用域（为代码执行提供环境）
+        2、形参赋值
+        3、变量提升
+        4、代码从上往下执行
+        5、作用域是否被销毁
+    
+     */
+    
+    fn();
+    function fn(){console.log(1)};
+    fn();
+    function fn(){console.log(2)};
+    fn();
+    var fn = function (){console.log(3)};
+    fn();
+    function fn(){console.log(4)};
+    fn();
+    function fn(){console.log(5)};
+    
+    </script>
+</body>
+</html>

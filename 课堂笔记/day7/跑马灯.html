@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #box{
+        width: 200px;
+        height: 200px;
+        margin: 30px auto;
+    }
+    
+    
+    
+    
+    </style>
+</head>
+<body>
+    <div id="box" style=" background: red"></div>
+    <script>
+    let box = document.getElementById('box');
+    box.onclick = function(){
+        let color = box.style.background;
+        switch (color){
+            case 'red':
+                box.style.background= 'green';
+                break;
+            case 'green':
+                box.style.background = 'orange';
+                break;
+            default :
+                box.style.background = 'red';
+        }
+    }
+    
+    
+    
+    
+    </script>
+</body>
+</html>

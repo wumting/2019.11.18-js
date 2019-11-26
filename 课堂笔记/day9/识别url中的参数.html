@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let url =  'https://www.baidu.com?wd=自行车&name=333&age=18'
+        // let obj = {
+        //     wd:'自行车',
+        //     name:333,
+        //     age:18
+        // }
+/*     let index = url.indexOf('?');
+    let params = url.substring(index+1);
+    //'wd=自行车&name=333&age=18'
+    let ary = params.split('&');
+    console.log(ary);
+    // ["wd=自行车", "name=333", "age=18"]
+    let obj = {};
+    for(var i = 0;i<ary.length;i++){
+        let newAry = ary[i].split('=');
+        console.log(newAry)
+       obj[newAry[0]] = newAry[1];
+    }
+    console.log(obj) */
+    // let url = 'https://www.baidu.com?wd=自行车&name=333&age=18'
+
+// let obj = {
+//     wd:'自行车',
+//     name:333,
+//     age:18
+// }
+// 1、拿到url的参数
+let index = url.indexOf('?');
+let params = url.substring(index+1);
+// 'wd=自行车&name=333&age=18'
+let ary = params.split('&');
+// ["wd=自行车", "name=333", "age=18"]
+console.log(ary);
+let obj = {}; // 
+for (var i = 0; i < ary.length; i++) {
+    let newAry = ary[i].split('=')
+   // ['wd','自行车']
+   obj[newAry[0]] = newAry[1]
+}
+console.log(obj)
+    </script>
+</body>
+</html>

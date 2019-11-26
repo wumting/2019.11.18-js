@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 把'2019-1-2 17:46' 改为 '2019年11月12日 17分46秒'
+
+        /* 这是不足十，补零的方法
+        // function addZero(val){
+        //     if(val.length === 1){
+        //         return '0'+ val
+        //     }
+        //     else {
+        //         return val
+        //     }
+        // }
+        */
+        let addZero = val => val.length === 1 ? '0' + val : val;
+
+
+        let str = '2019-1-2 17:46' // '2019年11月12日 17分46秒'
+        // str = str.replace('-', '年').replace('-', '月').replace(' ', '日 ').replace(':', '时') + '分'
+        // console.log(str)//  2019年11月12日 17时46分
+        let y = str.indexOf('-');
+        let m = str.lastIndexOf('-');
+        let d = str.indexOf(' ');
+        let year = str.substring(0, y);
+        let month = str.substring(y + 1, m);
+        let day = str.substring(m + 1, d);
+        // console.log(year, month, day)
+
+        let res = addZero(year) + '年' + addZero(month) + '月' + addZero(day) + '日'
+        console.log(res)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Fn(x, y) {
+            this.x = x;
+            this.y = y;
+            this.getX = function () {
+                 console.log(this.x);
+             }
+        }
+        Fn.prototype.getX = function () {
+            return this
+        }
+        Fn.prototype.getY = function () {
+            console.log(this.z);
+        };
+        var f1 = new Fn(300, 200);
+        var f2 = new Fn(100, 200);
+        f1.__proto__.x = 300;
+        f1.__proto__.__proto__.z = 315;
+        f2.r = 300;
+        f1.x = "恭喜发财"
+        f1.__proto__.eat = function(){
+            return this.z;
+        }
+        console.log(Fn.prototype.getX().x === f2.r);//300 300  true
+        console.log(f1.z);//315
+        console.log(Fn.prototype.__proto__.__proto__);//null
+        console.log(f2.eat());//315
+        console.log( Fn.prototype.getY());//315 un
+        f1.getX()//"恭喜发财"
+
+    </script>
+</body>
+</html>

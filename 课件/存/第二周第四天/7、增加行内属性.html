@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <script>
+        /* 
+        setAttribute('属性名',属性值)； 在元素结构中设置属性
+        getAttribute('属性名') 在元素结构中获取属性
+        removeAttribute('属性名'); 在元素结构中移除属性
+        */
+        let btns = document.querySelectorAll('button');
+        console.log(btns)
+        // for (var i = 0; i < btns.length; i++) {
+        //     // 把属性存储到元素的堆地址中
+        //     btns[i].myIndex  = i;
+        //     btns[i].onclick = function(){
+        //         // 在相应的元素的堆地址中获得属性名所对应的属性值
+        //         alert(this.myIndex)
+        //     }
+        // }
+
+
+            //这两种方式不能混淆
+        for (var i = 0; i < btns.length; i++) {
+            // 把属性存储到元素的结构中，在元素的行内可以看到
+            btns[i].setAttribute('data-index',i); // 给每一个button的结构中增加属性
+            // btns[i].removeAttribute('data-index');// 给每一个button的结构中移除属性
+            btns[i].onclick = function(){
+                // 获取结构中的属性
+                alert(this.getAttribute('data-index'))
+            }
+        }
+        console.log(btns)
+        
+    
+    </script>
+</body>
+</html>

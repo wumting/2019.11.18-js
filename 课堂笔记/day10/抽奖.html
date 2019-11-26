@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>抽奖系统</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 500px;
+            margin: 200px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id = "box">
+        <span id="show">请点击开始</span><button id="btn">开始</button>
+    </div>
+    <script>
+    let box = document.getElementById('box');
+    let show = document.getElementById('show');
+    let btn = document.getElementById('btn');
+    let ss = null;
+    btn.onclick = function(){
+        let value = btn.innerText;
+        if(value === '开始'){
+            ss = setInterval(createName,100)
+            btn.innerText = '停止'
+        }else{
+            clearInterval(ss);
+            btn.innerText = '开始'
+        }
+    }
+    function createName(){
+        let ary = ['孙鹏贵', '郭靖', '吴梦婷', '苏鑫', '乔岩','刘琨鹏', '杨扬', '梁术青', '贾延楷', '刘胜', '王裴', '罗宏杰','肖依悦', '张岩', '屈军军', '付晋晋', '赵宁磊', '信为亚', '池瑞镇', '赵猛', '刘刚 ', '孙龙', '赵勇', '刘文甜', '王珊珊', '邢民华', '刘宝华', '宋泽', '杨成祥', '杨晨涛', '王兴楠', '李媛'];
+        let index = Math.round(Math.random()*(ary.length-1))
+        let name = ary[index];
+        show.innerText = name;
+    }
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

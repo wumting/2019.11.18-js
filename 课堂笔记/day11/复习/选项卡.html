@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #box{
+        width: 400px;
+        margin: 30px auto;
+
+    }
+    ul{
+        list-style: none;
+        display: flex;
+
+    }
+    ul li{
+        font-size: 20px;
+        color: blue;
+        border: 1px solid #666666;
+        margin-right: 10px;
+        width: 80px;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        position: relative;
+        top: 1px;
+        cursor: pointer;
+    }
+    #box div{
+        width: 400px;
+        height: 300px;
+        text-align: center;
+        line-height: 300px;
+        border: 1px solid #666666;
+        display: none;
+    }
+    #box .active{
+        display: block;
+    }
+    #nav .active{
+        border-bottom-color: white;
+    }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul id="nav">
+            <li class="active">孙悟空</li>
+            <li>猪无能</li>
+            <li>沙和尚</li>
+        </ul>
+        <div class="active">俺老孙来也</div>
+        <div>趁早分家的了</div>
+        <div>二师兄说得对</div>
+    </div>
+    <script>
+    let box = document.getElementById('box');
+    let nav = document.getElementById('nav');
+    let navList = nav.getElementsByTagName('li');
+    let tabList = box.getElementsByTagName('div');
+/*     for(var i=0;i<navList.length;i++){
+        navList[i].myIndex = i;
+        navList[i].onclick = function(){
+           fn(this.myIndex);
+        }
+    } */
+
+    //======方法二  这两种方式不能混淆
+    for(var i=0;i<navList.length;i++){
+        //把属性存储到元素的结构中，在元素的行内可以看到 移除：removeAttribute('data-index')
+        navList[i].setAttribute('data-index',i);
+    //  navList[i].removeAttribute('data-index');//在元素结构中移除属性
+        navList[i].onclick = function(){
+            //获取结构中的属性
+           fn(this.getAttribute('data-index'));
+        }
+    }
+    function fn(index){
+        for(var i=0;i<navList.length;i++){
+            navList[i].className = '';
+            tabList[i].className = '';
+        }
+        navList[index].className = 'active';
+        tabList[index].className = 'active';
+
+    }
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

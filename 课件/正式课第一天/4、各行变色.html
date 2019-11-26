@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+            width: 500px;
+            margin: 20px auto;
+            text-align: center;
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <ul id='ul1'>
+        <li>我是第1个li</li>
+        <li>我是第2个li</li>
+        <li>我是第3个li</li>
+        <li>我是第4个li</li>
+        <li>我是第5个li</li>
+    </ul>
+    <script>
+        let lists = document.getElementsByTagName('li');
+        console.log(lists)
+        let ss = null
+        for (var i = 0; i < lists.length; i++) {
+            if(i%2 === 0){
+                lists[i].style.background = 'red';
+                lists[i].color = 'red'
+            }
+            else {
+                lists[i].style.background = 'green';
+                lists[i].color = 'green'
+            }
+            lists[i].myIndex = i+1;
+            lists[i].onmouseenter = function(){
+                ss = this.style.background;
+                this.style.background = 'pink'
+            }
+            lists[i].onmouseout = function(){
+                // this.style.background = ss
+                this.style.background = this.color
+            }
+            lists[i].onclick = function(){
+                alert(`我是第${this.myIndex}个li`)
+            }
+
+        }
+    </script>
+</body>
+</html>

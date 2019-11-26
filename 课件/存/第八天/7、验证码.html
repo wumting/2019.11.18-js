@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 500px;
+            margin: 100px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id = "box">
+        <div>
+            <span id = "show">放验证码</span><button id="btn">看不清</button>
+        </div>
+        <input type="text" id="input">
+    </div>
+    <script>
+        let show = document.getElementById('show');
+        let btn = document.getElementById('btn');
+        let input = document.getElementById('input');
+
+        btn.onclick = function(){
+            createCode()
+        }
+        // input失去焦点事件（当失去光标就会触发）
+        input.onblur =function(){
+            let inputValue = input.value.toLowerCase();
+            // 获取input的值，然后转小写
+            let showValue = show.innerText.toLowerCase();
+            // 获取当前页面的验证码的值，然后转小写
+
+            // 把两个值进行比较，如果相等就成立
+            if(inputValue === showValue){
+                alert('恭喜') // 提示用户输入正确
+            }
+            else{
+                // 如果用户输入的验证码不对，那就让验证码刷新，在把input框清空
+                alert('对不起，不对')// 提示用户输入不正确
+                createCode(); // 让验证码刷新
+                input.value = '' //  把input框清空
+            }
+        }
+        createCode()
+
+        function createCode(){
+            let str = '123456789asdfghjklASDFGHJKL'; //先创建一个字符串
+            let value = ''; //创建一个变量，用来拼接每一次获取的字符串
+            // Math.round(Math.random()*(m-n)+n) 获取n到m之间的整数（包括n和m）
+
+            // 想生成几个就循环几次
+            for (var i = 0; i < 4; i++) {
+               let index = Math.round(Math.random()*(str.length-1-0)+0);
+               // 随机生成一位索引
+               let ss = str[index];
+               // 通过索引获取对应的字符
+               value+=ss;
+               // 把字符拼接到value里
+            }
+
+            show.innerText = value;
+            // 把获取的四位字符串放到页面的span中
+            console.log(value)
+        }
+    </script>
+</body>
+</html>

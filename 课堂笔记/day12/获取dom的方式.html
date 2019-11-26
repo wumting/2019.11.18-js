@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <ul id="navList">
+      <li>我是第1个li</li>
+      <li>我是第2个li</li>
+      <li>我是第3个li</li>
+    </ul>
+    <div>
+        <span></span>
+    </div>
+    <div></div>
+    <div></div>
+
+  </div>
+    <script>
+  /*1、 document.getElementById():在document上下文下获取元素（通过Id获取的元素是      一个元素对象，获取不到就是null）
+    2、context.getElementsByTagName('标签名')：通过指定的上下文获取指定的标签，获取的是一个元素集合，如果没有获取到元素,那就是空元素集合
+    3、context.getElementsByClassName('')：通过指定的上下文获按照class名取指定的标签，获取的是一个元素集合，如果没有获取到元素,那就是空元素集合 
+    4、document.body/document.head/document.documentElement（获取body、头部、html）
+    5、box.querySelector() :在指定的上下文中通过选择器获取第一个元素，获取不到就是null，
+    6、box.querySelectorAll():在指定的上下文中通过选择器获取一组元素集合，获取不到就是空元素集合
+    */
+    let list = document.querySelectorAll('#navList li:nth-child(2)');
+    console.log(list)
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

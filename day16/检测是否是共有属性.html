@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let sry = [1, 2, 3];
+        Object.prototype.hasPubProperty = function (value) {
+            let ary = ['Number', 'string'];
+            if (!ary.includes(typeof value)) {
+                return false;
+            }
+            let n = value in this;
+            let m = this.hasOwnProperty(value);
+            // return n && !m;
+            if (n === true && m === false) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        console.log(sry.hasPubProperty([]));//false
+        console.log(sry.hasPubProperty('push'));//true
+        console.log(Object.prototype.hasPubProperty('hasOwnProperty'))//false
+        console.log(Object.__proto__.__proto__.hasPubProperty('hasOwnProperty'))//false
+
+
+        function Fn() {
+            this.x = 100;
+            this.y = 100;
+        }
+        Fn.prototype.getX = function () {
+            console.log(this.x)
+        }
+        let f1 = new Fn;
+        Fn.prototype = {
+            getY: function () {
+                console.log(this.y)
+            }
+        };
+        let f2 = new Fn;
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            font-size: 30px;
+            color: white;
+            background: red;;
+        }
+    </style>
+</head>
+<body>
+    <div  class="box"><span>111</span></div>
+    <script>
+        /* 
+        节点.cloneNode(true/false);克隆节点，如果传参是true就是深克隆，如果不传参或者传false就是浅克隆（只复制外层元素，不复制里边的内容）
+        */
+        let one = document.getElementsByClassName('box')[0];
+        let clone1 = one.cloneNode(); // 如果不传参，就是浅克隆
+        let clone2 = one.cloneNode(true); // 深克隆
+        let clone3 = one.cloneNode(false); // 传false，就是浅克隆
+        clone1.innerHTML = '<span>222</span>'; // 修改clone1的内容
+        clone2.children[0].innerText = '333'; // 修改clone2里的span元素的内容
+        document.body.appendChild(clone1); // 把clone1插入到body的末尾
+        document.body.appendChild(clone2)// 把clone2插入到body的末尾
+        console.log(clone1, clone2, clone3)
+    
+    </script>
+</body>
+</html>

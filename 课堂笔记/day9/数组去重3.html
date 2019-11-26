@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let ary = [1,1,2,3,1,2,3];
+    // 循环数组的每一项，
+    function fn(ary){
+        let newObj={};
+        for(var i=0;i<ary.length;i++){
+             // 检测一下当前项在对象里有没有，如果有，那以下条件就成立
+            //  也就是说以前就存储过这一项（证明已经是重复项了）
+            if(newObj[ary[i]] !== undefined){
+                // ary.splice(i,1);
+                ary[i] = ary[ary.length-1];
+                ary.length--;
+                i--;
+                continue;
+            }else{
+                newObj[ary[i]] = ary[i];
+                // 如果对象中没有这个属性名对应的属性值，那就新增这个键值对
+            }
+        } 
+     
+    }
+    fn(ary);
+    console.log(ary)
+    
+    
+    
+    </script>
+</body>
+</html>

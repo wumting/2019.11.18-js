@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            position: relative;
+            top: 1px;
+        }
+
+        li {
+            width: 150px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 30px;
+            color: black;
+            border: 1px solid black;
+            margin-right: 10px;
+        }
+
+        #box div {
+            width: 500px;
+            border: 1px solid black;
+            text-align: center;
+            height: 300px;
+            line-height: 300px;
+            font-size: 30px;
+            display: none;
+        }
+
+        #box {
+            width: 502px;
+            margin: 20px auto;
+        }
+
+        #box div.active {
+            display: block;
+        }
+
+        #box li.active {
+            border-bottom-color: white
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="navList">
+            <li class="active">孙悟空</li>
+            <li>猪无能</li>
+            <li>沙悟净</li>
+        </ul>
+        <div class="active">俺老孙来也</div>
+        <div>趁早分家得了</div>
+        <div>二师兄说的对啊</div>
+        <script>
+                // 1、想操作谁就获取谁
+                let box = document.getElementById('box');
+                let nav = document.getElementById('navList');
+                let navList = nav.getElementsByTagName('li');
+                let tabList = box.getElementsByTagName('div');
+                console.log(navList,tabList);
+                //2、给相应的元素绑定相应的事件
+                for (var i = 0; i < navList.length; i++) {
+                    navList[i].onclick = function(){
+    
+                    }
+                }
+    
+                function fn(index){
+                    // 1、把三个li和三个div的class名清除
+                    for (var i = 0; i < navList.length; i++) {
+                        navList[i].className = '';
+                        tabList[i].className = '';
+                    }
+                    // 2、给你点击的元素增加class名
+                    navList[index].className = 'active';
+                    tabList[index].className = 'active';
+                }
+            </script>
+</body>
+
+</html>

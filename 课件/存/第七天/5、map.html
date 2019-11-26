@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        ul {
+            list-style: none;
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid sienna;
+        }
+
+        li {
+            font-size: 20px;
+            line-height: 30px;
+            /* color: white; */
+
+        }
+
+        li:nth-child(odd) {
+            background: green;
+        }
+
+        li:nth-child(even) {
+            background: red;
+        }
+
+        .box {
+            color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="box">
+    </ul>
+    <script>
+        /* 
+        方法的含义：遍历数组，
+        方法的参数：函数
+        方法的返回值：改变后的新数组
+        原数组不变
+        */
+
+        //     ``:反引号（模板字符串）${}里可以识别变量
+        //    let ary = [1,2,3,4,5]
+        // 修改数组的值
+
+        //    let num = ary.map((item, index)=>{
+        //     // item是数组的每一项
+        //     // index是每一项的索引
+        // 数组有多少项就循环多少次
+        //     return `我是第${item}个li`
+        //    })
+        //    console.log(num)
+        //    console.log(ary)
+
+        let box = document.getElementById('box');
+        // 获取ul元素
+        let ary = [1, 2, 3, 4, 5];
+        // 遍历数组，把数组处理成我们想要的标签结构
+        let newAry = ary.map(item => {
+            // return `<li style="background:black" class="box">我是第${item}个li</li>`
+            // 模板字符串，${}里可以识别变量
+
+            return '<li class="box">我是第' + item + '个li</li>';
+            // 字符串拼接
+        })
+        console.log(newAry);
+        // ["<li class="box">我是第1个li</li>", "<li class="box">我是第2个li</li>", "<li class="box">我是第3个li</li>", "<li class="box">我是第4个li</li>", "<li class="box">我是第5个li</li>"]
+
+        let str = newAry.join('');
+        console.log(str);
+        // <li class="box">我是第1个li</li><li class="box">我是第2个li</li><li class="box">我是第3个li</li><li class="box">我是第4个li</li><li class="box">我是第5个li</li>
+
+        box.innerHTML = str;
+        // 把这些字符串插入到ul元素当中
+    </script>
+</body>
+
+</html>

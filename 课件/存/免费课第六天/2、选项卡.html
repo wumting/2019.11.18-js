@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+         <button>1</button>
+         <button>2</button>
+         <button>3</button>
+    </div>
+   
+    <script>
+        let box = document.getElementById('box');
+        let btnList = box.getElementsByTagName('button'); //是一个类数组
+        for (var i = 0; i < btnList.length; i++) {
+           btnList[i].myIndex = i
+           btnList[i].onclick = function () {alert(this.myIndex)}
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 500px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        #but {
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: salmon;
+            font-size: 18px;
+            border: 1px solid #666666;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+        #pig{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="but">显示</div>
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573150275632&di=8a7f6c6ddf4656c1a67b519bb7244be9&imgtype=jpg&src=http%3A%2F%2Fimgsa.baidu.com%2Fexp%2Fw%3D500%2Fsign%3Df0c47dd191504fc2a25fb005d5dfe7f0%2F6d81800a19d8bc3e6edff713888ba61ea9d34510.jpg"
+            alt="" id="pig">
+
+    </div>
+    <script>
+        let but = document.getElementById('but');
+        let pig = document.getElementById('pig');
+
+        but.onclick = function(){
+            let content = but.innerText;
+            switch(content){
+                case '显示':
+                    but.innerText = '隐藏';
+                    pig.style.display = 'block';
+                    break;
+                case '隐藏':
+                but.innerText = '显示'; 
+                pig.style.display = 'none';
+                    break; 
+            }
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

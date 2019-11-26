@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小时钟</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        #box {
+            width: 1000px;
+            height: 300px;
+            background: -webkit-linear-gradient(top right, rgba(255, 0, 242, 0.281), rgba(128, 0, 128, 0.13), rgba(200, 255, 0, 0.199));
+            line-height: 300px;
+            text-align: center;
+            font-size: 50px;
+            font-weight: 700;
+            margin: 100px auto;
+            color: orangered;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        let box = document.getElementById('box');
+
+        // function addZero(val){
+        //     // 如果传进来的数小于10，那就给他补0
+        //     if(val<10){
+        //         return '0'+val
+        //     }
+        //     else {
+        //         return val
+        //     }
+        // }
+        // 不足十位补0的方法
+        let addZero = val => val < 10 ? '0' + val : val;
+
+        // 把阿拉伯数字的星期转化为中国汉字的星期
+        function trans(val) {
+            // 星期映射表
+            let obj = {
+                0: '日',
+                1: '一',
+                2: '二',
+                3: '三',
+                4: '四',
+                5: '五',
+                6: '六'
+            }
+            return obj[val]
+        }
+        setTime()// 当页面初次渲染的时候让时间获取一次，要不然页面会闪一次
+        // 获取时间的方法 
+        function setTime() {
+            let time = new Date();// 获取当前时间
+            let year = time.getFullYear(); // 获取年
+            let month = time.getMonth() + 1; // 获取月
+            let date = time.getDate(); // 获取日
+            let day = time.getDay(); // 获取星期
+            let hour = time.getHours(); // 获取小时
+            let min = time.getMinutes(); // 获取分钟
+            let sec = time.getSeconds(); // 获取秒
+
+            let value = year+ '年'+ addZero(month) + '月'+ addZero(date)+'日 星期'+ trans(day)+ ' '+addZero(hour)+ '时' + addZero(min) + '分' + addZero(sec)+'秒';
+            // 把所有的时间拼接到一起
+            box.innerText = value;
+            // 把拼接好的时间插入到页面
+        }
+
+        setInterval(setTime, 1000);
+        // 让定时器每间隔一秒就执行一次setTime这个方法（这是实现时钟的核心）
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"><p id="box1"></p>
+        <span>wulitgtou</span>
+        <span id="hh">wulitou</span>
+        <span>wulitou</span>
+        <span class="aa">wulitou</span>
+
+    </div>
+    <script>
+    /* 节点：页面中所有的东西都是节点，所有的节点都是对象
+        节点名       nodetype         nodeName      nodeValue
+       元素节点         1            大写的标签名       null
+       文本节点         3            '#text'       文本的内容
+       注释节点         8            '#comment'    注释的内容
+       文档节点         9            '#document'       null
+    
+     */
+ /*    var box = document.getElementById('box');
+    function children(context){
+        var child = context.childNodes;
+        var ary = [];
+        for(var i=0;i<child.length;i++){
+            if(child[i].nodeType === 1){
+                ary.push(child[i]);
+            }
+        }
+        return ary;
+    }
+    console.log(children(box).length); */
+    
+/*     console.log(box.firstChild);
+    console.log(box.firstElementChild);
+    console.log(box.lastChild);
+    console.log(box.lastElementChild);
+    console.log(hh.previousSibling);
+    console.log(hh.previousElementSibling); */
+    function prev(context){
+                var pre = context.previousSibling;
+                // if(pre === null){
+                //     return pre
+                // }
+                while(pre !==null&&pre.nodeType !==1){
+                    pre = pre.previousSibling
+                }
+                return pre
+            }
+            console.log(prev(box1)) // null
+    </script>
+</body>
+</html>

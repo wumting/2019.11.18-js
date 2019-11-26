@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let ary = [12, 34, 45, 2, 17, 56];
+        function fn(ary) {
+            let handAry = [];//[12]
+            handAry.push(ary[0]);
+            for (var i = 1; i < ary.length; i++) {
+
+                let cur = ary[i];//抓的每一张牌
+                for (var j = handAry.length - 1; j >= 0; j--) {
+                    let item = handAry[j];//手里的牌
+                    if (cur > item) {
+                        handAry.splice(j + 1, 0, cur);
+                        break;
+                    }
+                    if (j === 0) {
+                        handAry.unshift(cur);
+                    }
+                }
+
+            }
+            return handAry;
+        }
+        console.log(fn(ary))
+
+
+
+    </script>
+</body>
+
+</html>

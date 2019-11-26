@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>parseFloat和parseInt转数字</title>
+</head>
+<body>
+    <script>
+    //从左到右依次查找有效数字，一旦发现非有效数字立即停止查找，把找到的数字返回出去（parseInt不可以识别小数点，parseFloat可以识别小数点）
+    /* 如果从一开始就是非有效数字，那结果就是NaN
+    如果你要转换的值不是字符串类型，先转换为字符串类型，在查找
+    true，false，null，undefined，{}，NaN转都是NaN
+    【】是先转换为字符串，在进行查找 */
+    let num = 3.1415926;
+    console.log(parseInt(num))
+    console.log(parseFloat(num))
+    let a = true;
+    console.log(parseInt(true))
+
+
+    //检测一个值是否是一个非有效数字，如果是就是true，反之就是false
+    console.log(isNaN(3))
+    //如果你要检测的值不是数字类型，那么先转换为数字类型，在检测
+    console.log(isNaN(true))
+    console.log(isNaN( Number( isNaN(NaN) ) ) )//=>isNaN(NaN)=>true  Number(true)=>1  isNaN(1)=>false
+    </script>
+</body>
+</html>

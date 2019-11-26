@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+     *{
+        margin:0;
+        padding: 0;
+    }
+    #box{
+        width: 300px;
+        margin: 20px auto;
+        border: 1px solid #666;
+        list-style: none;
+    }
+    .active{
+        font-size: 20px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+    }
+    .active:nth-child(odd){
+        background: chartreuse;
+    }
+    
+    </style>
+   
+</head>
+<body>
+    <ul id="box">
+
+    </ul>
+    <script>
+    let box =document.getElementById('box');
+    let str = [1,2,3,4,5];
+    let newAry=str.map(item =>{
+        return `<li class="active">我是第${item}个li</li>`
+    }
+        )
+    let ary = newAry.join('');
+    box.innerHTML = ary;
+    console.log(ary)
+
+
+
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>
