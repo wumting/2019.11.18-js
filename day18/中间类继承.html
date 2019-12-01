@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function fn(){
+        console.log(arguments instanceof Array);//false
+        arguments.__proto__ = Array.prototype;
+        console.log(arguments.push())//f push ()
+    }
+    fn()
+    /* 
+    arguments虽然不是Array的实例，但是我们可以手动把arguments的__proto__指向Array的原型，那这样arguments就可以使用Array原型上的方法了，这就是中间类继承
+    
+     */
+    
+    </script>
+</body>
+</html>

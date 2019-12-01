@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Object.create(context): // 创建一个空对象，让对象的__proto__指向你传的第一个参数
+        // let obj = { name: 3, getX: function () { console.log(11) } }
+        // let o = Object.create(obj)
+        // console.log(o)
+        function A(){
+            this.a = 10;
+        }
+        A.prototype.getX = function(){console.log('恭喜发财')}
+        function B(){
+            this.x = 20;
+            A.call(this);
+        }
+        B.prototype = Object.create(A.prototype);
+        let f = new B;
+        f.__proto__.getY = function(){
+            console.log(333)
+        }
+        let m = new A;
+        // m.getY()//报错
+        f.getX()//'恭喜发财'
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+        /* 
+        call/apply/bind
+        这三个方法都是Function原型上的方法，那就是说Function的实例就可以调取使用，所有的函数都是Function的实例
+        */
+        // function fn() {
+        //     console.log(this)
+        // }
+        // fn()
+        // let obj = {}
+        // obj.fn = fn;
+        // obj.fn();
+        // delete obj.fn
+        // fn.call(obj)
+        /* 
+        1、fn通过__proto__找到当前所属类的原型上的方法call，
+        2、让call方法执行，并且给call传递实参，
+        3、让call方法执行的同时，call也让fn方法执行，通过把fn的this指向了传递的第一个参数
+
+        apply：跟call一样，就是第二个参数必须是数组或者类数组
+        bind:他也是改变实例的this指向，但是不会执行实例，只会提前改变实例的this指向，他的返回值就是改变this之后的新函数
+        */
+        //    function fn(n,m){
+        //     console.log(this, n,m)
+        //    }
+        //    let obj = {}
+        //    fn.apply(obj,[10, 20])
+
+        // function fn(n, m) {
+        //     console.log(this, n, m)
+        // }
+        // let obj = {}
+        // fn = fn.bind(obj,10,20);
+        // fn()
+
+        /* 
+            在非严格模式下，传空、null、undefined，this是window
+            在严格模式下，传空、undefined，this是undefined，传null，this是null
+        */
+
+        //============call重构=================
+
+        function myCall(context,...arg){//this ->fn  context ->obj
+            context = context||window;
+            //处理传参的特殊情况，如果传的是空，null，undefined，那context的值就是window
+            let res = null//创建一个变量用来接收this执行之后的返回值
+            context.$fn = this;//给context（obj）增加键值对
+            res = context.$fn(...arg);//让this（fn）执行
+            delete context.$fn;//从obj中删除this
+            return res;
+        }
+        Function.prototype.myCall = myCall;
+        function fn(n,m){
+            console.log(this,n,m);
+        }
+        let obj = {name:18}
+        fn.myCall(null,13,24)
+        fn.call(null,13,24)
+    
+    
+    
+    </script>
+</body>
+</html>

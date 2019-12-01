@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let ary = [23,1,23,35,456,34]
+        //1.max
+        console.log(Math.max(...ary));
+        console.log(Math.min(...ary));
+        //2.sort
+        console.log(ary.sort((a,b)=>a-b)[ary.length-1])
+        console.log(ary.sort((a,b)=>a-b)[0])
+        //3.apply
+        console.log(Math.max.apply('',ary));
+        console.log(Math.min.apply('',ary));
+        //4.比较
+        let max = ary[0];
+        for(var i = 1;i<ary.length;i++){
+            var item = ary[i];
+            max <item ? max = item :null;
+        }
+        console.log(max)
+    </script>
+</body>
+</html>

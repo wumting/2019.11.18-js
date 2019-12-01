@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        原型继承：继承私有和公有
+        中间类继承：公有
+        call继承:私有属性
+        */
+        function A(){
+            this.x =10 
+        }
+        A.prototype.getX = function(){
+            console.log('万事如意')
+        }
+
+        function B(){
+            // this->当前实例
+            /* 
+            类B当做构造函数执行时，此时的this是当前实例，
+            */
+            this.a = 20
+            A.call(this)  // 把函数A当做普通函数执行，并且把A的this指向了类B的实例
+
+        }
+        let f = new B;
+        console.log(f)
+        f.getX()
+
+    </script>
+</body>
+</html>

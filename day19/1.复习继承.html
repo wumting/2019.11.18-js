@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // =============原型继承：既继承私有属性，有继承公有属性=================
+    // function A(){
+    //     this.r = 10;
+    // }
+    // A.prototype.getX = function(){console.log('哈哈')}
+    // function B(){ 
+    //     this.x = 20;
+    // }
+    // B.prototype = new A;
+    //让类B的原型指向类A的实例，所以以后类B的实例去找属性，既可以继承人家类A的私有属性，又可以继承公有属性
+    // let f = new B;
+    // console.log(f.r);
+    // f.getX()
+    
+    //===============中间类继承  只能继承公有属性=================
+    // function Fn(){
+    //     console.log(arguments instanceof Array)//false
+    //     arguments.__proto__ = Array.prototype;
+    //     console.log(arguments.push(33))//1
+    // console.log(arguments)//Arguments [33, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+
+    //     //arguments不是Array的实例，所以不能使用Array的原型的方法
+    //     //但是现在我就想使用，所以我手动把arguments的__proto__指向Array的原型，这样以后arguments就可以通过__proto__找到Array原型上的方法了，这种继承就是中间类继承
+    // }
+    // Fn()
+    </script>
+</body>
+</html>

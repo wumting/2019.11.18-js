@@ -18,7 +18,8 @@
          */
         // - 2、实现数组去重你有哪些办法？（腾讯一面）
         // let ary = [1,2,3,34,2,3]
-        // Array.prototype.myUniq = function  (){ let obj = {};
+        // Array.prototype.myUniq = function  (){ 
+        //      let obj = {};
         //     for(var i = 0;i<this.length;i++){
         //         if(obj[this[i]] !== undefined){
         //             this[i] = this[this.length-1];
@@ -50,27 +51,35 @@
         // - 4、一个url后面好多key:value，如localhost?key=val&key2=val2&key3=val3，封装一个函数 getParam(‘key’) 通过key获得相应等号后面的值（百度一面）
         //     ```
         //     例如效果：
-        var url = "locallhost?key1=val1&key2=val2&key3=val3";
+        // var url = "locallhost?key1=val1&key2=val2&key3=val3";
         //     console.log(url.getParam("key3")); //=>'val3'
         //     ```
-        function getParam(url) {
-            var index = url.indexOf('?');
-            var index1 = url.indexOf('&');
-            var param = url.substr(index + 1);
-            var param1 = param.split('&')
-                console.log(param1)
-        }
-        getParam(url)
+        // function getParam(key) {
+        //     let index = this.indexOf('?');
+        //     let index1 = this.indexOf('&');
+        //     let param = this.substr(index + 1);
+        //     let param1 = param.split('&')
+        //     console.log(param1)
+        //     let obj = {};
+        //     for (var i = 0; i < param1.length; i++) {
+        //         let newParam = param1[i].split('=');
+
+        //         obj[newParam[0]] = newParam[1];
+        //         console.log(obj)
+        //     }
+
+        //     return obj[key];
+        // }
+        // String.prototype.getParam = getParam;
+        // let a = url.getParam("key3");
+        // console.log(a)
         // - 4、编写两个方法 plus / minus 实现如下的执行效果
         // ```
-        //     let n = 10;
-        //     let m = n.plus(10).minus(5);
-        //     console.log(m);//=>15（10+10-5）
+            let n = 10;
         // ```
-        /* ~function(){
             //x是需要加减的数字,必须是有效数字
             function checkX(x){
-                
+
                 x = Number(x);
                 return isNaN(x)?0:x;
             }
@@ -85,7 +94,9 @@
             }
             Number.prototype.plus = plus;
             Number.prototype.minus = minus;
-        }() */
+            let m = n.plus(10).minus(5);
+            console.log(m);//=>15（10+10-5）
+            
         // - 5、重写数组的slice的方法(这个今天可以做不完，这周做完就好)
         // ```
         // 1、传参的各种情况都要考虑到了

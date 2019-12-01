@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">1111</div>
+
+    <script>
+        "use strict"//严格模式
+        /* 
+        每一个函数都是Function的实例，所以每一个函数都可以调取Function原型上的方法
+        call、apply、bind他们三个都可以改变函数里的this指向
+         */
+/*         function fn(n, m) {
+            console.log(this, n, m)
+        }
+        let obj = { name: 3 } */
+        //实现把函数里的this改为obj
+        /*     obj.fn = fn;
+            fn();
+            delete obj.fn; */
+        /* 
+           1. fn 通过__proto__属性找到当前所属类的原型（Function的原型）上的call方法
+           2. 让call方法执行，并且给call传递实参
+           3. 在call方法执行的同时，也让fn执行，并且把fn的this指向了第一个参数
+         */
+        // fn.call(1, 2, 3)//严格模式下，他是 1,2,3
+        // fn.call()//非严格模式下他是window undefined undefined
+        /*
+        在严格模式下，call不传参或者传undefined，那fn的this就是undefined
+        如果传null，那fn的this就是null
+        在非严格模式下，如果call不传参或者传undefined或者传null，那fn的this都是window
+        call的第一个参数是fn的this指向，从第二个开始就都是fn的正常传参了
+         */
+
+         // this不允许出现在等号的左边(不能给this直接赋值)【this不能直接改】
+
+         // 二、apply:他和call方法一样，只不过第二个参数必须是数组或者类数组
+/*         function fn(n,m){
+            console.log(this, n, m)
+        }
+        fn.apply(1, [20,30]) */
+
+        // 三、bind:这个方法也是改变this指向的，但他会提前改变实例的this指向，并不会让实例执行,他的返回值是改变this之后的新函数
+  /*       let box = document.getElementById('box');
+            let fn = function(){
+                console.log(1)
+            }
+            let obj = {}
+            // box.onclick  = fn.bind(obj)
+            fn = fn.bind(obj);
+            fn() */
+            function Fn(num){
+
+            }
+            Fn.prototype = {
+
+            }
+            console.log(Fn.prototype.constructor)
+    </script>
+</body>
+
+</html>

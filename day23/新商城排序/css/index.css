@@ -1,0 +1,69 @@
+html,boby{
+    width: 100%;
+    background: #eeeeee;
+}
+#context{
+    width: 1190px;
+    height: 40px;
+    line-height: 40px;
+    margin: 20px auto;
+    background: pink;
+}
+#nav{
+    padding-left: 10px;
+    font-size: 18px;
+}
+#nav a{
+    color: #333333;
+    position: relative;
+    margin-right: 20px;
+}
+#nav a:hover{
+    color: orange;
+}
+#nav a i{
+    width: 0;
+    height: 0;
+    border: 4px solid transparent;
+    position: absolute;
+}
+#nav a i.up{
+    border-bottom-color: #666;
+    top: 5px;
+}
+#nav a i.down{
+    border-top-color: #666;
+    top: 15px;
+}
+#nav a i.up.bg{
+    border-bottom-color: orangered;
+}
+#nav a i.down.bg{
+    border-top-color: orangered;
+}
+/* =============== */
+#cardBox{
+    width: 1190px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+#cardBox li{
+    width: 285px;
+    background: white;
+   margin: 0 10px 10px 0;
+
+}
+#cardBox li img{
+    display: block;
+    width: 200px;
+    margin-left: 40px;
+}
+#cardBox li span{
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+    color: violet;
+    margin-left: 10px;
+}
+

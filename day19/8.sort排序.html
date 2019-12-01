@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let ary = [23,4345,46,12,45,67];
+        let ary = [{ name: 3 }, { name: 1 }, { name: 5 }, { name: 3 }];
+        ary.sort((a, b) => {
+            // a和b就是数组的后一项和前一项，如果前一项减后一项大于0就交换位置
+            // console.log(a,b);
+            // return a-b
+            return a.name - b.name
+        })
+        console.log(ary)
+
+        
+    </script>
+</body>
+
+</html>

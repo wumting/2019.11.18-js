@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let ary = [2, 3, 4, 1, 2, 4, 2, 1, 9]
+        // 1、Math.max,ES6的展开收缩运算符
+        console.log(Math.max(...ary))
+        // 2、sort
+        console.log(ary.sort((a, b) => b - a)[0])
+        // 3、apply
+        console.log(Math.max.apply('', ary))
+        // 4、比较
+        let max = ary[0];
+        for (var i = 1; i < ary.length; i++) {
+            var item = ary[i];
+            if (item > max) {
+                max = item
+            }
+        }
+        console.log(max)
+    </script>
+</body>
+
+</html>

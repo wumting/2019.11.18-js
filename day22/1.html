@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     /*    let ary = [1,2,3,1,2,3,1]
+        function fn(a,b){
+            console.log(a,b)
+            let item = [];
+            for(var i = 0;i<a.length;i++){
+                if(a[i] !== b){
+                    item.push(a[i]);
+                }
+            }
+            return item
+        } */
+        // console.log(fn(ary,1))
+        function A() {
+            this.a = 10
+        }
+        A.prototype.getX = function () {
+            console.log('jingjing')
+        }
+
+        function B() {
+            // this是当前实例
+            this.x = 20;
+            this.y = A.call(this)
+        }
+        B.prototype = Object.create(A.prototype);
+        let f = new B();
+        //f -> {getY :f} -> {A.prototype -> getX:f} -> {Object.prototype}
+        f.__proto__.getY = function(){
+            console.log('哈哈哈哈')
+        } 
+        let f1 = new A;
+        //f1 -> {A.prototype} -> {Object.prototype}
+        console.log(f); // {a:10,x:20,y:undefined}
+        f.getX() // 'jingjing'
+        // f1.getY()//报错
+       let s =  f.getY();//'哈哈哈哈'
+       console.log(s)//undefined
+        
+        
+        
+        
+    </script>
+</body>
+</html>

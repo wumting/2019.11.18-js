@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //检测是否是公有属性
+        // let ary = [1,2,3]
+        // Object.prototype.hasPubProperty = function (value){
+        //     let ary = ['Number','string'];
+        //     if(!ary.includes(typeof value)){
+        //         return false;
+        //     }
+        //     let n = value in this;
+        //     let m = this.hasOwnProperty(value);
+        //     return n&&!m;
+        // }
+        // console.log(ary.hasPubProperty('push'));//true
+        // console.log(ary.hasPubProperty(0));//false
+        
+        //去重
+        // let ary = [1,2,3,1,2,3]
+        // Array.prototype.mySort = function (){
+        //     let newAry = {};
+        //     for(var i=0;i<ary.length;i++){
+        //         if(newAry[ary[i]] !== undefined){
+        //             ary[i] = ary[ary.length-1];
+        //             ary.length--;
+        //             i--;
+        //         }
+        //         newAry[ary[i]] = ary[i];
+        //     }
+        //     return ary;
+        // }
+        // console.log(ary.mySort());
+
+        //原型继承：既继承公有属性也继承私有属性
+        // function A(){
+        //     this.r = 10;
+        // }
+        // A.prototype.getX = function(){console.log('hahahha')};
+        // function B(){
+        //     this.x = 20;
+        // }
+        // B.prototype = new A;
+        // let f = new B;
+        // console.log(f.r)//10
+        // f.getX();//'hahahha'
+
+        //中间类继承：继承公有属性
+        /* 
+        arguments虽然不是Array的实例，但是我们可以手动把arguments的__proto__指向Array的原型，那这样arguments就可以使用Array原型上的方法了，这就是中间类继承
+        */
+        // function Fn(){
+        //     arguments.__proto__ = Array.prototype;
+        // }
+        // Fn();
+        
+        //call继承，只能继承私有属性
+    //     let obj ={name:2};
+    //     function fn(){
+    //         this.r = 10;
+    //         // console.dir(obj)
+    //         return this;
+    //     }
+    //    fn();
+     
+    // //    obj.fn = fn;
+    // //    obj.fn();
+    // //    delete obj.fn;
+    //   console.log(fn.call(obj))
+       
+        //apply
+        // function fn(n,m){
+        //     console.log(this,n,m);
+        // }
+        // let obj ={};
+        // fn.apply(obj,[10,20]);
+
+        //call的封装
+        // Function.prototype.myCall = function(context){
+        //     let res = null;
+        //     context = context || window;
+        //     context.$fn = fn;
+        //     res = context.$fn();
+        //     delete context.$fn;
+        //     return res;
+        // }
+        // function fn(n,m){
+        //     console.log(this,n,m);
+        // }
+        // let obj = {name:3};
+        // fn.myCall(null);
+        // fn.call(null);
+
+        //寄生混合继承：继承公有属性和私有属性
+        // function A(){
+        //     this.a = 10;
+        // }
+        // A.prototype.getX = function(){
+        //     console.log('恭喜发财');
+        // }
+        // function B(){
+        //     this.r = 20;
+        //      A.call(this;);
+        // }
+        // B.prototype = Object.create(A.prototype);
+        // let f = new B;
+        // f.__proto__.getY = function(){
+        //     console.log(333);
+        // }
+        // let m = new A;
+        // f.getX();//'恭喜发财'
+        // m.getY();//报错
+
+        //url
+        var url = "locallhost?key1=val1&key2=val2&key3=val3";
+        function fn(key){
+            let index = this.indexOf('?');
+            let prames = this.substr(index+1).split('&');
+            let obj = {};
+            for(var i=0;i<prames.length;i++){
+               let newPrames = prames[i].split('=')
+               obj[newPrames[0]] = newPrames[1];
+            }
+           return obj[key];
+        }
+        String.prototype.fn = fn;
+        console.log(url.fn('key1'));
+
+
+    </script>
+</body>
+</html>

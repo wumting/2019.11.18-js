@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            width: 500px;
+            margin: 90px auto 20px auto;
+            border: 1px solid orangered;
+        }
+
+        li {
+            border: 1px solid green;
+            background: rgba(218, 112, 214, 0.356);
+            font-size: 30px;
+            line-height: 50px;
+            text-align: center;
+
+        }
+
+        button {
+            background: orangered;
+            display: block;
+            margin: 20px auto;
+            width: 100px;
+            text-align: center;
+            font-size: 30px;
+            border: 1px solid #666666;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="ul">
+        <li>34</li>
+        <li>32</li>
+        <li>56</li>
+        <li>12</li>
+        <li>75</li>
+    </ul>
+    <button id="btn">排序</button>
+    <script src="./js/utils.js"></script>
+    <script>
+        /*
+        1. 想操作谁就获取谁
+        2. 给相应的元素绑定相应的事件
+        3. 在方法里做你想做的事
+            + 把元素集合转数组
+            + 把数组进行排序
+            + 把数组里的数据插入到页面
+
+        */
+        // 1. 获取元素
+        let ul = document.getElementById('ul');
+        let btn = document.getElementById('btn');
+        let list = ul.getElementsByTagName('li');
+        let flag = true;
+        console.log(ul, btn, list)
+
+        //2. 绑定事件
+        btn.onclick = fn;
+        function fn() {
+            /* 
+            + 把元素集合转数组
+            + 把数组进行排序
+            + 把数组里的数据插入到页面 
+            */
+            //把元素集合转数组
+            let ss = utils.toArray(list);
+            //把数组进行排序
+            if (flag) {
+                flag = false;
+                ss.sort((a, b) => Number(a.innerHTML) - Number(b.innerHTML))
+            } else {
+                flag = true;
+                ss.sort((a, b) => Number(b.innerHTML) - Number(a.innerHTML));
+            }
+
+            //把数组里的数据插入到页面
+            for (var i = 0; i < ss.length; i++) {
+                ul.appendChild(ss[i]);
+            }
+            //    console.log(ss)
+        }
+        /* DOM映射机制：页面中的标签和js中获取的DOM元素是一一关联的，如果你把标签的内容改了，那js中的DOM元素也跟着改变 */ 
+        
+        // var url = "locallhost?key1=val1&key2=val2&key3=val3";
+        // console.log(url.getParam('key3'))
+        // let sry = [1, 2, 3];
+        // console.log(sry.hasPubProperty('0'))//false
+        // console.log(sry.hasPubProperty('push'))
+    //     let sry = [1, 2, 3,1, 2, 3];
+    //    console.log( sry.myUnique())
+    // console.log(utils.mySum(1,5,3,4))
+    </script>
+</body>
+
+</html>

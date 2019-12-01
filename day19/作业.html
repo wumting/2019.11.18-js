@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         - 1. 分析下面的changeThis方法该如何实现？ （阿里面试题改版）
+//     ```javascript
+    Function.prototype.changeThis=function (context,ary){
+//         //=>实现你的代码  
+        let index = 0; 
+        ary.forEach(item => {
+            index += item;
+        });
+        context.total = index;
+        return context;
+        
+    };
+    
+    let obj = {name:'Alibaba'};
+    function fn(x,y){
+        // this.total=x+y;
+    	// return this;
+    }
+    let res = fn.changeThis(obj,[100,200]);
+    console.log(res)
+//     //res => {name:'Alibaba',total:300}
+//     ```
+// - 2、把自己封装的方法或者工具放到自己的utils里
+// - 3、在数组的原型上封装数组剩余的其他方法(慢慢做)
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // function myCall(index,...ary){
+        //this->fn  index->obj
+    //     let res = null;
+    //     index = index || window;
+    //     index.$fn = this;
+    //     res = index.$fn(...ary) 
+    //     delete index.$fn
+    //     return res;
+    // }
+    // Function.prototype.myCall = myCall;
+    // function fn(){
+    //     console.log(this)
+    //     return  1
+    // }
+    // let obj = {name:3}
+    // // fn.call(obj)
+    // console.log(fn.myCall(obj,12,23))
+    // console.log(obj)
+    
+
+    function myCall(context, ...arg) { // 收缩运算符
+            // this->fn    context->obj
+            let res = null; // 初始化一个实例的返回值
+            context = context || window // 如果参数传的是unedfined和null和空，那第一个参数就是window
+            context.$fn = this // 把当前实例放到对象里
+            res = context.$fn(...arg); // 让this执行（让当前实例执行）
+            delete context.$fn // 在对象里删除那个实例
+            return res;
+        }
+        Function.prototype.myCall = myCall;
+
+        function fn(n,m) {
+            console.log(this,n,m);
+            return 1
+        }
+        let obj = {
+            name: 3
+        }
+        console.log(fn.call(obj, 12, 23)) 
+        console.log(fn.myCall(obj, 12, 23))
+        console.log(obj)
+    </script>
+</body>
+</html>
