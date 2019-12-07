@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        匹配有效数字
+        1、开头有可能出现+-
+        2、数字如果是一位， 有可能是两位，
+        3、小数点部分
+        */
+        let reg = /^[+-]?(\d|([1-9]\d+))(\.\d+)?$/
+        console.log(reg.test('1.2'))//true
+        console.log(reg.test('-1.2'))//true
+        console.log(reg.test('+1.2'))//true
+        console.log(reg.test('1.2.'))//false
+        console.log(reg.test('0'))//true
+
+
+
+
+
+
+    </script>
+</body>
+</html>

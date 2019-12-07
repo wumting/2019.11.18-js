@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /*  let str = '{3}ww{1}ww'
+        function execAll(str){
+            if(!this.global){
+                return this.exec(str)
+            }
+            let big = [],
+            small = [],
+            res = this.exec(str)
+        }
+        RegExp.prototype.execAll = execAll;
+         */
+    
+       // 封装一个方法，当正则进行捕获的时候要拿到每一次全局捕获的内容，还要拿每一次分组捕获的内容
+       let str = '{3}ww{1}ww{5}'
+       let reg = /\{\d+\}/g
+       function execAll(str){
+            // 如果正则不加g，那正则实例身上的私有属性global就是false，反之就是true
+            if(!this.global){
+                // 直接给他捕获一次return 出去
+                return this.exec(str)
+            }
+            let big = [], // 创建一个大数组用来存储全局捕获的内容
+            small = [],  // 创建一个小数组用来存储分组捕获的内容
+            res = this.exec(str) // 创建一个变量，用来存储每一次捕获的内容
+            while(res){
+                big.push(res[0])
+                small.push(res[1])
+                // 重复执行正则捕获这个动作
+                res = this.exec(str)
+            }
+
+            return big.length === 0?null: {big,small}
+            // 把捕获到的内容return出去
+            // console.log(res)
+        }
+        RegExp.prototype.execAll = execAll;
+        console.log(reg.execAll(str))
+
+    
+    
+    
+    </script>
+</body>
+</html>

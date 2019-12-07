@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    html,body{
+        height: 1000%;
+        background: -webkit-linear-gradient(top left,lightblue,lightpink,lightyellow);
+    }
+    #link{
+        position: fixed;
+        box-sizing: border-box;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        border-radius: 50%;
+        background: pink;
+        right: 30px;
+        bottom: 30px;
+        font-size: 16px;
+        color: #000;
+        text-decoration: none;
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <a href="javascript:;" id="link">回到顶部</a>
+    <script>
+        //js实现居中效果
+        //可视窗口的宽度 - 盒子本身的宽度
+        // let winW = document.documentElement.clientWidth,
+        //     winH = document.documentElement.clientHeight,
+        //     box = document.getElementById('box');
+        // box.style.position = 'absolute';
+        // box.style.left = (winW-300)/2 +'px';
+        // box.style.top = (winH-300)/2+'px';
+        let html = document.documentElement,
+            link = document.getElementById('link');
+        function check(){
+            let winH = html.clientHeight;
+            let scrollT = html.scrollTop; 
+            link.style.display = scrollT>=winH*2?'block':'none';
+        }
+        window.onscroll = check;
+        link.onclick = function(){
+            link.style.display = 'none';
+            window.onscroll = null;
+            let step = 1000;
+            let timer = setInterval(() => {
+                let cur = html.scrollTop;
+                if(cur === 0){
+                    clearInterval(timer);
+                    window.onscroll = check;
+                    return;
+                }
+                cur -= step;
+                html.scrollTop = cur;
+            }, 17);
+           
+        }
+    
+    
+    
+    </script>
+</body>
+</html>

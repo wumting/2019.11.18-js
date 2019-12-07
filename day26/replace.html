@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+           let str = 'good day';
+            let reg = /\b([a-z])[a-z]+\b/g
+            str = str.replace(reg, (word, firstWord)=>{
+                // 1、先把首字母转大写
+                // 2、截取单词第一项往后的单词
+                // 3、把转大写的首字母和截取到的字母拼接到一起
+                // 4、用拼接后的单词替换捕获到的内容
+                // console.log(word, firstWord)
+                firstWord = firstWord.toUpperCase();
+                word = word.slice(1);
+                return firstWord+word;
+
+            })
+            console.log(str);
+     
+
+    </script>
+</body>
+
+</html>

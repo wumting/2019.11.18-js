@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 300px;
+            height: 200px;
+            margin: 500px auto;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="./img/default.jpg" trueImg="./img/1.jpg" alt="">
+        <img src="./img/default.jpg" trueImg="./img/2.jpg" alt="">
+        <img src="./img/default.jpg" trueImg="./img/3.jpg" alt="">
+        <img src="./img/default.jpg" trueImg="./img/4.jpg" alt="">
+        <img src="./img/default.jpg" trueImg="./img/5.jpg" alt="">
+        <img src="./img/default.jpg" trueImg="./img/6.jpg" alt="">
+    </div>
+    <script src="./js/utilscopy.js"></script>
+    <script>
+        let imgs = document.getElementsByTagName('img');
+        let winH = utils.win('clientHeight');//获取当前屏幕的高度
+       
+        function dealy() {
+            for (var i = 0; i < imgs.length; i++) {
+                dealyImg(imgs[i]);
+            }
+        }
+        function dealyImg(img) {
+            if (img.flag) {
+                return;
+            }
+            let curH = img.offsetHeight;
+            let curT = utils.offset(img).top;//图片相对于body的上偏移量
+            let winT = utils.win('scrollTop');//浏览器滚动条卷去的高度
+            if (winH + winT > curT + curH) {
+                let address = img.getAttribute('trueImg');
+                let newImg = new Image;
+                newImg.src = address;
+                newImg.onload = function () {
+                    img.src = address;
+                    img.flag = true;
+                    newImg = null;
+                    fadeIn(img);
+                }
+            }
+        }
+        function fadeIn(img){
+            utils.setCss(img,'opacity',0.05);
+            let cur = Number(utils.getCss(img,'opacity'));
+            var timer = setInterval(() => {
+                cur += 0.05;
+                if(cur>=1){
+                    clearInterval(timer);
+                }
+                utils.setCss(img,'opacity',cur);
+            }, 50);
+        }
+        dealy();
+        window.onscroll = dealy;
+
+
+
+
+    </script>
+</body>
+
+</html>

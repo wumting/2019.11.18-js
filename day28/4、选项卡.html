@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 500px;
+            margin: 100px auto;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            position: relative;
+            top: 1px
+        }
+
+        li {
+            width: 150px;
+            margin-right: 10px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 30px;
+            text-align: center;
+            border: 1px solid orangered;
+        }
+
+        .box div {
+            width: 500px;
+            border: 1px solid orangered;
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+            font-size: 50px;
+            display: none;
+        }
+
+        ul li.active {
+            border-bottom: 1px solid white;
+        }
+
+        .box div.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box">
+        <ul id="navBox" class="navBox">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <div class="active">一</div>
+        <div>二</div>
+        <div>三</div>
+    </div>
+    <script src="./jquery-1.11.3.js"></script>
+    <script>
+        $('.box li').click(function(){
+            $(this).addClass('active').siblings().removeClass('active').parent().nextAll('div').eq($(this).index()).addClass('active').siblings().removeClass('active')
+        })
+ 
+
+
+    </script>
+    <script>
+        /* 
+    $(function(){}) 等到页面中所有dom加载完成才会执行这个方法
+    */
+        // $(function(){
+        //     // 给所有的li绑定点击事件，当你点击某个以li的时候，让点当前的li和li索引对应的div具有指定的class名，其余的li和div失去class名
+        //     let $navList = $('#navBox li');
+        //     let $tabList = $('#box div');
+
+        //     // 基于jq遍历集合中的每一项,绑定点击事件
+        //     // $navList.each(function(index, $item){
+        //     //     // 参数的顺序和forEach是反着的
+        //     //     // index是当前项的索引，item是当前索引
+        //     //     $item.on('click', function(){
+
+        //     //     })
+        //     // })
+
+        //     // jq的内置循环机制，基于一个jq集合去操作某一个方法，
+        //     $navList.on('click', function(){
+        //         // this 还是当前点击的元素
+        //         // 如果想在jq中使用this得使用$(this)才能调取jq中的方法
+        //         // jq特性：链式写法
+
+        //         let index = $(this).index(); // 获取当前点击元素的索引
+        //         $(this).addClass('active').siblings().removeClass('active');
+        //         $tabList.eq(index).addClass('active').siblings().removeClass('active')
+        //     })
+        // $navList.css({color: 'red'}) // 集合中有多少项，就给多少项加上这个样式,无需自己循环处理
+        // })
+
+
+
+
+
+
+
+
+
+
+
+        //--------------------------------------------------------------------------    
+        // let navList = document.querySelectorAll('li');
+        // let tabList = document.querySelectorAll('#box div');
+
+        // for (var i = 0; i < navList.length; i++) {
+        //     navList[i].index = i;
+        //     navList[i].onclick = function () {
+        //         fn(this.index)
+        //     }
+        // }
+
+        // function fn(index) {
+        //     for (var i = 0; i < navList.length; i++) {
+        //         navList[i].className = '';
+        //         tabList[i].className = ''
+        //     }
+        //     navList[index].className = 'active';
+        //     tabList[index].className = 'active'
+        // }
+    </script>
+
+
+    <script>
+        // let $lis = $('li');
+        // let $divs = $('.box div');
+        // $lis.each(function(index, item){
+        //     $(item).click(function(){
+        //         $(this).addClass('active').siblings().removeClass('active');
+        //         $divs.eq($(this).index()).addClass('active').siblings().removeClass('active')
+        //     })
+        // })
+
+
+        // $('li').click(function(){
+        //     $(this).addClass('active').siblings().removeClass('active').parent().nextAll('div').eq($(this).index()).addClass('active').siblings().removeClass('active')
+        // })
+    </script>
+
+    <script>
+        // $('.box .navBox li').click(function(){
+        //     // let index = $(this).index();
+        //     // $(this).addClass('active').siblings().removeClass('active').parent().nextAll('div').eq(index).addClass('active').siblings().removeClass('active')
+
+        //     $(this).addClass('active').siblings().removeClass('active').parent().nextAll('div').eq($(this).index()).addClass('active').siblings().removeClass('active')
+        // })
+    </script>
+</body>
+
+</html>

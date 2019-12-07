@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #goBack{
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            border-radius: 50%;
+            text-align: center;
+            background: orangered;
+            font-size: 30px;
+            color: white;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="./img/1.png" alt="">
+        <img src="./img/1.png" alt="">
+        <img src="./img/1.png" alt="">
+        <img src="./img/1.png" alt="">
+        <img src="./img/1.png" alt="">
+        <div id="goBack">返回顶部</div>
+    </div>
+    <script src="js/utils.js"></script>
+    <!-- <script src="./js/utilscopy.js"></script> -->
+    <script>
+        let back = document.getElementById('goBack');
+        back.onclick = function(){ 
+            // utils.win('scrollTop',0)
+            let winT = utils.win('scrollTop');
+            let dis = winT/50;
+            var timer = setInterval(()=>{
+                winT -= dis;
+                if(winT<=0){
+                    clearInterval(timer);
+                }
+                utils.win('scrollTop',winT);
+            },20)
+        }
+        window.onscroll = function(){
+            let winH = utils.win('clientHeight');
+            let winT = utils.win('scrollTop');
+            if(winT>winH){
+                utils.css(back,'display','block');
+            }else{
+                utils.css(back,'display','none');
+            }
+        }
+    
+    
+    
+    
+    </script>
+</body>
+</html>

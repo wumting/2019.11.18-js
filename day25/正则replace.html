@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let str = 'good good study day day up';
+        // 把每一个单词的首字母大写
+
+       
+        function toFirstUpperCase() {
+            let reg = /\b([a-z])[a-z]*\b/g;
+            let strAry = this.replace(reg, function () {
+                // console.log(big, small)
+                // console.log(arguments)
+                let [word, firstWord] = arguments // 把每一次捕获的单词和分组捕获的单词首个字母解构出来
+                firstWord = firstWord.toUpperCase() // 把首字母转大写
+                word = word.slice(1) // 把单词从第二项开始截取
+                return `${firstWord}${word}` // 最后把转大写的开头字母和截取的字母组合到一起对捕获的内容进行替换
+
+            })
+            return strAry;
+        }
+        String.prototype.toFirstUpperCase = toFirstUpperCase;
+        // console.log(str.match(reg))
+        let str = 'good good study day day up';
+        console.log(str.toFirstUpperCase());
+
+
+
+
+    </script>
+</body>
+
+</html>

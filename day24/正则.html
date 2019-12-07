@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //    1、18位
+        //    2、前6位是省市
+        //    3、中间8位是生日  4=>1993   2=>11 月  2=> 06日
+        //    4、倒数四位
+        //      1、前两位是公安局代码
+        //      2、第三位是性别，奇数是男，偶数是女
+        //      3、最后一位是数字，有可能是X
+    let res = /^(\d{6})([1-2]\d{3})((0[1-9])|(1[0-2]))((0[1-9])|([1-2]\d)|(3[0-1]))(\d{2})(\d)(\d|X)$/
+    console.log(res.test('140821199311060025'))//true
+    
+    let reg = /\d{2}/g;
+    let str = 'ww33ww33'
+    console.log(reg.exec(str));
+    console.log(reg.lastIndex)
+    console.log(reg.exec(str));
+    console.log(reg.lastIndex)
+    
+    
+    
+    </script>
+</body>
+</html>

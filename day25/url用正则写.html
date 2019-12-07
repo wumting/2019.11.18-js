@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let url = 'http://www.baidu.com?name=erYa&age=18#index'
+        function queryUrlParams(){
+            let reg = /([^#=?&]+)=([^#=?&]+)/g;
+            let obj = {};//创建一个空对象，用来存储一会处理的键值对
+            this.replace(reg,(content,key,value)=>{
+            //content是每一次全局捕获的内容
+            //key是每一次第一个分组捕获的内容(作为属性名)
+            //value是每一次第二个分组捕获的内容(作为属性值)
+            //把url里的参数捕获出来，以键值对的形式赋值给obj对象
+                obj[key] = value;
+            })
+            this.replace(/#([^#=?&]+)/,(content,value)=>{
+                obj['hash'] = value;
+            });  // 把url里的hash值捕获出来，以键值对的格式赋值给obj对象
+            return obj; // 最后把obj对象return 出去
+        }
+        String.prototype.queryUrlParams = queryUrlParams;
+        console.log(url.queryUrlParams())
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

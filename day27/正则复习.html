@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let str = '{0}年{1}月{2}日';
+        // let reg = /\{(\d+)\}/g;
+        // console.log(reg.test(str));//true
+        // console.log(RegExp.$1);//0
+
+        // console.log(reg.test(str));//true
+        // console.log(RegExp.$1);//1
+
+        // console.log(reg.test(str));//true
+        // console.log(RegExp.$1);//2
+
+        // console.log(reg.test(str));//false
+        // console.log(RegExp.$1);//2   存储的是上次捕获的结果
+        // //=>RegExp.$1~RegExp.$9:获取当前本次正则匹配后，第一个到第九个分组的信息
+
+        //replace 字符串中实现替换的方法（一般都是伴随正则一起使用的）
+        // let str = "zhufeng@2019|zhufeng@2020";
+        //=>把“zhufeng”替换成“珠峰”
+        //1. 不用正则，执行一次只能替换一次
+        // str = str.replace('zhufeng','珠峰').replace('zhufeng','珠峰');
+        // console.log(str);
+        // //2. 使用正则会简单一点
+        // str = str.replace(/zhufeng/g,'珠峰');
+        // console.log(str);
+
+        // str = str.replace(/zhufeng/g,'zhufengpeixun');
+        // console.log(str);
+
+        //=============把时间字符串进行处理
+        // let time = "2019-08-13";
+        //=>变为 "2019年08月13日"
+        // let reg = /^(\d{4})-(\d{1,2})-(\d{1,2})$/g;
+        // time = time.replace(reg,"$1年$2月$3日")
+        // console.log(time);//2019年08月13日
+
+        //还可以这样处理[str].replace([reg],[function])
+        //1. 首先拿reg和time进行匹配捕获，能匹配到几次就会把传递的函数执行几次（而且是匹配一次执行一次）
+        //2. 不仅把方法执行，而且replace还给方法传递了一些实参信息，（和exec捕获的内容一致的信息：大正则匹配的内容，小分组匹配的信息。。。。）
+        //3. 在函数中我们返回的是啥，就把当前大正则匹配的内容替换成啥
+        // time = time.replace(reg,(big,$1,$2,$3)=>{
+        //     console.log(big,$1,$2,$3)//2019-08-13 2019 08 13
+        // })
+        // time = time.replace(reg,(big,...arg)=>{
+        //     let [$1,$2,$3] = arg; // 2019 08 13
+        //     $2.length<2?"0"+$2:null;
+        //     $3.length<2?"0"+$3:null;
+        //     return $1+"年"+$2 +"月"+$3+"日";
+        // })
+
+        //=============单词首字母大写=================================
+        // let str = "good good study ,day day up !";
+        // let reg = /\b([a-zA-Z])[a-zA-Z]*\b/g;
+        // //函数被执行了六次，每一次都把正则匹配信息传递给函数
+        // //每一次arg ：["good","g"]["good","g"]...
+        // str = str.replace(reg,(...arg)=>{
+        //     let [content,$1] = arg;
+        //     $1 = $1.toUpperCase();
+        //     content = content.slice(1);
+        //     return $1+content;
+        // }) 
+        // console.log(str);
+
+        //=========验证一个字符串中那个字母出现的次数最多，多少次？
+        // let str = "zhufengpeixunzhoulaoshi";
+        // str = str.split('').sort((a,b)=>a.localeCompare(b)).join('');
+        // // console.log(str)//'aeefghhhiilnnoopsuuuxzz'
+        // let reg = /([a-zA-Z])\1+/g;
+        // let ary = str.match(reg).sort((a,b)=>b.length-a.length);
+        // console.log(ary)// ["hhh", "uuu", "ee", "ii", "nn", "oo", "zz"]
+        // let max = ary[0].length;
+        // let res = [ary[0].slice(0,1)];
+        // for(var i = 1;i<ary.length;i++){
+        //     let item = ary[i];
+        //     if(item.length<max){
+        //         break;
+        //     }
+        //     res.push(item.slice(0,1));
+        // }
+        // console.log(`出现次数最多的字符是:${res},出现了${max}次`);//出现次数最多的字符是:h,u,出现了3次
+
+        //===============时间字符串的格式化
+        // let time = "2019-10-3 19:23:3"
+        // function formatTime(template = "{0}年{1}月{2}日 {3}时{4}分{5}秒") {
+        //     let time = this.match(/(\d+)/g);
+        //     // console.log(time)// ["2019", "10", "23", "19", "23", "23"]
+        //     // let template = "{0}年{1}月{2}日 {3}时{4}分{5}秒";
+        //     template = template.replace(/\{(\d+)\}/g,(content,$1)=>{
+        //          let timeAry = time[$1] || '00';
+        //          return timeAry.length<2?'0'+timeAry:null;
+        //     })
+        //     return template;
+        // }
+        // String.prototype.formatTime = formatTime;
+       
+        // console.log(time.formatTime(template = "{0}-{1}-{2}日 {3}时{4}分{5}秒"))
+
+    //============url===================
+    let url = "http://www.zhufengpeixun.cn?1x=1&form=wx";
+    function queryUrlParams(){
+        let reg = /([^#?=&]+)=([^#?=&]+)/g;
+        let obj ={};
+        url.replace(reg,(...[,$1,$2])=>{obj[$1]=$2});
+        url.replace(/#([^#?=&]+)/g,(...[,$1])=>obj['hash'] = $1);
+        return obj;
+       
+
+    }
+    
+    console.log(queryUrlParams('1x'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

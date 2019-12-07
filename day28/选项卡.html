@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 500px;
+            margin: 100px auto;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            position: relative;
+            top: 1px
+        }
+
+        li {
+            width: 150px;
+            margin-right: 10px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 30px;
+            text-align: center;
+            border: 1px solid orangered;
+        }
+
+        .box div {
+            width: 500px;
+            border: 1px solid orangered;
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+            font-size: 50px;
+            display: none;
+        }
+
+        ul li.active {
+            border-bottom: 1px solid white;
+        }
+
+        .box div.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box">
+        <ul id="navBox" class="navBox">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <div class="active">一</div>
+        <div>二</div>
+        <div>三</div>
+    </div>
+    <script src="./jquery-1.11.3.js"></script>
+
+    <script>
+        // let $navList = $('.box li');
+        // let $tabList = $('.box div');
+    //     $('.box li').click(function(){
+    //     //    console.log($(this).index())
+    //         $(this).addClass('active').siblings().removeClass('active').parent().nextAll().eq($(this).index()).addClass('active').siblings().removeClass('active');
+    //    })
+
+    
+
+    </script>
+</body>
+
+</html>

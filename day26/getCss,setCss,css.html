@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        let box = document.getElementById('box');
+        // //获取元素的css样式
+
+        // //1. 元素.style.width 这是获取行内样式
+        // console.log(box.style.width)//获取不到
+        // //2. getComputedStyle
+        //     //1. 他是window上的一个属性
+        // console.log('getComputedStyle' in window)//true
+        // console.log(getComputedStyle(box).width)//'200px'
+        // console.log(getComputedStyle(box)['width'])//'200px'
+        // console.log(getComputedStyle(box)['backgroundColor'])//'rgb(255, 0, 0)'
+        // //3. currentStyle(这个属性只在ie下存在)
+        // console.log(box.currentStyle.width);//'200px'
+
+        function getCss(curEle, attr) {//curEle 元素   attr 属性名
+            let val = null;
+            if ('getComputedStyle' in window) {
+                val = getComputedStyle(curEle)[attr];
+            } else {
+                val = curEle.currentStyle[attr];
+            }
+            //把带单位的属性值的单位去掉，并且转换为数字
+            let reg = /^width|height|top|bottom|left|right|margin|padding|fontSize|opacity$/;
+            if (reg.test(attr)) {
+                val = parseFloat(val);
+            }
+            return val;
+        }
+        // console.log(getCss(box, 'width'));
+
+
+        function setCss(curEle, attr, val) {
+            let reg = /^(width|height|top|bottom|left|right|padding|margin|fontSize)$/
+            if (reg.test(attr)) {
+                if(typeof val === 'number'){
+                    val = val + 'px'
+                }
+            }
+            curEle.style[attr] = val
+        }
+        // setCss(box, 'width', 200)
+        // setCss(box, 'height', '200px')
+        // setCss(box, 'backgroundColor', 'green')
+
+
+        function setGroupCss(curEle, obj){
+            for(key in obj){
+                // key，属性名
+                setCss(curEle, key, obj[key])
+            }
+        }
+        // setGroupCss(box, {width:200,height:300,backgroundColor:'pink'})
+
+
+        function css(){
+            let curEle = arguments[0];
+            let attr = arguments[1];
+            let val = arguments[2];
+            // 如果arguments的legnth是2，那说明你不是想获取样式，就是想成组设置样式
+            if(arguments.length === 2){
+                
+                if(typeof attr === 'string'){
+                    // 如果此条件成立，那就说明第二个参数就是字符串，就是想获取参数
+                    return getCss(curEle, attr)
+                }
+                else {
+                    setGroupCss(curEle, attr)
+                }
+            }
+            // 如果arguments的legnth是3，那说明你是想单个设置样式
+            else if(arguments.length === 3){
+                setCss(curEle, attr, val)
+            }
+        }
+        console.log(css(box, 'width'));
+        css(box, {width:800});
+        css(box, 'backgroundColor', 'black');
+
+        
+        window.onscroll = function(){
+            // 监听滚动条滚动事件，滚动条一旦滚动，这个函数就触发
+            console.log(1)
+        }
+    </script>
+</body>
+
+</html>

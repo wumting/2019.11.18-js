@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 300px;
+            height: 200px;
+            margin: 800px auto;
+        }
+
+        img { 
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="./img/default.jpg" trueImg="./img/1.jpg" alt="">
+    </div>
+    <script src="./js/utilscopy.js"></script>
+    <script>
+        let div = document.getElementsByTagName('div')[0];
+        let img = document.getElementsByTagName('img')[0];
+
+        /* 
+        确定图片加载的临界条件：
+        让图片的下边框和可视窗口的下边框重合时，就该让图片的真实路径显示了(图片该加载了)
+        转化为代码：滚动条卷去的高度+当前可视窗口的高度 === 图片的下边框到body顶部的距离(图片自身的高度+图片的上偏移量)
+        */
+
+        let winH = utils.win('clientHeight');
+        let curH = img.offsetHeight;
+        let curT = utils.offset(img).top;
+        window.onscroll = function () {
+            if(img.flag){
+                return
+            }
+            let winT = utils.win('scrollTop');
+            // console.log(winT+winH,curH+curT);
+            if (winT + winH > curH + curT) {
+                let address = img.getAttribute('trueImg');//拿到图片身上的真实路径
+                // img.src = address;//把图片的真实路径赋值给img
+                /* 当我给图片赋值真实路径时，先校验一下这个路径是否正确，如果正确，你在给人家赋值正确的路径 */
+                let newImg = new Image;
+                newImg.src = address;
+                newImg.onload = function () {
+                    /* 如果你给newImg赋值的路径正确，那这个方法就会执行 */
+                    img.src = address;
+                    fadeIn(img);
+                    img.flag = true;
+                }
+            }
+            function fadeIn(img) {
+                //图片如果直接出来，会很突兀，咱们利用opacity让图片慢慢出来
+                utils.setCss(img, 'opacity', .1);
+                let cur = Number(utils.getCss(img, 'opacity'));
+                var timer = setInterval(() => {
+                    cur += 0.2;
+                    if (cur >= 1) {
+                        clearInterval(timer);
+                    }
+                    utils.setCss(img, 'opacity', cur);
+                }, 200);
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
