@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #but {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <div id="box" data-type="A">33444</div>
+    <button id="but"></button>
+    <script src="../jquery-1.11.3.js"></script>
+    <script>
+        //jQ选择器
+        // $([selector],[context]); 
+        // $('#box');
+        // $('.imgBox');
+        // $('.box a');
+        // $('a',box) 
+        // //节点之间关系的属性 用jQ选择器获取的元素  可以再设置选择器二次筛选
+        // let $box = $('#box');
+        // $box.children('a');//获取对应的子元素
+        // $box.find('a')//获取对应的后代元素
+        // $('a').filter('.active');//同级筛选(在所有的A中筛选出具备class= 'active'样式类的A)
+        // $box.prev('p');
+        // $box.prevAll();
+        // $box.next();
+        // $box.nextAll();
+        // $box.siblings();//获取所有的兄弟
+        // $box.index();//获取索引
+        // $box.parent();//获取父元素
+        // $box.parents();//获取所有的祖先元素，一直到document
+
+        //2.DOM增删改
+        // let str = `<div id="div">1111</div>`
+        // $('body').append(str);//追加到容器的末尾
+        // $('.list').html(str);//等价于innerHTML
+        // $('#box').insertBefore($('.list'));//把$A放到$B的前面（注意点：$A,$B都是页面中已经存在的元素）
+        //$A.insertAfter($B);//把$A放到$B的后面
+        // $(`<div class="div">2222</div>`).insertBefore($('.list>li:eq(3)'));//把新增加元素放到$A前面，需要吧字符串用$()包起来，相当于创建了一个元素
+
+        // $A.clone();//实现元素的克隆
+        // $A.remove();//实现元素的删除
+
+        // $('#box').attr('data-type')
+        // $('#box').attr('data-type','b')
+        // $('#box').attr({
+        //     'data-type': 'b',
+        //     'name':' b',
+        // })
+        // $('#box').removeAttr('data-type')
+
+        // $('#box').css('width',200);
+        // $('#box').css('height',200);
+        // $('#box').css({width:200,height:300});
+        // $('#box').addClass('active');
+        // $('#box').removeClass('active');
+        // $('#but').click(function () {
+        //     $(this).toggleClass('active')
+        // })
+        // $('#but').css('width')
+        
+
+
+
+
+    </script>
+</body>
+
+</html>

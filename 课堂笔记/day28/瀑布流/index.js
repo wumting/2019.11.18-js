@@ -1,6 +1,6 @@
 let ulList = document.getElementsByTagName('ul');
 ulList = utils.toArray(ulList);
-// console.log(ulList)
+console.log(ulList)
 // 获取页面的5个ul，并且转换为数组
 
 
@@ -60,7 +60,6 @@ function dealyImg(index){
         // 如果图片已经加载过，那当前的img身上就会有flag属性，值为true，那以后这个图片就不需要重复加载了
         return
     }
-
     // 判断图片是否加载的临界条件
     // 图片的底边框和浏览器可视窗口的的下边框重合时，就是代表图片已经完全露出来了，需要加载了
     let curH = curImg.offsetHeight // 图片的总高度

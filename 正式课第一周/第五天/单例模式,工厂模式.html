@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //高级单例模式
+        // var utils= (function(){
+        //     var timer = 1;
+        //     var num = 3;
+        //     return {
+        //         bar :function(){},
+        //         fn:function(){}
+        //     }
+        // })()
+
+        //工厂模式
+        function createStudent(name,age){
+            var obj={};
+            obj.name= name;
+            obj.age = age;
+            return obj;
+        }
+        var xing = createStudent('邢民华',13);
+        var liu = createStudent('邢民',13);
+        console.log(xing)
+
+
+
+
+
+
+    
+    
+    
+    </script>
+</body>
+</html>

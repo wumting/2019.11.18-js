@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        123
+        <div>123</div>
+        <!-- 123 -->
+        <div id="a"></div>
+    </div>
+    <script>
+        // let box = document.getElementsByClassName('box')[0];
+        // let box1 = document.getElementsByClassName('box')
+        // console.log(box,box1)
+        //封装一个兼容版的哥哥元素节点
+        // function getBrother(curEle){
+        //     var pre = curEle.previousSibling;
+        //     while(pre){
+        //         if(pre.nodeType === 1){
+        //             return pre;
+        //         }
+        //         pre = pre.previousSibling;//哥哥节点的哥哥节点，对pre重新赋值
+        //     }
+        //     return pre;//如果该元素没有哥哥元素节点，得到的就是null
+        // }
+        // console.log(getBrother(a))
+        //previousSibling
+        // function getBrother(curEle) {
+        //     let pre = curEle.previousSibling;
+        //     while (pre) {
+        //         if (pre.nodeType === 1) {
+        //             return pre;
+        //         } else {
+        //             pre = pre.previousSibling;
+        //         }
+        //     }
+        //     return pre;
+        // }
+        // console.log(getBrother(a))
+
+        //获取1~100之间，所有即能被五整除，也能被三整除的数字，相加的和
+        // function sum(num){
+        //     if(num === 1){
+        //         return 0;
+        //     }
+        //     if(num%3 === 0&&num%5===0){
+        //         return num+sum(num-1);
+        //     }else{
+        //         return sum(num-1);
+        //     }
+        // }
+        // let a = sum(100);
+        // console.log(a)
+
+        // let obj = { a: { b: { c: 'd' } } };
+        // function getKey(obj) {
+        //     var arr = [];
+        //     while (obj instanceof Object) {
+        //         for (key in obj) {
+        //             arr.push(key);
+        //             obj = obj[key];
+        //         }
+        //     }
+        //     return arr
+        // }
+        // console.log(getKey(obj))
+
+
+
+
+        //git 是由linux开发的，用C开发
+        //linux :常见的DOS命令
+        //1.找到文件夹路径，在文件资源路径的位置输入cmd，然后回车，在此文件夹中操作文件或是内容
+        //2.window+R ：快捷打开DOS窗口
+        //3.在搜索框输入cmd，然后回车
+        //cd+ 文件夹 ：打开对应的文件夹，该文件夹必须在该目录下，否则系统找不到该路径
+        //cd ../ :返回上一级
+        //cd / :返回到根路径；
+        //mkdir + 文件名：创建一个文件夹
+        //cls:清空命令行
+
+        // let nums = [2, 7, 11, 15];
+        // let target = 9;
+        // var twoSum = function (nums, target) {
+        //     let obj = [];
+        //     for (var i = 0; i < nums.length; i++) {
+        //         let curNum = nums[i];
+        //         let nexNum = nums[i + 1];
+        //         if (curNum + nexNum === target) {
+        //             obj.push(i, i + 1);
+        //         }
+        //     }
+        //     return obj;
+
+        // };
+        // console.log(twoSum(nums,target));
+
+        var obj = { n: { a: [{ b: 1, c: [{ d: 1 }, { e: 1 }] }, { f: 1 }] } };
+        let arr = [];
+        function getKey(obj) {
+            if (obj instanceof Array) {
+                console.log(obj)
+                for (var i = 0; i < obj.length; i++) {
+                    for (key in obj[i]) {
+                        arr.push(key);
+                    }
+                   
+                }
+                obj = obj[key];
+                    return getKey(obj);
+            }
+            if (obj instanceof Object) {
+                for (key in obj) {
+                    arr.push(key);
+                }
+                obj = obj[key];
+                return getKey(obj);
+                // console.log(arr)
+            }
+
+            return arr;
+        }
+        console.log(getKey(obj));
+    </script>
+</body>
+
+</html>

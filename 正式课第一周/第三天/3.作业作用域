@@ -1,0 +1,189 @@
+// 遇到报错可以忽略，接着执行
+
+//1 //b =f  1
+  console.log(b);//f
+  b();//1
+  var b = 1;
+  function b() {
+    console.log(1); 
+  }
+  b();//报错 b is not a function
+
+//2  //f1=f
+  function f1() {
+    // a =f  1
+    console.log(a); // f()
+    var a = 1;
+    return a;//1
+    function a() {
+    }
+  }
+  f1();
+
+//3  //x1 f2 =f  f3 =f
+
+  f2();//undefined
+  f3();//x2 is not defined
+  var x1 = x2 = 10;
+  function f2() {
+    console.log(x1);
+  }
+  function f3() {
+    console.log(x2);
+  }
+//4  //a=13  fn=f
+    console.log(a);//undefined
+    var a = 13;  
+    function fn() {
+        //a
+        console.log(a);// undefined
+        var a = 1;
+    }
+    fn();
+    console.log(a);//13
+
+----
+//5  //a=13  fn1=f
+    console.log(a);//undefined
+    var a = 13;
+    function fn1() {
+        console.log(a);
+        a = 1;
+    }
+    console.log(a);//13
+//6  //fn=f
+    console.log(a);//报错 a is not defined
+    a = 13;     
+    function fn() {
+        console.log(a);
+        a = 1;
+    }
+    fn();
+    console.log(a);
+// 7 // foo=1  bar=f
+    var foo = 1;
+    function bar() {
+        //foo =10
+        if (!foo) {
+            var foo = 10
+        }
+        console.log(foo);//10
+    }
+    bar();
+// 8  // 
+    function f5() {
+        //ff=f  f=ff(){} =false
+        f=ff();
+        return f;//false
+        function ff() {
+            return "f" in window;//false
+        };
+        var f;
+    }
+    console.log(f5());//false
+// 9   //a =[9, 2, 3, 4]  b =9  c= [1, 2, 3, 4]
+        var a = b = c = [1, 2, 3, 4];
+        b = 9;
+        a[1] = 0;
+        console.log(b[0]);//undefined
+        a = [1, 2, 3, 4];
+        c = [1, 2, 3, 4];
+        a[0] = b;
+        console.log(c);//[1, 2, 3, 4]
+        console.log(a);//[9, 2, 3, 4] 
+// 10   //ary=[0, 2, 3, 4]   ff=f    s=
+        var ary = [1, 2, 3, 4];
+        function ff(ary) {//[100] 
+            ary[0] = 0;
+            ary = [0];
+            ary[0] = 100;
+            return ary;//[100]
+        }
+        var s = ff(ary);
+        console.log(ary);//[0, 2, 3, 4] 
+        console.log(s);//[100]
+//11    //a=10    b=11   c=12 3   test=f 
+        var a = 10, b = 11, c = 12;
+        function test(a) {//10  1  
+        // b =2
+            a = 1;
+            var b = 2;
+            c = 3;
+        }
+        test(10);
+        console.log(a);//10
+        console.log(b);//11
+        console.log(c);//3
+//12   在块级作用域下var和function是不可以重名的
+        
+        if (!("aa" in window)) {
+            var aa = 1;
+            function aa() {
+                console.log(aa)
+            }
+        }
+        console.log(aa);//报错 aa已经存在
+
+---
+//13    //a=4 undefined   b=f
+        var a = 4;
+        function b(x, y, b) {//1 2 10
+            console.log(a);//4
+            arguments[2] = 10; 
+            console.log(a);//4
+        }
+        a = b(1, 2, 3);
+        console.log(a);//undefined
+//14.   //fs ="hello"
+        var fs = "hello";
+        (function (fs) { // fs='hello'  
+            console.log(fs);// 'hello'
+            var fs = fs || "world";  
+            console.log(fs); // 'hello'
+        })(fs);
+        console.log(fs);// 'hello'
+//15.   // a=9 0 1 2    ss=f     f   m   n  x 
+        var a = 9;
+        function ss() {
+            a = 0;
+            return function (b) { 
+                return b + (a++)
+            }
+        }
+        var f = ss();
+        var m = f(5); 
+        console.log(m);//5 
+        var n = ss()(5);//a=0  
+        console.log(n);//5 
+        var x = f(5);
+        console.log(x);//6 
+        console.log(a);//2 
+---
+// 16   //i=1   fn=f   f 
+    var i =1 ;
+    function fn(i){//2  3 4
+        return function (n){
+            console.log(n+(++i))
+        }
+    }
+    var f = fn(2);
+    f(3)//n=3 => 6 
+    fn(5)(6)//i=5 6   6+6=12
+    fn(7)(8)//i=7 8   16
+    f(4)//n=4  4+4=8
+
+// 17
+    //i=2 4 6    fn=f   f 
+    var i =2
+    function fn (){
+        i +=2
+        return function (n){//3 2    4
+            console.log(n+(--n)) 
+        }
+    }
+    var f =fn();
+    f();//NaN
+    f(3)//5
+    fn()(2);//3
+    fn()(3);//5
+    f(4)//7

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">点我</div>
+    <script>
+        // console.log(this);//window
+        // window.alert();
+        // this.alert();//this=>window
+
+        // let box = document.getElementById('box');
+        // box.onclick=function(){
+        //     // console.log(typeof this);//this=>'object'
+        //     // console.dir(this);
+        //     // this.style.color = 'red';
+        //     this = 100;//报错    this 不能放到等号左边
+        // }
+
+        //  function fn(){
+        //      console.log(this);//window
+        //  };
+        //  fn();   
+        
+        // var obj ={
+        //     m:1,
+        //     fn:function(){
+        //         console.log(this);//this=>obj
+        //     }
+        // };
+        // obj.fn();
+
+        // var obj ={
+        //     m:1,
+        //     fn:function(){
+        //         console.log(this);//this=>window
+        //     }
+        // };
+        // var f =obj.fn();
+        // f();
+
+        // (function(){
+        //     console.log(this);//this=>window
+        // })()
+
+        // var obj={
+        //     fn:(function(){
+        //         console.log(this);//this=>window
+        //         return function(){
+        //             console.log(this);//this=>window
+        //         }
+        //     })()
+        // }
+        // var f = obj.fn;
+        // f();
+        // obj.fn();
+
+        // setTimeout((function(){
+        //     console.log(this);//回调函数  this=>window
+        // }),100);
+        
+        // var ary = [1,2,3];
+        // ary.map(function(){
+        //     console.log(this);//this=>window
+        // })
+
+        // function A(){
+        //     console.log(this);//this=>obj
+        // };
+        // function B(a){
+        //     var obj={a:a};
+        //     obj.a();
+        // }
+        // B(A);
+
+        // var num = 1;//2
+        // var obj={
+        //     num:0,
+        //     fn:function(){
+        //         num=1;
+        //         (function(num){//0 1
+        //             ++this.num;
+        //             num++;
+        //             console.log(num);//1
+        //         })(this.num);
+        //     }
+        // }
+        // obj.fn();
+        // console.log(window.num,obj.num)//2 0
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

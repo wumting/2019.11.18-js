@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 145px;
+            height: 40px;
+            border: 2px solid orangered;
+            background: linear-gradient(to top left, rgb(174, 240, 99), yellow, pink);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin: 50px auto 10px auto;
+            line-height: 40px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 27px;
+        }
+        #btn {
+            display: block;
+            width: 80px;
+            height: 28px;
+            margin: 10px auto;
+            background: linear-gradient(to top left, rgb(174, 240, 99), rgb(0, 255, 213), pink);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="num">1111</div>
+    <button id="btn">开始</button>
+    <script>
+        let num = document.getElementById('num');
+        let btn = document.getElementById('btn');
+        let inter = null;
+        btn.onclick = function () {
+            let val = btn.innerHTML;
+            if (val === '开始') {
+                inter = setInterval(random, 20);
+                btn.innerHTML = '停止';
+            } else {
+                clearInterval(inter);
+                btn.innerHTML = '开始';
+            }
+        }
+        random();
+        function random() {
+            // let str = '0123456789';
+            let ran = '';
+            for (var i = 0; i < 4; i++) {
+                let ss = Math.round(Math.random() * 9);
+                
+                ran += ss;
+            }
+            num.innerHTML = ran;
+        }
+    </script>
+</body>
+
+</html>

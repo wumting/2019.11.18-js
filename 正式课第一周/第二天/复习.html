@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //                 ```
+        // let a = 12;
+        // if (a >= 0 && a <= 20) {//12 14  
+        //     if (a % 2 === 0) {
+        //         a += 2;
+        //     }
+        // } else {
+        //     a -= 2;
+        // }
+        // console.log(a);//14
+        //         ```
+
+        //         + 2、
+        //         ```
+        // let a = '10';//11
+        // a == 10 ? a++ : a--;
+        // console.log(a);//11
+        // let b = '10';
+        // switch (b) {
+        //     case 10:
+        //         b++;
+        //         break;
+        //     default:
+        //         b--;
+        // }
+        // console.log(b);//9
+        //         ```
+        //         + 3、
+        //         ```
+        // for (var i = 0; i < 10; i++) {
+        //     console.log(i);//0
+        //     break;
+        // }
+        // console.log(i);//0
+        //         ```
+
+        //         + 4、
+        //         ```
+        // for (var i = 10; i > 0; i--) {
+        //     continue;
+        //     console.log(i);
+        // }
+        // console.log(i);//0
+        //         ```
+        //         + 5、
+        //         ```
+        // for (var i = 1; i <= 10; i += 2) {//2 4 5 7
+        //     if (i <= 5) {
+        //         i++;
+        //         continue;
+        //     } else {
+        //         i -= 2;
+        //         break;
+        //     }
+        //     i--;
+        //     console.log(i);//5
+        // }
+        // console.log(i);
+        //         ```
+        //         + 6、
+        //         ```
+        // for (var i = 3; i < 12; i++) {//2
+        //     if (i < 3) {
+        //         i++;
+        //         break;
+        //     }
+        //     if (i > 9) {
+        //         i += 2;
+        //         continue;
+        //     }
+        //     i--;    
+        // }
+        // console.log(i);
+        //         ```
+        //         + 7、
+        //         ```
+        // let num = 0;//1 2 3 4
+        // let ary = [true, false, null, undefined];
+        // for(var i = 0;i <ary.length;i++){//0 1 2 3 4
+        //     console.log(ary[i]);//true false null undefined
+        //     num++;
+        // }
+        // console.log(i);//4
+        // console.log(num);//4
+        //         ```
+        //         + 8、
+        //         ```
+        // let flag = '';//'aaaaaaaaaa'
+        // let name = 'a';
+        // name = name + 'a';//'aa'
+        // for(var i = 0;i <5;i++){//0 1 2 3 4 5
+        //     flag+= name; 
+        // }
+        // console.log(flag);//'aaaaaaaaaa'
+        // console.log(i);//5
+        //         ```
+        //         + 9、
+        //         ```
+        // let i=2;//3 4 5 6
+        // console.log(i++ == ++i) ;//2 4 false
+        // console.log(++i == i++); //5 5 true
+        // console.log(i);//6
+
+        //         ```
+
+        // - 二、输出下面的结果
+        //     ```
+        // console.log(!(!"Number(undefined)"));//true
+        // console.log(isNaN(parseInt({})) + Number([1]) + parseFloat(undefined));// NaN
+        // console.log(Boolean(Number("")) + !isNaN(Number(null)) + Boolean("parseInt([])") + !null);//0 1 1 1 =  3
+        // console.log(parseFloat("1.6px") + parseInt("1.2px") + parseInt(null).toString());//1.6 1 NaN '2.6NaN'
+        // console.log(isNaN(Number(!!Number(parseInt("0.8")))));//false
+//     ```
+
+// - 三、 输出以下结果
+
+//     ```
+    // [] == []//false
+    // '' == 0//t
+    // [0] == false//t
+    // true == 1//t
+    // ({}) == ''//f
+    // [] == 0//t
+    // 0 == null//f
+    // '{}' == 1//f
+    // undefined == null//t
+    // null == undefined //t
+    // ({name:1}) == ({name:1})//f
+    // undefined == 0//f
+//     ```
+
+// - 四、输出以下结果
+//     + 1、
+//         ```
+        // let name = 'weiWei';
+        // let obj = {
+        //     name: name,//'weiWei' 'name' 'weiWei'
+        //     age: 'age',
+        //     name: 'name',
+        //     3: 'erYa'
+        // };
+        // console.log(obj);
+        // obj.name = name;
+        // console.log(obj.name);//'weiWei'
+        // obj = {};
+        // console.log(obj.name);//un
+        // obj.name = name;
+        // obj.ifantName = 'liaoLiao';
+        // console.log(obj.name, obj.ifantName, obj)//'weiWei'  'liaoLiao'
+//         ```
+//     + 2、
+//         ```
+//         var name = null,//'wu'
+//         ifantName = null,//'Sheng'
+//         ary = ['erYa', true, 'xiaoHua', false];// ['erYa', true, 'wu','Sheng']
+//         ary.length = ary.length - 1;
+//         ary[2] = 'wu';
+//         name = ary[2];
+//         ary[ary.length] = 'Sheng';
+//         ifantName = ary[ary.length-1];
+//         ary.length = 0;
+//         console.log(name, ifantName, ary);
+    </script>
+</body>
+
+</html>

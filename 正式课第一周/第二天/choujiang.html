@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Document</title>
+    <style>
+        #input{
+            display: block;
+            width: 200px;
+            height: 40px;
+            border: 1px solid violet;
+            margin: 50px auto 5px auto;
+            line-height: 40px;
+            text-align: center;
+            font-size: 18px;
+
+        }
+        #but{
+            width: 100px;
+            height: 30px;
+            font-size: 20px;
+            color: rgb(225, 0, 255);
+            font-weight: 500px;
+            border: 1px solid rgb(0, 255, 128);
+            margin: 0 auto;
+            display: block;
+        }
+    
+    </style>
+</head>
+<body>
+    <input type="text" id="input">
+    <button id="but">开始</button>
+    <script>
+        let input = document.getElementById('input');
+        let but = document.getElementById('but');
+        let inter = null;
+        // console.log(input,but)
+        but.onclick = function(){
+            if(but.innerHTML === '开始'){
+                inter = setInterval(roundNum,20);
+                but.innerHTML = '停止';
+            }else{
+                clearInterval(inter);
+                but.innerHTML = '开始';
+            }
+        }
+        function roundNum(){
+            // let ary = ['瑾瑜', '郭靖', '吴梦婷', '苏鑫', '乔岩','刘琨鹏', '杨扬', '成云开', '贾延楷', '刘胜', '王裴', '罗宏杰','肖依悦', '屈军军', '付晋晋', '信为亚', '池瑞镇', '赵猛', '刘刚 ', '蒋子彤','孙龙', '赵勇', '刘文甜', '王珊珊', '邢民华', '刘宝华', '宋泽', '王小飞', '杨晨涛', '王兴楠', '冉德鹏', '王朝森', '孙彭贵'];
+            
+            // let index = Math.round(Math.random()*(ary.length-1));
+            // let ss = ary[index];
+            // input.value = ss;
+
+            // let str = '130445984386fhsduczcndckfdNHIUVHJBJHOHOI'
+            // let ran = '';
+            // for(var i = 0;i<4;i++){
+            //     let index = Math.round(Math.random()*(str.length-1));
+            //     let ss = str[index];
+            //     ran += ss;
+            // }
+            // input.value = ran;
+        }
+        roundNum();
+        // inter = setInterval(roundNum,200);
+    </script>
+</body>
+</html>

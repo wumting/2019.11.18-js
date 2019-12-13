@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            background: violet;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            position: relative;
+            top: -230px;
+            background: violet;
+            transition: all 0.2s;
+        }
+    </style>
+</head>
+
+<body style="background: violet;">
+    <div id="box"></div>
+    <script>
+        let body = document.body;
+       let box = document.getElementById('box');
+        let num = 0;
+        // console.log(back)
+       
+
+        function fn() {
+            num++;
+            console.log(num)
+            if (num>10) {
+                clearInterval(ss);
+                body.style.background = 'white';
+                box.style.top = 0;
+                return;
+            }
+            let back = body.style.background;
+            if (back === 'violet') {
+                body.style.background = 'green';
+            } else if ( back === 'green') {
+                body.style.background = 'red';
+            } else {
+                body.style.background = 'violet';
+            }
+        }
+        let ss = setInterval(fn, 100); 
+
+
+
+
+
+
+
+        // box.onclick = function () {
+        //     // if (box.style.background === 'violet') {
+        //     //     box.style.background = 'yellow';
+        //     // }else if(box.style.background === 'yellow'){
+        //     //     box.style.background = 'green';
+        //     // }else{
+        //     //     box.style.background = 'violet';
+        //     // }
+        //     switch (box.style.background) {
+        //         case 'violet':
+        //             box.style.background = 'yellow';
+        //             break;
+        //         case 'yellow':
+        //             box.style.background = 'green';
+        //             break;
+        //         default:
+        //         box.style.background = 'violet'
+        //     }
+        // }
+
+
+    </script>
+</body>
+
+</html>

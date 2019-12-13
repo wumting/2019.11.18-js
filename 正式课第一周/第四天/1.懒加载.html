@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            border: none;
+        }
+        img[src=""]{
+            display: none;
+        }
+        #box{
+            box-sizing: border-box;
+            width: 300px;
+            height: 245px;
+            background: #ccc;
+            margin: 800px auto;
+        }
+        #box img{
+            width: 100%;
+            height: 100%;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="" trueImg="22.jpg" alt="">
+    </div>
+    <script>
+        let box = document.getElementById('box');
+        let img = box.querySelector('img');
+        function lazyImg(curImg){
+            let trueImg = curImg.getAttribute('trueImg');
+            curImg.src = trueImg;
+            curImg.onload = function(){
+                 curImg.style.display = 'block';
+            };
+            curImg.isLoad = true;
+
+           
+        }
+        //监听事件
+        window.onscroll = function(){
+            if(img.isLoad)return;
+            let HTML = document.documentElement;
+            let b = HTML.clientHeight +HTML.scrollTop;
+            let a = box.offsetHeight+ box.offsetTop;
+            if(a<=b){
+                lazyImg(img);
+            }
+        } 
+    
+    
+    
+    
+    </script>
+</body>
+</html>

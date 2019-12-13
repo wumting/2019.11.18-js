@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../jquery-1.11.3.js"></script>
+    <script>
+        var originObj = {
+            n: {
+                a: [
+                    { b: 1, c: [{ d: 1 }, { e: 1 }] },
+                    { f: 1 }
+                ]
+            }
+        };
+        // let obj = {
+        //     name: 'erYa',
+        //     age: 13,
+        //     sex: 'girl'
+        // }
+        // let obj1 = {
+        //     name: 'erYa',
+        //     age: 13,
+        //     1: 13
+        // }
+        // $.each(originObj,function (i, n) {
+        //     console.log(i, n)
+        // })
+
+        // for(key in originObj){
+        //     console.log(key,originObj[key])
+        // }
+        // $.extend(obj,obj1)
+        // var empty = {};
+        // var defaults = { validate: false, limit: 5, name: "foo" };
+        // var options = { validate: true, name: "bar" };
+        // var settings = jQuery.extend(empty, defaults, options);
+        //     console.log(settings,options,defaults,empty)
+
+
+
+
+
+        // let arr = [];
+        // function getKey(obj) {
+        //     if (obj instanceof Array) {
+        //         obj.forEach(function (item) {
+        //             push(item);
+        //         })
+        //     } else {
+        //         push(obj);
+
+        //     }
+        //     return arr;
+        // }
+        // function push(str) {
+        //     for (key in str) {
+        //         arr.push(key);
+        //         if (typeof str[key] === "object") {
+        //             getKey(str[key]);
+        //         }
+        //     }
+        // }
+        // getKey(originObj)
+        // console.log(arr)
+
+
+        // var x = 1,//12 25 
+        //     obj = { x: 2 }//14
+        // obj.fn = (function (x) {//x=10 11
+        //     this.x += ++x;
+        //     return function (y) {//1 12  2 13
+        //         y += x;
+        //         this.x += y;
+        //         console.log(x);//11 11
+        //     }
+        // })(10);
+        // var fn = obj.fn;
+        // obj.fn(1);
+        // fn(2);
+        // console.log(x, obj.x);
+
+        var fn = {
+            bar:function(){
+                console.log(this)//fn
+            },
+            er:function(){
+                console.log(this)
+            }
+        }
+        fn.bar();
+        // (fn.bar)()
+        (fn.er)()
+        fn.er()
+
+
+
+    </script>
+</body>
+
+</html>
