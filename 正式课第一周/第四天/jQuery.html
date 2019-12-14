@@ -72,11 +72,18 @@
         //     $(this).toggleClass('active')
         // })
         // $('#but').css('width')
-        
 
 
+        (function (global, factory) {
+            if (typeof module === "object" && typeof module.exports === "object") {  
+                //支持CommonJS模块规范的执行这里
+            } else {
+                //可以初步理解为是浏览器或者（web-wiew）环境
+                factory(global);
+            } 
+        })(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {})
 
-
+ 
     </script>
 </body>
 

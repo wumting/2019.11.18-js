@@ -120,31 +120,58 @@
 		</div>
 		<div id="right"></div>
 	</div>
-	<script>
-		var btn = document.getElementById('btn');
-		var text = document.getElementById('text');
-		var left = document.getElementById('left');
-		var right = document.getElementById('right');
+	 	<script src="../jquery-1.11.3.js"></script>
+		<script>
+		// var btn = document.getElementById('btn');
+		// var text = document.getElementById('text');
+		// var left = document.getElementById('left');
+		// var right = document.getElementById('right');
+		let btn = $('#btn');
+		let text =$('#text');
+		let left = $('#left');
+		let right = $('#right');
 		var time = null;
 		let num = 0;
-		let reverse = left.innerHTML.length;
-		btn.onclick = function () {
-			if (right.innerHTML.length === 0) {
-				let leftText = left.innerHTML;
-				let rightText = right.innerHTML;
+		let reverse = left.html().length;
+
+
+
+
+		btn.click(function () {
+			if (right.html().length === 0) {
+				let leftText = left.html();
+				let rightText = right.html();
 				time = setInterval(function () {
-					if (leftText.length === right.innerHTML.length) {
+					if (leftText.length === right.html().length) {
 						clearInterval(time); 
 					} else {
-						right.innerHTML += leftText[num];
+						// right.html(right.html() +leftText[num]);
+						right.append(leftText[num]);
 						num++;
 						reverse--;
-						text.innerHTML = `${reverse}/${leftText.length}`;
-						left.innerHTML = leftText.substring(num);
+						text.html(`${reverse}/${leftText.length}`);
+						left.html(leftText.substring(num));
 					}
 				}, 10)
 			}
-		}
+		});
+		// btn.click = function () {
+		// 	if (right.html().length === 0) {
+		// 		let leftText = left.html();
+		// 		let rightText = right.html();
+		// 		time = setInterval(function () {
+		// 			if (leftText.length === right.html().length) {
+		// 				clearInterval(time); 
+		// 			} else {
+		// 				right.html() += leftText[num];
+		// 				num++;
+		// 				reverse--;
+		// 				text.html() = `${reverse}/${leftText.length}`;
+		// 				left.html() = leftText.substring(num);
+		// 			}
+		// 		}, 10)
+		// 	}
+		// }
 
 
 	</script>

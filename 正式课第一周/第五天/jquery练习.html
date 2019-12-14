@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script src="../jquery-1.11.3.js"></script>
+    <script>
+        let $ul = $('#ul');
+        let arr = '';
+        // setTimeout(function(){
+        //     for(var i=0;i<5;i++){
+        //         arr+='<li>'+i+'</li>';
+        //     }
+        //     $ul.html(arr);
+        // });
+       
+        
+        let ulLi = $("#ul li");
+        console.log(ulLi);
+        var aaa = 'abc';
+        ulLi.click(function(){
+            $(this).append(aaa);
+        });
+        // $("body").on("click","li",function(){
+        //     console.log($(this).html());
+        // });
+    
+    var a = function B(){}
+    var a = function (){}
+    </script>
+</body>
+</html>
