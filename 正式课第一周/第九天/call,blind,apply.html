@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <!--  -->
+    <div id="a"></div>
+    <script>
+
+        function getPrevious(a) {
+            let bro = a.previousSibling;
+            while (bro) {
+                if (bro.nodeType === 1) {
+                    return bro;
+                } else {
+                    bro = bro.previousSibling;
+                }
+
+            }
+            return bro;
+        }
+        console.log(getPrevious(a))
+
+
+
+
+
+
+
+
+
+
+        // function fn(a,b){
+        //     console.log(a,b)
+        //     console.log(this)
+        // }
+        // fn.apply(null,[100,200])
+
+        //原型继承
+        // function A(){
+        //     this.getY = function(){
+        //         console.log(100)
+        //     }
+        // }  
+        // A.prototype.getX= function(){
+        //     console.log(100)
+        // }  
+        // function B(){
+
+        // }
+        // B.prototype.getNum = function(){
+        //     console.log(0)
+        // };
+        // var b1 = new B;
+        // B.prototype = new A; 
+        // var b = new B;
+        // b.getX();//100
+        // // b.getNum();//报错  不是一个函数
+        // b1.getNum();//0
+        // console.log(b1.constructor);//B
+        // console.log(b.constructor);//A
+
+        //中间类继承
+        // function sum(){
+        //     arguments.__proto__ = Array.prototype;
+        //     arguments.pop();
+        //     console.log(arguments);//[100,2,3,35] IE10以下不兼容
+        // }
+        // sum(100,2,3,35,34);
+
+        //call继承
+        // function A(){
+        //     this.a = 100;
+        // };
+        // function B(){
+        //     //在类B中调用了A，并且通过call改变了类A中的this指向，使其指向B的实例，
+        //     A.call(this);
+        // };
+        // var b =new B;
+        // console.log(b);//{a:100}
+
+        //寄生组合继承
+        // var obj = {age:1};
+        // //Object.create   Object.keys
+        // var o = Object.create(obj);//返回一个新的对象
+        // console.log(o);//{__proto__:{age:1,__proto__:Object.prototype}}
+
+        // function A(){
+
+        // };
+        // function B(){
+        //     A.call(this);//继承私有属性
+        //     console.log(100);
+        // };
+        // A.prototype.getX = function (){
+        //     console.log(200);
+        // }
+        // B.prototype = Object.create(A.prototype);//继承公有属性
+        // A.prototype.getY = function (){
+        //     console.log(200);
+        // }
+        // var b = new B;
+        // b.getY();
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

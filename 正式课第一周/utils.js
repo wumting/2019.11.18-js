@@ -2,7 +2,14 @@ var utils = (function () {
     console.log(666);
     //1. 类数组转数组    *****这个调用的时候是utils.toArray()*******
     function toArray(likeAry) {
-        return Array.from(likeAry)
+        var ary = [];
+        try{
+            ary = Array.prototype.slice.call(likeAry);
+        }catch(e){//e代表的是try中的代码错误信息
+            for(var i=0;i<likeAry.length;i++){
+                ary.push(likeAry[i]);
+            }
+        }
     };
     //2. 求一组数的平均数  *****这个调用的时候是utils.mean()*******
     function mean() {
@@ -117,7 +124,7 @@ var utils = (function () {
         return val;
     }
     //11. 给元素设置单个属性值
-    function setCss(curEle, attr, value) { // curELe:元素   attr:属性   value :值
+    function setCss(curEle, attr, value) { // curELe:元素  attr:属性   value :值
 
         if (attr === "opacity") {
             curEle.style[attr] = value;

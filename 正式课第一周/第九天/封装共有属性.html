@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function Fn() {
+        //     var a = 1
+        //     this.a = a
+        // }
+        // Fn.prototype.say = function () {
+        //     this.a = 2
+        // }
+        // Fn.prototype.b = 1;
+        // var f1 = new Fn;
+
+        // function hasPubicProperty(obj, attr) {
+        //     if (attr in obj && !obj.hasOwnProperty(attr)) {
+        //         return true
+        //     }
+        //     return false
+        // }
+
+        // function hasPubicProperty(obj, attr) {
+        //     return attr in obj && !obj.hasOwnProperty(attr);
+        // };
+        // console.log(hasPubicProperty(f1, 'b'));
+        // console.log(f1.hasOwnProperty('b'));
+
+
+
+
+
+
+
+
+
+        // let sry = [1, 2, 3];
+        // Object.prototype.hasPubProperty = function (value) {
+        //     let ary = ['Number', 'string'];
+        //     if (!ary.includes(typeof value)) {
+        //         return false;
+        //     }
+        //     let n = value in this;
+        //     let m = this.hasOwnProperty(value);
+        //     // return n && !m;
+        //     if (n === true && m === false) {
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+        // }
+        // console.log(sry.hasPubProperty([]));//false
+        // console.log(sry.hasPubProperty('push'));//true
+        // console.log(Object.prototype.hasPubProperty('hasOwnProperty'))//false
+        // console.log(Object.__proto__.__proto__.hasPubProperty('hasOwnProperty'))//false
+
+        // function Fn() {
+        //     this.x = 100;
+        //     this.y = 100;
+        // }
+        // Fn.prototype.getX = function () {
+        //     console.log(this.x)
+        // }
+        // let f1 = new Fn;
+        // Fn.prototype = {
+        //     getY: function () {
+        //         console.log(this.y)
+        //     }
+        // };
+        // let f2 = new Fn;
+
+
+        var num = 0; 
+        function Fn(num) {//0  10
+            arguments[0] = 10;
+            this.num = 20;
+            return num;
+        }
+        Fn.num = 40;
+        Fn.prototype.num = 30;
+        Fn.prototype.getNum = function () {
+            console.log(this.num);
+        };
+        var f = new Fn(num);
+        console.log(f.num);//20
+        f.getNum();//20
+        Fn.prototype.getNum();//30
+        console.log(num);//0
+        var n = Fn(num);
+        console.log(n);//10
+        console.log(num);//20
+
+    </script>
+</body>
+
+</html>

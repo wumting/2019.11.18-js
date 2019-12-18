@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function Fn(a, b) {
+        //     this.x = a;
+        //     this.y = b;
+        // };
+        // Fn.prototype.getX = function () {
+        //     console.log(this.x);
+        // }
+        // var f = new Fn(100, 200);
+        // var f1 = new Fn(100, 2);
+
+        function Fn(x, y) {
+            this.x = x;
+            this.y = y;
+            this.getX = function () {
+                console.log(this.x);
+            }
+        }
+        Fn.prototype.getX = function () {
+            console.log(this.x);
+        }
+        Fn.prototype.getY = function () {
+            console.log(this.y);
+        }
+        var f1 = new Fn(100, 200)
+        f1.__proto__.a = 300;
+        var f2 = new Fn(100, 200);
+        console.log(f1.getX == f2.getX);//false
+        console.log(f1.getY == f2.getY);//true
+        console.log(f1.x == f2.x);//true
+        console.log(Fn.prototype.getX === f1.getX);//false
+        console.log(Fn.prototype.getX === f1.__proto__.getX);//true
+        f1.getX()//100
+        Fn.prototype.getX();//un
+        f2.__proto__.getX();//un
+        Fn.prototype.getY();//un
+        console.log(f1.a);//300
+        console.log(f1.toString);//toString(){}
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        // function sum(){
+        //    let ary = Array.prototype.slice.call(arguments);
+        //    return ary;
+        // };
+        // console.log(sum(12,24,54,54,32,32));
+
+        let divs = document.getElementsByTagName('div');
+        function toArray(likeAry){
+            return Array.prototype.slice.call(likeAry);
+        }
+        console.log(toArray(divs));
+    
+    
+    </script>
+</body>
+</html>

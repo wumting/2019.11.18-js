@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let ary = [1,2,3];
+        // function myPop(){
+        //     // console.log(this);//[1,2,3]
+        //     var a = this[this.length-1];
+        //     this.length--;
+        //     return a;
+
+
+        // }
+        // Array.prototype.myPop = myPop;
+        // // console.log(ary.myPop());
+        
+        // console.log(ary.pop());
+        
+        Array.prototype.unique = function () {
+           let newObj = {};
+           for(var i = 0; i < this.length; i ++){
+            //    let item = this[i];
+            //    console.log(this);
+               if(newObj[this[i]] !== undefined){
+                //    console.log(newObj.item);
+                  this[i] = this[this.length-1];
+                  this.length--;
+                  i--;
+               }else{
+                newObj[this[i]] = this[i];
+               }
+            }
+        //    console.log(arr);
+           return this
+      
+        }
+        var arr = [1,2,2,3,4];
+        console.log(arr.unique());
+
+    </script>
+</body>
+</html>

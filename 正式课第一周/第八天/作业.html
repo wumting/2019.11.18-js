@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.
+        // function C1(name) {
+        //     if (name) {
+        //         this.name = name;
+        //     }
+        // }
+        // function C2(name) {
+        //     this.name = name;
+        // }
+        // function C3(name) {
+        //     this.name = name || 'join';
+        // }
+        // C1.prototype.name = 'Tom';
+        // C2.prototype.name = 'Tom';
+        // C3.prototype.name = 'Tom';
+        // console.log(new C1().name)//'Tom'
+        // console.log(new C2().name)//undefined
+        // console.log(new C3().name)//'join'
+
+
+        // ------------------------------------------------------
+        //2.
+        // function fun() {
+        //     this.a = 0;
+        //     this.b = function () {
+        //         alert(this.a);//this=>my_fun
+        //     }
+        // }
+        // fun.prototype = {
+        //     b: function () {
+        //         this.a = 20;
+        //         alert(this.a);
+        //     },
+        //     c: function () {
+        //         this.a = 30;
+        //         alert(this.a)
+        //     }
+        // }
+        // var my_fun = new fun();
+        // my_fun.b();//0
+        // my_fun.c();//30
+
+
+
+        // -----------------------------------------------------
+        //3.
+        //foo=f (给Foo新增键值对)  getName=f(){console.log(4);}
+        // function Foo() {
+        //     getName = function () {//重新赋值了
+        //         console.log(1);
+        //     };
+        //     return this;//window
+        // }
+        // Foo.getName = function () {
+        //     console.log(2);
+        // };
+        // Foo.prototype.getName = function () {
+        //     console.log(3);
+        // };
+        // var getName = function () {
+        //     console.log(4);
+        // };
+        // function getName() {
+        //     console.log(5);
+        // }
+
+        // Foo.getName();//2
+        // getName();//4
+        // Foo().getName();//Foo()=>给window下的getName重新赋值  1
+        // getName();//1
+        // new Foo.getName();//2 
+        // new Foo().getName();//3 
+        // console.log(new new Foo().getName())//3
+        // console.log(Foo.getName == Foo.prototype.getName)
+
+        // ---------------------------------------------------
+        //     4.
+        // function Fn() {
+        //     this.x = 100;
+        //     this.y = 200;
+        //     this.getX = function () {
+        //         console.log(this.x);
+        //     }
+        // }
+        // Fn.prototype.getX = function () {
+        //     console.log(this.x);
+        // };
+        // Fn.prototype.getY = function () {
+        //     console.log(this.y);
+        // };
+        // var f1 = new Fn;
+        // var f2 = new Fn;
+        // console.log(f1.getX === f2.getX);//false
+        // console.log(f1.getY === f2.getY);//true
+        // console.log(f1.__proto__.getY === Fn.prototype.getY);//true
+        // console.log(f1.__proto__.getX === f2.getX);//false
+        // console.log(f1.getX === Fn.prototype.getX);//false
+        // console.log(f1.constructor);//Fn(){}
+        // console.log(Fn.prototype.__proto__.constructor);//Object(){}
+        // f1.getX();//100
+        // f1.__proto__.getX();//undefined
+        // f2.getY();//200
+        // Fn.prototype.getY()//undefined
+
+
+        // -----------------------------------------------------------------
+        //     5.
+        // var name = 'zhufengpeixun';
+        // var Fn = function (name) {
+        //     var name = 'world';
+        //     this.name = 'zhufeng';
+        //     this.sex = function () {
+        //         this.name = 'hello';
+        //     }
+        // }
+        // var f1 = new Fn(name);
+        // var f2 = new Fn('age');
+        // console.log(f1.name);//'zhufeng'
+        // console.log(f2.age);//un
+        // f1.sex();//'hello'
+        // console.log(f1);//{name:'hello',sex = function(){}}
+        // console.log(f1.sex === f2.sex)//false
+        // console.log(Fn.name == f1.name)//false   Fn.name='Fn'
+
+
+        // ------------------------------------------------------------------
+        //     6.
+        // function Fn() {
+        //     var a = 1
+        //     this.a = a
+        // }
+        // Fn.prototype.say = function () {
+        //     this.a = 2
+        // }
+        // Fn.prototype = new Fn;
+        // var f1 = new Fn;
+        // f1.__proto__.b = function () {
+        //     this.a = 3
+        // };
+        // console.log(f1.a)//1
+        // console.log(f1.prototype)//un
+        // console.log(f1.b)//function(){}
+        // f1.hasOwnProperty('b')//false
+        // console.log('b' in f1)//true
+        // console.log(f1.constructor == Fn)//false
+        // 7-----------------------------------------------------------------------------
+
+        let n = m = 10;// n=20 21 22
+         
+        var obj = {
+            n: 10,//11 
+            f1: (function (m) {// 10
+                n += n;
+                return () => {
+                    console.log(++this.n, this.m == undefined ? m : ++m);// 
+                }
+            })(n)// 10
+        }
+        function Fn() {
+            this.n = n;
+            n++ < 21 ? n++ : this.n++;
+            f1.call(this, this.n);
+            this.getN = function () {
+                console.log(this.n++);
+            }
+        }
+        function f1(n) {//n=f2.n
+            console.log(this.n++);// 
+        }
+        var f2 = new Fn();//{n:21,getN:function(){}}//22  23
+        var f3 = new Fn();//{n:23,getN:function(){}}
+        Fn.prototype.f1=f1
+        f2.__proto__.f1 = f1;//原型新增 
+        Fn.prototype.__proto__.f1 = f1;//Object.prototype.f1 = f1(n){}
+        Fn.prototype.__proto__.getN = f2.getN;//Object.prototype.getN = f2.getN
+        console.log(f2.getN == f3.getN);//false
+        console.log(f2.getN === Fn.prototype.getN)//true 
+        console.log(f2.f1 === Object.f1);//false 
+        obj.f1();// NaN  11
+        obj.__proto__.f1();// NaN
+        obj.getN();// 10
+        f2.f1();//21 
+        f3.f1.call(f2);//22 
+        console.log(n, m);//  
+
+        // 8.
+        // let n = 10,//11  32  53
+        //     obj = {
+        //         n: 20
+        //     }
+        // let fn = obj.fn = (function () {
+        //     n++;
+        //     return function (m) {//10 11   10  11
+        //         n += 10 + (++m);//11+10+11=32   32+10+11 = 53
+        //         this.n += n;// window.n = NaN   obj.n = 20+53=73 
+        //         console.log(n);// 32  53
+        //     }
+        // })(obj.n)// 
+        // fn(10);//
+        // obj.fn(10);
+        // console.log(n, obj.n)// 53  73
+
+
+
+    </script>
+</body>
+
+</html>
