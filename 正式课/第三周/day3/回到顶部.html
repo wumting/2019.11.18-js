@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #goBack {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: cadetblue;
+            font-size: 20px;
+            line-height: 100px;
+            text-align: center;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div><img src="./1.png" alt=""></div>
+    <div><img src="./1.png" alt=""></div>
+    <div><img src="./1.png" alt=""></div>
+    <div><img src="./1.png" alt=""></div>
+    <div><img src="./1.png" alt=""></div>
+    <div id="goBack">回到顶部</div>
+    <script src="../../utils.js"></script>
+    <script>
+        var box = document.getElementById('goBack');
+        box.onclick = function () {
+            // utils.win('scrollTop',0);
+            let winT = utils.win('scrollTop');
+            let timer = setInterval(() => {
+                winT -= 20;
+                utils.win('scrollTop', winT);
+                if (winT <= 0) {
+                    clearInterval(timer)
+                }
+            }, 10);
+        }
+        let winH = utils.win('clientHeight');//可视窗口的高度
+        window.onscroll = function () {
+            let winT = utils.win('scrollTop');//卷去的高度
+            if (winT >= winH) {
+                box.style.display = 'block';
+            } else {
+                box.style.display = 'none';
+            }
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

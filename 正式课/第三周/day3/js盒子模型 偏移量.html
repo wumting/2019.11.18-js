@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #outer {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            margin: 200px auto;
+            position: relative;
+            border: 10px solid black;
+            /* padding: 10px; */
+        }
+
+        #inner {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin: auto;
+            position: relative;
+        }
+
+        #center {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="inner">
+            <div id="center"></div>
+        </div>
+    </div>
+    <script>
+        //offsetLeft :左偏移量  当前盒子的外边框，到父级参照物的内边框的距离
+        //如果给当前元素加上position，那他的子元素孙子元素的父级参照物都是他
+        var outer = document.getElementById('outer');
+        var inner = document.getElementById('inner');
+        var center = document.getElementById('center');
+        // console.log(outer.offsetParent);//body
+        // console.log(inner.offsetParent);//body
+        // console.log(center.offsetParent);//body
+        // console.log(outer.offsetLeft);
+        // console.log(inner.offsetLeft);
+
+        //封装一个方法：传入该元素，就可以获得他距离body的距离
+        function offset(curEle) {//获取到当前元素距离body左内边框的距离
+            var l = curEle.offsetLeft;
+            console.log(l)
+            var parent = curEle.offsetParent; 
+            while (parent) { 
+                l += parent.offsetLeft + parent.clientLeft;
+                parent = parent.offsetParent;
+            }
+           
+            return l;
+        }
+        console.log(offset(center));
+
+
+
+    </script>
+
+</body>
+
+</html>

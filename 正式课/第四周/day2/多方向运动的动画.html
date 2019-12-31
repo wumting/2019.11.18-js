@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width:100px;
+            height:100px;
+            background: red;
+            position: absolute;
+        }
+</style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        let box = document.getElementById('box');
+         function linear(t,b,c,d){
+            //t:要开始的时间
+            //b:开始的位置
+            //c:要运动的距离
+            //d:要运动的时间 
+            return c/d*t+b;
+        };
+        // let target = {
+        //     left:500,
+        //     top:300,
+        //     width:200,
+        //     height:200
+        // };
+        // let curStart = getComputedStyle(box);
+        // let begin = {
+        //     left:parseFloat(curStart.left),
+        //     top:parseFloat(curStart.top),
+        //     width:parseFloat(curStart.width),
+        //     height:parseFloat(curStart.height)
+        // };
+        // let duration = 3000;
+        // let change = {};
+        // for(key in target){
+        //     change[key] = target[key] - begin[key];
+        // } 
+        box.onclick = function(){
+            animate(box,{left:500,top:300,width:200,height:200},3000);
+            // let t = 0;
+            // let timer = setInterval(()=>{
+            //     t += 20;
+            //     for(key in change){
+            //         let cur = linear(t,begin[key],change[key],duration);
+            //         box.style[key] = cur +'px';
+            //     }
+            //     if(t >= duration){
+            //         clearInterval(timer);
+            //     }
+            // },20)
+        }
+    
+        function animate(curEle,target,duration){
+            let begin = {};
+            let change = {};
+            for(let key in target){
+                begin[key] = parseFloat(getComputedStyle(curEle)[key]);
+                change[key] = target[key] - begin[key];
+            }
+            let t = 0;
+            let timer = setInterval(()=>{
+                t += 20;
+                for(let key in change){
+                    let cur = linear(t,begin[key],change[key],duration);
+                    curEle.style[key] = cur + 'px';
+                }
+                if(t >= duration){
+                    clearInterval(timer);
+                }
+            },20);
+        }
+        // animate(box,{left:500,top:300,width:200,height:200},3000)
+    </script>
+</body>
+</html>

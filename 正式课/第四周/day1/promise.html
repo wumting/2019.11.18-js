@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="">
+        <option value="2017年1月">2017年1月</option>
+        <option value="2017年1月">2017年1月</option>
+    </select>
+    <script>
+        let p = new Promise(function(resolve,reject){
+            setTimeout(() => {
+                //  resolve();
+                reject();
+            }, 1000);
+        }).then(function(){
+            console.log(100);
+            return new Promise(function(resolve,reject){
+                reject();
+            })
+        },function(){
+            console.log(200);
+            return new Promise(function(resolve,reject){
+                reject();
+            })
+        }).then(function(){
+            console.log(300);
+        },function(){
+            console.log(400);
+        });
+        
+        
+        
+        
+    </script>
+</body>
+</html>

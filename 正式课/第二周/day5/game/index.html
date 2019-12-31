@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>打地鼠</title>
+    <style>
+        html {
+            cursor: url("./chuizi.cur"), auto;
+        }
+
+        .holes {
+            width: 600px;
+            margin: 30px auto;
+        }
+
+        .hole {
+            width: 200px;
+            height: 200px;
+            background-image: url('https://www.17sucai.com/preview/1865821/2019-10-10/%E6%89%93%E5%9C%B0%E9%BC%A0/img/hole.png ');
+            background-size: 100%;
+            float: left;
+            overflow: hidden;
+        }
+
+        .countBox {
+            margin-top: 20px;
+            margin-left: 200px;
+            font-size: 40px;
+        }
+
+        .mouse {
+            width: 120px;
+            height: 120px;
+            margin: 40px;
+            background-image: url('https://www.17sucai.com/preview/1865821/2019-10-10/%E6%89%93%E5%9C%B0%E9%BC%A0/img/mouse.png ');
+            background-size: 100%;
+            display: none;
+        }
+
+        .boom {
+            width: 200px;
+            height: 200px;
+            background-image: url('https://www.17sucai.com/preview/1865821/2019-10-10/%E6%89%93%E5%9C%B0%E9%BC%A0/img/boom.png ');
+            background-size: 100%;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="countBox">
+        积分：<span class="count">0</span>
+    </div>
+    <div class="holes">
+        <div class="hole">
+            <div class="mouse"></div>
+            <div class="boom"></div>
+        </div>
+        <div class="hole">
+            <div class="mouse"></div>
+            <div class="boom"></div>
+        </div>
+        <div class="hole">
+            <div class="mouse"></div>
+            <div class="boom"></div>
+        </div>
+        <div class="hole">
+            <div class="mouse"></div>
+            <div class="boom"></div>
+        </div>
+        <div class="hole">
+            <div class="mouse"></div>
+            <div class="boom"></div>
+        </div>
+        <div class="hole">
+            <div class="mouse"></div>
+            <div class="boom"></div>
+        </div>
+        <div class="hole">
+            <div class="mouse"></div>
+            <div class="boom"></div>
+        </div>
+        <div class="hole">
+            <div class="mouse"></div>
+            <div class="boom"></div>
+        </div>
+        <div class="hole">
+            <div class="mouse"></div>
+            <div class="boom"></div>
+        </div>
+
+    </div>
+    <script>
+        let count = 0;
+        let holes = document.getElementsByClassName('hole');
+        mouseShow();
+        function mouseShow() {
+            let i = Math.floor(Math.random() * 9);
+            holes[i].querySelector('.mouse').style.display = 'block'; 
+        }
+        for(let i=0;i<holes.length;i++){
+            holes[i].querySelector('.mouse').onclick= function(){
+                this.style.display = 'none';
+                document.querySelector('.count').innerHTML = count+=100;
+                this.nextElementSibling.style.display = 'block';
+                boomHidden(i)
+            }
+        }
+        function boomHidden(i){
+            setTimeout(()=>{
+                holes[i].querySelector('.boom').style.display = 'none';
+            },1000)
+        }
+        setInterval(mouseShow,1500);
+
+
+
+
+    </script>
+</body>
+
+</html>

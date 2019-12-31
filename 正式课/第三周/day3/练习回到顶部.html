@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #goBack{
+            width: 100px;
+            height: 100px;
+            background-color: cornflowerblue;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            line-height: 100px;
+            text-align: center;
+            display: none;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="./1.png" alt="">
+        <img src="./1.png" alt="">
+        <img src="./1.png" alt="">
+        <img src="./1.png" alt="">
+    </div>
+    <div id="goBack">
+        回到顶部
+    </div>
+    <script src="../../utils.js"></script>
+    <script>
+        let box = document.getElementById('box');
+        let goBack = document.getElementById('goBack');
+        let winH = utils.win('clientHeight');
+        
+        goBack.onclick = function(){
+            let winT = utils.win('scrollTop');
+            let timer = setInterval(() => {
+                winT -= 20;
+                utils.win('scrollTop',winT);
+                if(winT <= 0){
+                    clearInterval(timer);
+                }
+            }, 10);
+        }
+        window.onscroll = function(){
+            let winT = utils.win('scrollTop');
+            if(winT >= winH){
+                goBack.style.display = 'block';
+            }
+        }
+    
+    
+    
+    </script>
+</body>
+</html>

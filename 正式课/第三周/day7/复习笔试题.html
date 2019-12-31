@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span id="span_4"></span>
+            </li>
+        </ul>
+    </div>
+    <script>
+        // var str ="345";
+        // var str1 ="2389002723457839";// str在str1中第一次出现的索引位置    
+        // function getIndex(a,b) {
+        //     for(var i=0;i<b.length;i++){
+        //         let str = '';
+        //         for(var j=0;j<a.length;j++){
+        //             str += b[i+j];
+        //             if(str === a){
+        //                 return i;
+        //             }
+        //         }
+        //     }
+        //     return -1;
+        // }
+        // console.log(getIndex(str,str1))
+
+
+        //通过id获取当前元素，然后通过当前元素获取到他的父元素，然后通过父元素找到他的所有的兄弟元素，通过转成数组indexof来进行判断他是第几个元素，再通过nodeName获取到他的标签名，然后进行拼接
+        // let span = document.getElementById('span_4');
+        // function getIndex(curEle){ 
+        //     if(curEle === document.body){
+        //         return 'body';
+        //     }
+        //     let parent = curEle.parentNode;
+        //     let arr = [...parent.children];
+        //     let index = arr.indexOf(curEle);
+        //     let tag = curEle.nodeName.toLowerCase();
+        //     return getIndex(parent)+'>'+tag+'['+index+']';
+
+        // }
+        // console.log(getIndex(span))
+
+        // var  arr = [{a:1,b:2},{a:2,b:1},{a:21,b:1},{a:1,b:2},{b:2,a:1}];
+        // var obj = {};
+        //  for(var i=0;i<arr.length;i++){
+        //      let cur = arr[i];
+        //      if(obj[cur.a+','+cur.b]){
+        //         arr.splice(i,1);
+        //         i--;
+        //         continue;
+        //      }
+        //     obj[cur.a+','+cur.b] = true;
+        //  } 
+         
+        var  obj = {
+            a:[{b:1,c:{d:2}}],
+            e:{f:1,h:[{i:1}]},
+            x:{y:2}
+        }  
+        let ary = [];
+        function pushAry(cur){
+            if(cur instanceof Array){
+                 for(var i=0;i<cur.length;i++){
+                    pushAry(cur[i]);
+                 }
+            }else{
+                for(key in cur){
+                    ary.push(key);
+                    pushAry(cur[key]);
+                }
+            }
+            return ary;
+        }
+        console.log(pushAry(obj))
+
+
+
+
+    </script>
+</body>
+</html>

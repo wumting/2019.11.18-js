@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(){
+            console.log(this);
+            console.log(arguments)
+        }
+        let obj = {name:10};
+        Function.prototype.myCall = function(context){
+            context = context || window;
+            context.$fn = this;
+            let arg = [];
+            let result;
+            for(var i=1;i<arguments.length;i++){
+                arg.push(arguments[i]);
+            }
+            result = context.$fn(...arg);
+            delete context.$fn;
+            return context;
+        }    
+        fn.myCall(obj,10,20) ;
+        
+    </script>
+</body>
+</html>

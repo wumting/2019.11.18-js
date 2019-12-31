@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let template = '我是{{name}}，年龄{{age}}，性别{{sex}}';
+        let data = {
+            name: '姓名',
+            age: 18,
+            sex: '男'
+        }
+       console.log(render(template, data)) ; // 我是姓名，年龄18，性别男
+
+        // 实现render方法
+        function render(tmp, data) {
+            let reg = /{{([a-z]+)}}/g; 
+            let newAry = tmp.replace(reg,function(a,b){ 
+                return data[b]
+            })
+            return newAry;
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 200px;
+            margin: 600px auto;
+        }
+
+        #box img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="./img/default.jpg" address = "img/1.jpg" alt="">
+        <img src="./img/default.jpg" address = "img/2.jpg" alt="">
+        <img src="./img/default.jpg" address = "img/3.jpg" alt="">
+        <img src="./img/default.jpg" address = "img/4.jpg" alt="">
+      
+    </div>
+    <script src="../../utils.js"></script>
+    <script>
+        let box = document.getElementById('box');
+        let imgs = box.getElementsByTagName('img');
+        function delay(){
+            for(var i=0;i<imgs.length;i++){
+                check(imgs[i]);
+            }
+        }
+        window.onscroll = delay;
+        var winH = utils.win('clientHeight');
+        function check(curImg){
+            if(curImg.flag){
+                return;
+            }
+            var curH = curImg.offsetHeight;
+            var curT = utils.offset(curImg).t;
+            var winT = utils.win('scrollTop');
+            if(curT+curH <= winH+winT){
+                var trueAddress = curImg.getAttribute('address');
+                var newImg = document.createElement('img');
+                newImg.src = trueAddress;
+                newImg.onload = function(){
+                    curImg.src = trueAddress;
+                    curImg.flag = true;
+                    newImg = null;
+                }
+            } 
+
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

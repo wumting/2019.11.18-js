@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <span></span>
+        </li>
+        <li>
+            <span></span>
+            <span></span>
+            <span id="span_3"></span>
+            <span id="span_4"></span>
+        </li>
+    </ul>
+    <script>
+        //1.封装一个方法，检测str在str1中出现的索引位置，如果不存在返回-1；要求（性能尽可能最高，不能使用indexOf，substr,substring;用原生的方法实现）
+        // var str ='345';
+        // var str1 = '231334567434'; // 12  
+        // function Index(a,b) {
+        //     for(var i=0;i<b.length-a.length+1;i++){
+        //         let str = '';
+        //         for(var j=0;j<a.length;j++){
+        //             str += b[i+j];
+        //         }
+        //         if(str === a){
+        //             return i;
+        //         }
+        //     }
+        //     return -1;
+        // }
+        // function getIndex(str,str1){
+        //     let str2 = '';
+        //     var len = str.length; // 3
+        //     return search(0);
+        //     function search(n) {
+        //         str2= '';
+        //         for(var s = n;s<n+len;s++){
+        //             str2 += str1[s];
+        //             if(str2.length==len){
+        //                 if(str2 === str){
+        //                     return n;
+        //                 }else{
+        //                     n++;
+        //                     if(n<str1.length-len+1){
+        //                         return search(n);
+        //                     }else{
+        //                         return -1;
+        //                     }
+        //                 }
+        //             }
+
+        //         }
+        //     }
+        // } 
+        // console.log(str1.indexOf(str,0));
+        // console.log(getIndex(str,str1));
+
+        // 2.实现一个函数，生成某个DOM元素的路径；主要包含两部分；标签层级和兄弟元素中的顺序
+        // <body>
+        // <ul>
+        //     <li>
+        //         <span></span>
+        //     </li>
+        //     <li>
+        //         <span></span>
+        //         <span></span>
+        //         <span></span>
+        //         <span id="span_4"></span>
+        //     </li>
+        // </ul>
+        // </body>
+        // 如果传入id=”span_4”的元素；生成路径是body>ul[0]>li[1]>span[3]
+
+        // let span = document.getElementById('span_4');
+        // function getDom(curEle) {
+        //     if(curEle.nodeName === 'BODY'){
+        //         return 'body';
+        //     }
+        //     let arr = [...curEle.parentNode.children];
+        //     let index = arr.indexOf(curEle);
+        //     let tag = curEle.nodeName.toLowerCase();
+        //     return getDom(curEle.parentNode)+">"+tag+'['+index+']';
+        // }
+        //  console.log(getDom(span));   
+        // 3.实现一个方法，将有序的数组变为乱序（随机顺序）
+        let ary = [1,2,3,4,5];
+        ary.sort((a,b)=>{
+            return (a-b)*(Math.random()*2-1);
+        })
+        console.log(ary);
+        
+        // function roundArr(a){
+        //     let arr;
+        //     for(var i=0;i<a.length;i++){
+        //         //随机获取一个索引index
+        //         let index = Math.round(Math.random()*(ary.length-1));
+        //         //让arr这个变量等于随机获取的这一项
+        //         arr = a[index];
+        //         //把原数组里的i对应的那一项给a[index]
+        //         a[index] = a[i];
+        //         //然后让原数组里i对应的那一项赋值为随机获取的这一项
+        //         a[i] = arr;
+        //     }
+        //    return a; //把原数组return出去
+        // }
+        // console.log(roundArr(ary));
+        // 4.获取下面这个对象中所有的属性名，放到对象中；
+        var obj = {
+            a: [{ b: 1, c: { d: 2 } }],
+            e: { f: 1, h: [{ i: 1 }] },
+            x: { y: 2 }
+        };
+        let arr = [];
+        function getKey(obj) {
+            if (obj instanceof Array) {
+                obj.forEach(function (item) {
+                    getKey(item); 
+                })
+            } else {
+                for (key in obj) { 
+                    arr.push(key); 
+                    getKey(obj[key]); 
+                }
+            }
+            return arr;
+        } 
+        console.log(getKey(obj));
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>hello</div>
+    <div class="box">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+    </div>
+    <div>world</div>
+    <div>I</div>
+    <div class="con">am</div>
+    <script>
+        let con = document.getElementsByClassName('con')[0];
+        // console.log(con.nextElementSibling.nextElementSibling)
+        // 封装的作业
+        // 获取当前元素所有子元素节点  children
+        // 获取弟弟元素节点
+        // 获取当前元素所有的弟弟元素节点
+        // 获取当前元素在兄弟元素节点中索引；
+        //a 代表选择器  b 取值 ：1 获取所有子元素  2 获取弟弟元素节点  3 当前元素所有的弟弟元素节点  4 获取当前元素在兄弟元素节点中索引
+        function chilAll(a, b) {
+            let curEle = document.querySelectorAll(a)[0];
+            let arr = [];
+            if (b === 1) {//获取当前元素所有子元素节点
+                let childs = curEle.childNodes; 
+                for (var i = 0; i < childs.length; i++) {
+                    if (childs[i].nodeType === 1) {
+                        arr.push(childs[i]);
+                    }
+                }
+                return arr
+            } else if (b === 2) {//获取弟弟元素节点
+                return nextAll(curEle);
+            }
+            function nextAll(a) {
+                let next = a.nextSibling; 
+                if (next !== null) {// 文本或者标签
+                    if(next.nodeType==1){
+                        arr.push(next);
+                    }
+                    nextAll(next);
+                } 
+                return arr;
+            }
+
+
+
+
+        }
+        
+        console.log(chilAll('.box', 2))
+    
+    </script>
+</body>
+
+</html>

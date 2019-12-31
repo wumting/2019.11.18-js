@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+        } 
+          
+        .time{
+            width: 50px;
+            height: 30px; 
+            position: absolute;
+            top: 200px;
+            left: 200px;
+            border: 1px solid #333333;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" style="left: 1px;"></div>
+    <div class="time"></div>
+    <script>
+        let body = document.body;
+        let box = document.getElementById('box'); 
+        let t = document.getElementsByClassName('time')[0];
+        let maxLeft = body.clientWidth - box.offsetWidth; 
+        let timer; 
+        box.onclick = function () {  
+                let now = Date.now();  
+                timer = setInterval(() => { 
+                    let l = this.style.left;
+                    l = maxLeft/3000*10 + parseFloat(l);
+                    if (l >= maxLeft) {
+                        var time = Date.now(); 
+                        clearInterval(timer);
+                        l = maxLeft; 
+                        t.innerHTML = time-now;
+                    }
+                    this.style.left = l + 'px';
+                    flag = 'false'; 
+                }, 10);   
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

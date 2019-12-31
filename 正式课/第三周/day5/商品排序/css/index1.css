@@ -1,0 +1,77 @@
+html,body{
+    width: 100%;
+    background-color: #f4f4f4;
+}
+.nav{
+    width: 1190px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    background-color: pink;
+    margin: 30px auto;
+    padding-left: 10px;
+}
+.nav span{
+    margin-right: 20px;
+}
+.nav a{
+    margin-right: 10px;
+    position: relative;
+}
+.nav a:hover{
+    color: orangered;
+}
+.nav a i{
+    width: 0;
+    height: 0;
+    border: 4px solid transparent;
+    position: absolute;
+}
+.nav a i.up{
+    top: 5px;
+    border-bottom: 4px solid #666666;
+}
+.nav a i.up.bg{ 
+    border-bottom: 4px solid orangered;
+}
+.nav a i.down{
+    top: 14px;
+    border-top: 4px solid #666666;
+}
+.nav a i.down.bg{ 
+    border-top: 4px solid orangered;
+}
+.list{
+    width: 1190px;
+    margin: 10px auto 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.list li{
+    width: 220px;
+    background: white;
+}
+.list li img{
+    display: inline-block;
+    width: 90%;
+    margin: 0 auto;
+}
+.list li span{
+    display: block;
+    margin-left:10px;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #box{
+                width:100px;
+                height:100px;
+                background: red;
+                position: absolute;
+            }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        let time = 3000;
+        let box = document.getElementById('box');
+        let maxL = document.documentElement.clientWidth - box.offsetWidth;
+        let timer;
+        function linear(t,b,c,d){
+            //t:要开始的时间
+            //b:开始的位置
+            //c:要运动的距离
+            //d:要运动的时间
+
+            return c/d*t+b;
+        }
+        box.onclick = function(){
+            let t = 0;
+            timer = setInterval(()=>{
+                t+= 10;
+                let curL = linear(t,0,maxL,time); 
+                if(t >= time){
+                    clearInterval(timer);
+                    curL = maxL;
+                }
+                box.style.left = curL+'px';
+            },10)
+        }
+
+
+
+
+
+        // box.onclick = function(){
+        //     timer = setInterval(()=>{
+        //         let curL = parseFloat(getComputedStyle(box).left);
+        //         curL += maxL/3000*10;
+        //         if(curL >= maxL){
+        //             clearInterval(timer);
+        //             curL = maxL;
+        //         }
+        //         box.style.left = curL+'px';
+        //     },10)
+        // }
+        
+        
+    </script>
+</body>
+</html>

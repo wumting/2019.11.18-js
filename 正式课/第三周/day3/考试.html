@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function Fn(n, m) {
+        //     n = n || 0;
+        //     m = m || 0;
+        //     this.x = n;
+        //     this.y = m;
+        //     this.getX = function () {
+        //         console.log(this.x);
+        //     }
+        //     return n + m;
+        // }
+        // Fn.prototype.sum = function () {
+        //     console.log(this.x + this.y);
+        // }
+        // Fn.prototype = {
+        //     getX: function () {
+        //         this.x += 1;
+        //         console.log(this.x);
+        //     },
+        //     getY: function () {
+        //         this.y -= 1;
+        //         console.log(this.y);
+        //     }
+        // };
+        // let f1 = new Fn(10, 20);
+        // let f2 = new Fn;
+        // console.log(f1.getX === f2.getX); //false
+        // console.log(f1.getY === f2.getY);//true
+        // console.log(f1.__proto__.getY === Fn.prototype.getY);//true 
+        // console.log(Fn.prototype.getX === f2.getX); //false
+        // console.log(f1.constructor);//object
+        // f1.getX(); //10
+        // Fn.prototype.getX();//NaN
+        // f2.getY();//-1
+        // Fn.prototype.getY();//NaN
+        // f1.sum();//报错
+
+        // var name = '珠峰培训';
+        // function A() {
+        //     console.log(1, this.name)
+        // }
+        // function B() {
+        //     console.log(2, this.name)
+        // }
+        // A.call(B, 10);//1,'B'
+        // A.call.call.call(B);//2,'珠峰培训'
+        // Function.prototype.call(B);//在call内置的方法中会校验call的this是否是一个函数，不是则不会运行
+        // Function.prototype.call.call.call(B);////2,'珠峰培训'
+
+        // var name = "WINDOW";
+        // function fn() {
+        //     console.log(this.name);
+        // }
+        // var obj = {
+        //     name: "OBJ",
+        //     fn: () => { console.log(this.name); }
+        // };
+        // fn();//"WINDOW"
+        // obj.fn();//"WINDOW"
+        // fn.call(obj);//"OBJ"
+        // window.onload = function () {
+        //     //页面加载完成，事件就会触发 
+        //     fn();//"WINDOW"
+        //     obj.fn();//"WINDOW"
+        // };
+        // fn.bind(obj);
+
+
+        // //第四题  变量提升
+        // var print = function () {alert(1);}
+        // function Fn() {
+        //     print = function () { alert(2);}
+        //     return this;
+        // }
+        // function print() {alert(3);}
+        // Fn.prototype.print = function () {
+        //     alert(4);
+        // }
+        // Fn.print = function () {
+        //     alert(5);
+        // }
+        // print();//1
+        // Fn.print();//5
+        // Fn().print();//2
+        // new Fn.print();//5
+        // new Fn().print();//4
+
+        /*编写unique方法，实现如下的效果：先去重后排序*/
+        // let ary = [12,23,12,13,13,12,23,14,8]; 
+        // //=> 最后的ary等于[8,12,13,14,23]
+        // Array.prototype.unique = function(){
+        //     let obj = {};
+        //     for(var i=0;i<this.length;i++){
+        //         let cur = this[i];
+        //         if(obj[cur] === undefined){
+        //             obj[cur] = cur;
+        //         }else{
+        //             this[i] = this[this.length-1];
+        //             this.length--;
+        //             i--;
+        //         }
+        //     }
+        //     return this;
+        // }  
+        // console.log(ary.unique().sort((a,b)=>a-b));
+
+        /*分析下面的changeThis方法该如何实现？*/
+        Function.prototype.changeThis = function changeThis(context) {
+            //=>实现你的代码 
+        //     let ary = [];
+        //     let result;
+        //     context.$fn = this;
+        //     for(var i =1;i<arguments.length;i++){
+        //         ary.push(arguments[i]);
+        //     }
+        //     result = context.$fn(...ary);
+        //     delete context.$fn;
+        //     return context;
+        // };
+        // let obj = { name: 'Alibaba' };
+        // function fn(x, y) {
+        //     this.total = x + y;
+        //     return this;
+        // }
+        // let res = fn.changeThis(obj, 100, 200); //res => {name:'Alibaba',total:300}
+        // console.log(res)
+
+        // Math.max.apply(null,ary)
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

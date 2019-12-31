@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            /* display: none; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <button id="btn">点击</button>
+    <!-- <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>  
+        <li>4</li>  
+    </ul> -->
+    <script src="../../jquery-1.11.3.js"></script>
+    <script>
+        // $('#btn').click(function(){
+        //     $('.box').toggle();
+        // })
+
+        // $('#btn').click(function(){
+        //     $('.box').slideToggle();
+
+        // })
+        $('#btn').click(function(){
+            $('.box').animate({
+                width:200,
+                height:300, 
+            },500);  
+        })
+
+
+
+        // console.log($('.list li').eq(2).addClass('a').html());
+        // console.log($('.list li').first());
+        // console.log($('.list li').eq(2).hasClass('a'));
+        // $(document).ready(function(){
+        // });
+
+
+    </script>
+</body>
+
+</html>

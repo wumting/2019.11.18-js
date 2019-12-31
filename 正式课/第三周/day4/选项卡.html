@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='box' style='background:red'></div>
+    <button>红</button>
+    <button>绿</button>
+    <button>蓝</button>
+
+
+
+    <script src="../../jquery-1.11.3.js"></script>
+    <script>
+        // let $box = $('#box');
+        // let $btn = $('button'),
+        // colorAry = ['red', 'green', 'blue'];
+        // $btn.click(function () { 
+        //     $box.css({ 'background': colorAry[$(this).index('button')] });
+        // })
+        // var box = document.querySelector('#box'),
+        //     btnList = document.querySelectorAll('button'),
+        //     colorAry = ['red', 'green', 'blue'];
+        // for (let  i = 0; i < btnList.length; i++) {
+        //     btnList[i].onclick = function () {
+        //         box.style.background = colorAry[i];
+        //     }
+        // }
+        // for (var  i = 0; i < btnList.length; i++) {
+        //     btnList[i].setAttribute('index',i); 
+        //     btnList[i].onclick = function () { 
+        //         box.style.background = colorAry[this.getAttribute('index')]; 
+        //     }
+        // }
+        // for (let i = 0; i < btnList.length; i++) {
+        //     btnList[i].onclick = (function (a) {
+        //         return function () {
+        //             box.style.background = colorAry[a];
+        //         }
+        //     })(i);
+        // }
+    </script>
+</body>
+
+</html>

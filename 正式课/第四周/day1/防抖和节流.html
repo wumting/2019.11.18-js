@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" style="width:100px;height:100px;background: red;text-align: center;line-height: 100px;">0</div>
+    <script>
+        let box = document.getElementById('box');
+        let num = 1;
+        function add(){
+            box.innerHTML = num++;
+        }
+        // box.onmousemove= debounce(add,1000);
+        //非立即执行的防抖
+        // function debounce(fn,wait){
+        //     let timer;
+        //     return function(){
+        //         if(timer){
+        //             clearTimeout(timer);
+        //         }
+        //         timer = setTimeout(()=>{
+        //             fn.apply(this);
+        //         }, wait);
+        //     }
+        // }
+
+        //立即执行的防抖
+        // function debounce(fn,time){
+        //     let timer;
+        //     return function(){
+        //         clearTimeout(timer);
+        //         let now = !timer;
+        //         timer = setTimeout(() => {
+        //              timer = null; 
+        //         }, time);
+        //         if(now){
+        //             fn.apply(this);
+        //         }
+               
+        //     }
+        // }
+        
+        //节流
+        // function  throttle(fn,time){
+        //     let previous = 0;
+        //     return function (){
+        //         let now = Date.now();
+        //         if(now - previous >= time){
+        //             fn.call(this);
+        //             previous = now;
+        //         }
+        //     }
+        // }
+        // box.onmousemove = throttle(add,2000)
+
+        //定时器版
+        // function throttle(fn,time){
+        //     let timer;
+        //     return function(){
+        //         if(!timer){
+        //             timer = setTimeout(() => {
+        //                 timer = null;
+        //                 fn.call(this);
+        //             }, time);
+        //         }
+        //     }
+        // }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 200px;
+            margin: 800px auto;
+        }
+
+        #box img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img src="./img/default.jpg" alt=""> 
+    </div>
+    <script src="../../utils.js"></script>
+    <script>
+        let box = document.getElementById('box');
+        let curImg = document.getElementsByTagName('img')[0];
+        let curH = utils.win('clientHeight');
+        let boxH = box.offsetHeight;
+        let boxT = utils.offset(box).t;
+        window.onscroll = function(){
+            var curT = utils.win('scrollTop');
+            if(curH+curT > boxH+boxT){
+                curImg.src = "./img/3.jpg";
+            }
+        }
+        
+
+    </script>
+</body>
+
+</html>

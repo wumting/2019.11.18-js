@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let nums1 = [1, 2, 2, 1],
+            nums2 = [2, 2];
+        let arr = [];
+        for(var i=0;i<nums1.length;i++){
+            let cur = nums1[i];
+            for(var j=0;j<nums2.length;j++){
+                let next = nums2[j];
+                if(cur === next){
+                    arr.push(next);
+                    break;
+                }
+            }
+        }
+        console.log(arr)
+
+
+    </script>
+</body>
+
+</html>

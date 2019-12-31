@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function Fn(){
+        //     this.y= 2;
+        //     this.x = 1; 
+        // }
+        // Fn.prototype.getX = function(){};
+        // var f1 = new Fn;
+        // var f2 = new Fn;
+        // console.dir(Fn)
+        // console.dir(f1)
+        // f1.x === f2.x;//true
+        // f1.getX === f2.getX;//false
+
+        //  function Fn(){
+
+        //  }   
+        //  Fn.prototype = {
+        //      getX :function(){}
+        //  }
+        // //  Fn.prototype.getX = function(){};
+        //  var f = new Fn;
+        //  f.getX();
+        // let ary = [1,2,3,1,2,3] 
+        // Array.prototype.unique=function(){
+        //     let obj = {};
+        //     for(var i =0;i<this.length;i++){
+        //         if(obj[this[i]] === undefined){
+        //             obj[this[i]] = this[i];
+        //         }else{
+        //             this[i] = this[i+1];
+        //             this.length--;
+        //             i--;
+        //         }
+        //     }
+        //     return this;
+        // }
+        // console.log(ary.unique());
+
+
+
+        function fn(){ 
+            console.log(this);
+            return this.a
+        }
+        function fn1(){
+            a = 1;
+            return 2
+        } 
+        Function.prototype.myCall = function(count ){
+            count = count || window;
+            let args = [];
+            let result;
+            count.$fn = this;
+            for(var i=1;i<arguments.length;i++){
+                args.push(arguments[i]);
+            }
+            result = count.$fn(...args);
+            delete count.$fn;
+            return result;
+
+        }
+        console.log(fn.myCall(fn1));
+        console.log(fn.call(fn1))
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

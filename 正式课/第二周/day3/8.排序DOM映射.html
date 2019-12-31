@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #list {
+            width: 300px;
+            margin: auto;
+            list-style: none;
+        }
+
+        #list li {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-bottom: 1px dashed red;
+        }
+
+        #btn {
+            margin-left: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <li>88</li>
+        <li>90</li>
+        <li>66</li>
+        <li>76</li>
+        <li>81</li>
+    </ul>
+    <button id="btn">排序</button>
+    <script src="../utils.js"></script>
+    <script>
+        let btn = document.getElementById('btn');
+        let list = document.getElementsByTagName('li');
+        let ul = document.getElementById('list');
+        let ary = utils.toArray(list);
+        btn.onclick = function () {
+            ary.sort((a, b) => a.innerHTML - b.innerHTML);
+            for(var i=0;i<ary.length;i++){
+                ul.appendChild(ary[i])
+            }
+        }
+
+        let a = [1,2,3]
+        
+        // 思路：
+        // 1. 当点击button，对li实现排序；获取li；获取button；
+        // 2. 需要将li类数组转成数组，调用数组的sort方法[{},{},{}];根据li中innerHTML 进行排序；
+        // 3. 循环排好序的数组，把数组中的每一个li重新添加到页面中；
+
+        // let liList = document.getElementsByTagName('li');
+        // let btn = document.getElementById('btn');
+        // liList = utils.toArray(liList);
+        // let arr = [];
+        // btn.onclick = function () { 
+        //     for (var i = 0; i < liList.length; i++) {
+        //         let liHtml = liList[i].innerText;
+        //         arr.push(liHtml);
+        //     }
+        //     arr = arr.sort((a, b) => a - b);
+        //     for (var i = 0; i < arr.length; i++) {
+        //         liList[i].innerText = arr[i];
+        //     }
+        // }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
