@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var num = 1;
+        // function fn(a=1){
+        //     console.log(a)
+        // }
+        // fn([]);
+
+
+        // function Dog(name) {
+        //     this.name = name;
+        // }
+        // Dog.prototype = {
+        //     bark() {
+        //         console.log('wangwang');
+        //     },
+        //     sayName() {
+        //         console.log('my name is ' + this.name);
+        //     }
+        // };
+        // function _new(a,b) {
+        //     //=>完成你的代码
+        //     let obj = {};
+        //     obj.__proto__ = a.prototype;
+        //     a.call(obj,b);
+        //     return obj;
+
+        // }
+        // let sanmao = _new(Dog, '三毛');
+        // sanmao.bark(); //=>"wangwang"
+        // sanmao.sayName(); //=>"my name is 三毛"
+        // console.log(sanmao instanceof Dog); //=>true
+
+
+
+        // function change(content) {
+        //     //=>实现你的代码
+        //     content = content || window;
+        //     let str = [];
+        //     let result;
+        //     for(var i=1;i<arguments.length;i++){
+        //             str.push(arguments[i]);
+        //         }
+        //         content.name = 'Alibaba';
+        //         content.$fn = this;
+        //         result = content.$fn(...str);
+        //         delete content.$fn;
+        //         return content;
+
+        //     };
+        //     Function.prototype.change = change;
+
+        // let obj = { name: 'zhufeng' };
+        // function func(x, y) {
+        //     this.total = x + y;
+        //     return this;
+        // }
+        // let res = func.change(obj, 100, 200);
+        // console.log(res)
+        //res => {name:'Alibaba',total:300}
+
+
+
+        // ~function () {
+        //     //=>bind方法在IE6~8中不兼容，接下来我们自己基于原生JS实现这个方法
+        //     function bind() {
+
+        //     };
+        //     Function.prototype.bind = bind;
+        // }();
+        // var obj = { name: 'zhufeng' };
+        // function func() {
+        //     console.log(this, arguments);
+        //     //=>当点击BODY的时候，执行func方法，输出：obj [100,200,MouseEvent事件对象]
+        // }
+        // document.body.onclick = func.bind(obj, 100, 200);
+
+        
+        // function Modal(x, y) {
+        //     this.x = x;
+        //     this.y = y;
+        // }
+        // Modal.prototype.z = 10;
+        // Modal.prototype.getX = function () {
+        //     console.log(this.x);
+        // }
+        // Modal.prototype.getY = function () {
+        //     console.log(this.y);
+        // }
+        // Modal.n = 200;
+        // Modal.setNumber = function (n) {
+        //     this.n = n;
+        // };
+        // let m = new Model(10, 20);
+
+
+        // class Modal{
+        //     constructor(x, y){
+        //         this.x = x;
+        //         this.y = y;
+
+        //     }
+        //     getX() {
+        //         console.log(this.x);
+        //     }
+        //     getY() {
+        //         console.log(this.y);
+        //     }
+        //     static n = 200;
+        //     static setNumber = function (n) {
+        //         this.n = n;
+        //     };
+        // }
+        // Modal.prototype.z = 10;
+        // let m = new Model(10, 20); 
+    </script>
+</body>
+
+</html>

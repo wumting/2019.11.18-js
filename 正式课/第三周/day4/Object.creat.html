@@ -13,16 +13,16 @@
         var obj = { a: 12, b: 23 };
         var o = Object.create(obj);
         // 结果是 o是个空对象， o的__proto__ 是 obj
-        function create(pro) {
-            // 你的代码
-            let obj = {};
-            obj.__proto__ = pro;
-            return obj;
-        }
+    
         console.log(o);
         console.log(o.__proto__)
 
-
+          function create(pro) {
+             // 你的代码
+             function FN() {};
+            FN.prototype = pro;
+            return new FN()
+         }
     </script>
 </body>
 

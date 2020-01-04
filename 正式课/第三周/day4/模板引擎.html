@@ -19,14 +19,18 @@
        console.log(render(template, data)) ; // 我是姓名，年龄18，性别男
 
         // 实现render方法
+        // function render(tmp, data) {
+        //     let reg = /{{([a-z]+)}}/g; 
+        //     let newAry = tmp.replace(reg,function(a,b){ 
+        //         return data[b]
+        //     })
+        //     return newAry;
+        // }
         function render(tmp, data) {
-            let reg = /{{([a-z]+)}}/g; 
-            let newAry = tmp.replace(reg,function(a,b){ 
-                return data[b]
-            })
-            return newAry;
+            let str = ``;
+            str = `我是${data.name}，年龄${data.age}，性别${data.sex}`;
+            return str
         }
-
 
     </script>
 </body>

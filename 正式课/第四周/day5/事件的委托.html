@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <script>
+        let parent = document.getElementById('parent');
+        parent.onmouseover = function(e){ 
+            if(e.target.innerHTML === '1'){
+                console.log('红色');
+            }else if(e.target.innerHTML === '2'){
+                console.log('绿色');
+            }else if(e.target.innerHTML === '3'){
+                console.log('黄色');
+            }
+        }
+    
+    
+    
+    </script>
+</body>
+</html>

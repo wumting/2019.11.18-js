@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width: 300px;
+            height: 300px;
+            background: greenyellow;
+            margin: auto;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin: 100px auto;
+        } 
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="box"></div>
+    </div>
+    
+    <script>
+        var box = document.getElementById('box');
+        var outer = document.getElementById('outer');
+        box.onclick = function(e){
+            e = e||window;
+            console.log(e);
+            //ie8及以下，浏览器将事件信息放到了window.event上，并没有传递给函数的形参
+            console.log(window.event);
+            
+            //clientX:当前鼠标点击的位置距离可视窗口左边的距离
+            //clientY：当前鼠标点击的位置距离可视窗口上边的距离
+            //offsetX：当前鼠标点击的位置距离盒子左边框的距离
+            //offsetY：当前鼠标点击的位置距离盒子上边框的距离
+            //pageX:当前鼠标点击的位置距离页面左边框的距离
+            //pageY：当前鼠标点击的位置距离页面上边框的距离
+            //target:事件源；事件在那个元素身上触发的，事件源就是谁
+            //type:事件类型('click')
+            //cancelBubble : 取消事件默认的冒泡传播
+            //stopPropagation : 取消事件默认的冒泡传播 兼容性较差
+
+            e.cancelBubble = true;
+            e.stopPropagation()
+        }
+        outer.onclick = function(){
+            console.log(1);
+            
+        }
+    
+    
+    </script>
+</body>
+</html>

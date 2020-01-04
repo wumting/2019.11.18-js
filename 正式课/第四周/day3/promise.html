@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let p = Promise.reject('出错了');
+        // p.then(function(a){
+        //     console.log(1);
+        // },function(b){
+        //     console.log(b);
+        // })
+
+        // let thanable = {
+        //     then: function (resolve, reject) {
+        //         reject('成功');
+        //     }
+        // }
+       
+        // Promise.resolve(thanable).then(function(b){
+        //     console.log(b)
+        // }).catch(e => {
+        //     console.log(1)
+        // });
+
+
+        // let p = new Promise(function(resolve,reject){
+        //     reject()
+        // })
+
+        console.log(100)
+        let p = new Promise(function(resolve,reject){
+            console.log(200)
+            resolve();
+        }).then(function(){
+            console.log(300)
+        } ).then(function(){
+            console.log(400)
+        } ).catch(function(){
+            console.log(500)
+        })
+        console.log(600)
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

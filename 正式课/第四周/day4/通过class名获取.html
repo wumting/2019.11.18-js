@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .imgBox {
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin-bottom: 10px;
+            border: 1px solid #333333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="imgBox">
+        <img src="" data-img="img/1.jpg">
+    </div>
+    <div class="imgBox">
+        <img src="" data-img="img/2.jpg">
+    </div>
+    <div class="imgBox">
+        <img src="" data-img="img/1.jpg">
+    </div>
+    <div class="imgBox">
+        <img src="" data-img="img/2.jpg">
+    </div>
+    <div class="imgBox">
+        <img src="" data-img="img/1.jpg">
+    </div>
+    <div class="imgBox">
+        <img src="" data-img="img/2.jpg">
+    </div>
+    <!-- IMPORT JS -->
+    <script src="../../utils.js"></script>
+    <script>
+        /*
+         * 已知页面中有很多.imgBox盒子，盒子中的图片在开始加载页面的时候都没有加载，现在期望你写一个程序实现如下的需求：
+         *   1.第一次加载完成代码后，等待500ms开始加载真实图片
+         *   2.页面滚动中把符合条件的图片也加载出来
+         *   3.图片加载的条件是：当前图片所在的盒子.imgBox，半个盒子高度出现在屏幕中即可
+         * 可使用JQ类库完成
+         */
+        let imgBox = document.getElementsByClassName('imgBox');
+        let imgs = document.getElementsByTagName('img');
+        let imgH = imgBox[0].offsetHeight;
+        let winH = utils.win('clientHeight');
+        let timer;
+        window.onload = function () {
+            let timer = setTimeout(() => { 
+                delay(); 
+            }, 500)
+        }
+        function delay() {
+            for (let i = 0; i < imgs.length; i++) {
+                check(imgs[i]); 
+            }
+        }
+        function check(curImg) {
+            let winT = utils.win('scrollTop');
+            let curH = curImg.offsetHeight;
+            let curT = utils.offset(curImg).t; 
+            if (winH + winT > imgH/2 + curT) {
+                var address = curImg.getAttribute('data-img');
+                let newImg = new Image;
+                newImg.src = address;
+                newImg.onload = function () {
+                    for (var i = 0; i < imgs.length; i++) {
+                        curImg.src = address;
+                        newImg = null;
+                    }
+                }
+            }
+        }
+        window.onscroll = function () {
+            imgs = document.getElementsByTagName('img');
+            delay();
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

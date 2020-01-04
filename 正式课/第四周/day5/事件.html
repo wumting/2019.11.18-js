@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">123</div>
+    <script>
+        var box = document.getElementById('box');
+        function fn1(){
+            console.log(1);
+            
+        }
+        function fn2(){
+            console.log(2);
+            
+        }
+        // box.addEventListener('click',fn1,false);
+        // box.addEventListener('mouseover',fn1,false);
+        // box.removeEventListener('mouseover',fn1,false);
+        // box.addEventListener('click',fn2,false);
+        // console.dir(box);
+        
+        // let obj = {'a':1};
+        // obj.addEventListener();//错误的写法，obj原型链上没有这个方法
+
+        //IE8
+        box.attachEvent('onclick',fn1);
+        box.attachEvent('onclick',fn2);
+
+
+
+
+
+    </script>
+</body>
+</html>

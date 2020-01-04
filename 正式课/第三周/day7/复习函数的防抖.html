@@ -6,24 +6,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    
+    </style>
 </head>
 
 <body>
+    <div id="box">0</div>
     <script>
-        function debounce(fn, wait) { 
-            let timer;
-            return function () {
-                if (timer) {
-                    clearTimeout(timer);
-                }
-                timer = setTimeout(() => {
-                    fn.apply(this);
-                }, wait);
-            }
-
+        let box = document.getElementById('box');
+        let num = 0;
+        function fn() { 
+            box.innerHTML =  num++;
         }
-        window.onscroll = debounce(fn, 1000)
+        //不立即执行
+        // function debounce(fn, time) {
+        //     let timer;
+        //     return function(){
+        //         if(timer){
+        //             clearTimeout(timer);
+        //         }
+        //         timer = setTimeout(()=>{
+        //             fn.call(this);
+        //         },time)
+        //     }
+        // }
+        // box.onclick = debounce(fn, 3000)
+        // 立即执行
+        // function debounce(fn,time){
+        //     let timer;
+        //     return function(){
+        //         clearTimeout(timer);
+        //         let nuw = !timer;
+        //         timer = setTimeout(()=>{
+        //             timer = null;
+        //         },time)
+        //         if(nuw){
+        //             fn.call(this);
+        //         }
+        //     }  
+        // }
 
+        //节流
+    //   function debounce(fn,time){
+    //       let previous = 0;
+    //       return function(){
+    //           let now = Date.now();
+    //           if(now - previous >= time){
+    //                 fn.call(this);
+    //                 previous = now;
+    //           }
+    //       }
+    //   }
+
+        // function debounce(fn,time){
+        //     let timer;
+        //     return function(){
+        //         if(!timer){
+        //             timer = setTimeout(()=>{
+        //                 fn.call(this);
+        //                 timer = null;
+        //             },time);
+        //         }
+        //     }
+        // }  
+        // box.onclick = debounce(fn, 2000)
     </script>
 </body>
 

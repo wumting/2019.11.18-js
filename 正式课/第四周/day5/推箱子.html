@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        let box = document.getElementById('box');
+        window.onkeyup = function (e) {
+            let l = parseFloat(getComputedStyle(box).left);
+            let t = parseFloat(getComputedStyle(box).top);
+            
+            if (e.keyCode === 38) {
+                t -= 10;
+                box.style.top = t + 'px';
+            } else if (e.keyCode === 40) {
+                t += 10;
+                box.style.top = t + 'px';
+            } else if (e.keyCode === 37) {
+                l -= 10;
+                box.style.left = l + 'px';
+            } else if (e.keyCode === 39) {
+                l += 10;
+                box.style.left = l + 'px';
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>

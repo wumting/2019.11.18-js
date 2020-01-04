@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let arr = [1,2,3,[4,5,6,[7,8,9,"6"]]];
+        // let p = arr.join(',').split(',').map(item=>{
+        //     return parseFloat(item);
+
+        // })
+        // console.log(arr.join(','));
+
+        // let a = arr.flat(Infinity);
+        // console.log(a);
+
+        // let b = [];
+        // function flat(arr){
+        //     for(var i=0;i<arr.length;i++){
+        //         let cur = arr[i];
+        //         if(typeof cur === 'object'){
+        //             flat(cur);
+        //             break;
+        //         }
+        //         b.push(cur);
+        //     }
+        //     return b;
+        // }
+        // let c = flat(arr);
+        // console.log(c);
+
+
+        // let arr = [{ price: 5, count: 3, name: "苹果" }, { price: 3, count: 2, name: "橘子" }, { price: 2, count: 5, name: "香蕉" }]
+
+        // let a = arr.reduce(function (prev, next) { 
+        //     return prev + next.price * next.count;
+        // }, 0);
+
+        // console.log(a)
+
+        let arr = [{ price: 5, count: 3, name: "苹果" }, { price: 3, count: 2, name: "橘子" }, { price: 2, count: 5, name: "香蕉" }]
+
+        let a = arr.reduce(function (prev, next) {  
+            return prev + next.price * next.count;
+        },0);
+ 
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

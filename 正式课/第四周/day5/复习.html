@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Promise
+        let p = new Promise(function(resolve,reject){
+            setTimeout(() => {
+                resolve('买菜'); 
+            }, 3000); 
+        });
+        p.then(function(a){
+            console.log(a);
+            return new Promise(function(resolve,reject){
+                setTimeout(() => {
+                    resolve('洗菜');
+                },2000); 
+            }); 
+        }).then(function(b){
+            console.log(b);
+            return new Promise(function(resolve,reject){
+                setTimeout(() => {
+                    resolve('做菜');
+                }, 2000); 
+            }) 
+        }).then(function(c){
+             console.log(c);
+        })
+        
+        
+        
+    </script>
+</body>
+</html>

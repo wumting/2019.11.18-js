@@ -6,32 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
 </head>
 
 <body>
+    <div id='box' style='background:red'></div>
+    <button>红</button>
+    <button>绿</button>
+    <button>蓝</button>
+    <!-- <script src="../../jquery-1.11.3.js"></script> -->
+    <!-- <script> 
+        var box = document.querySelector('#box'),
+            btnList = document.querySelectorAll('button'),
+            colorAry = ['red', 'green', 'blue'];
+        $('button').click(function () { 
+            $('#box').css('background',colorAry[$(this).index('button')]);
+        })
+    </script> -->
     <script>
-        function Dog(name) {
-            this.name = name;
-        }
-        Dog.prototype = {
-            bark() {
-                console.log('wangwang');
-            },
-            sayName() {
-                console.log('my name is ' + this.name);
-            }
-        };
-          
-        function _new() {
-            //=>完成你的代码  
-            let arg = arguments;
-            return new Dog(arg[1]);
-        }
-        let sanmao = _new(Dog, '三毛'); 
-        sanmao.bark(); //=>"wangwang"
-        sanmao.sayName(); //=>"my name is 三毛"
-        console.log(sanmao instanceof Dog); //=>true
+        // function Dog(name) {
+        //     this.name = name;
+        // }
+        // Dog.prototype = {
+        //     bark() {
+        //         console.log('wangwang');
+        //     },
+        //     sayName() {
+        //         console.log('my name is ' + this.name);
+        //     }
+        // };
 
+        // function _new(a,b) {
+        //     //=>完成你的代码  
+        //     // let arg = arguments;
+        //     // return new Dog(arg[1]);
+        //     let obj = {};
+        //     obj.__proto__ = a.prototype;
+        //     a.call(obj,b);
+        //     return obj;
+        // }
+        // let sanmao = _new(Dog, '三毛'); 
+        // sanmao.bark(); //=>"wangwang"
+        // sanmao.sayName(); //=>"my name is 三毛"
+        // console.log(sanmao instanceof Dog); //=>true
 
     </script>
 </body>

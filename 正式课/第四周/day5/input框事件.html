@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="btn">
+    <script>
+        let btn = document.getElementById('btn');
+        //onfocus：获取鼠标焦点
+        //onblur:  失去鼠标焦点
+        //onchange:鼠标离开input框并且input框中的内容发生改变
+        //oninput: 当input框每改变一次都会执行一次
+        //onkeydown:当键盘按下时，触发的事件，获取到上一次的值
+        //onkeyup:当键盘抬起获取到最新的值
+
+        // btn.onfocus = function(){
+        //     console.log(100); 
+        // }
+        // btn.onblur = function(){
+        //     console.log(300); 
+        // }
+        // btn.onchange = function(){
+        //     console.log(300); 
+        // }
+        // btn.oninput = function(e){
+        //     // console.log(300,e);
+        //     console.log(this.value)
+        // }
+        // btn.onkeydown = function(){
+        //     console.log(this.value)
+        // }
+        btn.onkeyup = function(e){
+            // console.log(this.value)
+            console.log(e);//键盘事件
+            //在键盘上，每一个键盘的键都有一个对应的keycode；根据keycode可以判断按下的是哪一个键
+            
+        }
+
+
+    </script>
+</body>
+</html>
