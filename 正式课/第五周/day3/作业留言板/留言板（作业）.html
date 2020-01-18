@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>无标题文档</title>
+	<title>模拟留言板</title>
+	<link href="lyb_style.css" rel="stylesheet" type="text/css" />
+	<style>
+		.yellow {
+			background: yellow;
+		}
+
+		.grey {
+			background: #f1f1f1;
+		}
+
+		.show {
+			display: block
+		}
+
+		.hide {
+			display: none
+		}
+
+		i {
+			margin-right: 5px;
+		}
+
+		/* p:hover span {
+			display: block;
+		} */
+	</style>
+
+</head>
+
+<body>
+
+	<div id="parent">
+		<h4>留言内容：</h4>
+		<div id="box">
+			<em id="em">这里会显示留言内容……</em>
+			<!-- <p class="grey">
+				<i>2.</i>
+				<b>3</b>
+				<span class="hide">
+					<a href="javascript:;">确定删除</a>
+					<strong style="color:red">第2条</strong>
+				</span>
+			</p> 
+		--> 
+		</div> 
+		<textarea id="text"></textarea><br />
+		<input id="btn" type="button" value="发表留言" />
+	</div>
+	<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		/*在JQ中所有的事件都是通过addEventlistener绑定的，所以当使用事件的时候   
+	  如果不解除前一次绑定，那么容易出现事件重复执行。
+	  解决：off().click()  解除上一次的事件  */ 
+		var $parent = $('#parent'),
+			$btn = $parent.find('#btn'),
+			$text = $parent.find('#text'),
+			$box = $parent.find('#box'),
+			$em = $parent.find('#em'),
+			num = 0;
+		let str = ``;
+		$btn.click(function () { //实现点击给留言板添加内容 
+			$em.remove();//移除em
+			bindHtml();//把输入的内容用字符串进行拼接
+			$box.append(str);//没拼接一个往box插一次
+			$text.val('');//把输入框置空
+			upDateNumber();//确保页面中的num是实时数据
+			//当鼠标滑上改变背景颜色，滑出恢复
+			$("p").hover(mouseHover, mouseLeave);
+		});
+		$('#box').on('click','a',clickDele);//给a绑定点击事件，点击的时候删除当前这一项
+		function bindHtml(){
+			num++;
+			let val = $text.val(); //获取文本框内容
+			str = `<p>
+						<i></i>
+						<b>${val}</b>
+						<span class="hide">
+							<a href="javascript:;">确定删除</a>
+							<strong style="color:red">第${num}条</strong>
+						</span>
+					</p>`; 
+		}
+		function clickDele(){  
+			let parent = $(this).parent().parent(); //获取a的父元素 
+			let index = parent.index(); 
+			parent.remove(); 
+			upDateNumber(); 
+		}
+		function upDateNumber(){
+			let p = $('p');
+			p.each((index,item)=>{
+				// console.log(index,item)
+				$(item).find('i').html(index+1+'.');
+				$(item).find('strong').html('第'+(index+1)+'条');
+			});
+			if(p.length === 0){
+				$box.html(`<em id="em">这里会显示留言内容……</em>`);
+			} 
+		}
+		function mouseHover() {
+			$(this).attr('class','yellow').children('span').attr('class','show'); 
+		} 
+		function mouseLeave() {
+			$(this).attr('class','grey').children('span').attr('class','hide'); 
+		}
+	</script>
+</body>
+
+</html>

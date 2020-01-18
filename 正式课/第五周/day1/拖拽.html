@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+           /* left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -150px; */
+            background: yellowgreen;
+            
+        }
+        h3{
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: white;
+            background: lightseagreen;
+            cursor: move;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h3 id="title">珠峰培训welcome you！</h3>
+    </div>
+    <script>
+        let box = document.getElementById('box');
+        let left = (document.documentElement.clientWidth - box.offsetWidth)/2;
+        let t = (document.documentElement.clientHeight - box.offsetHeight)/2;
+        box.style.left = left + 'px';
+        box.style.top = t + 'px';
+        box.onmousedown = function(e){
+            let boxL = parseFloat(box.style.left);
+            let boxT = parseFloat(box.style.top); 
+            let l = e.pageX;
+            let t = e.pageY;
+            document.onmousemove = function(e){
+                let mouseL = e.pageX;
+                let mouseT = e.pageY;
+                let maxL = document.documentElement.clientWidth - box.offsetWidth;
+                let minL = 0;
+                let maxT = document.documentElement.clientHeight - box.offsetHeight;
+                let minT = 0; 
+                let curL = mouseL - l + boxL;
+                let curT = mouseT - t + boxT ;
+                curL >maxL? curL= maxL:null;
+                curL<minL?curL = minL:null;
+                curT > maxT? curT= maxT:null;
+                curT< minT ? curT= minT : null;
+                box.style.left = curL + 'px';
+                box.style.top = curT + 'px';
+            }
+            document.onmouseup = function(){
+                document.onmousemove = null; 
+            }
+        } 
+
+        /*这个方法会导致鼠标拖拽丢失 有bug*/
+        // let title = document.getElementById('title');
+        // let left = (document.documentElement.clientWidth - box.offsetWidth)/2;
+        // let t = (document.documentElement.clientHeight - box.offsetHeight)/2;
+        // box.style.left = left + 'px';
+        // box.style.top = t + 'px';
+        // title.onmousedown = function(e){  
+        //     this.curL = e.clientX;
+        //     this.curT = e.clientY;
+        //     this.titleL = parseFloat(box.style.left);
+        //     this.titleT = parseFloat(box.style.top);
+        //     title.onmousemove = move; 
+        //     title.onmouseup = up;
+            
+        // }
+        // function move(e){ 
+        //     box.style.left = e.clientX - this.curL + this.titleL +"px";
+        //     box.style.top = e.clientY - this.curT + this.titleT +"px";
+            
+        // }
+        // function up(){
+        //     title.onmouseup = null;
+        //     title.onmousemove = null;
+        // }
+
+
+
+
+
+
+    </script>
+</body>
+</html>

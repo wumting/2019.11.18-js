@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        let box = document.getElementById('box');
+        function on(curEle,type,fn){//订阅
+            if(!curEle[type]){
+                curEle[type] = [];
+            } 
+            let ary = curEle[type];
+            //find ：找true：如果是true，那就返回当前对应的值
+            let isHas = ary.find(function(item){
+                return item === fn;
+            });
+            !isHas ? ary.push(fn) : null; 
+        }
+        function emit(curEle,type){//发布
+            let arr = curEle[type];
+            for(let i=0;i<arr.length;i++){
+                arr[i]();
+            }
+        }
+        function off(curEle,type,fn){
+            let arr = curEle[type];
+            curEle[type] = arr.filter(function(item){
+                return item !== fn;
+            });
+        }
+        on(box,'boiling',fn1);
+        on(box,'boiling',fn2);
+        on(box,'boiling',fn3);
+        off(box,'boiling',fn2);
+        function fn1(){
+            console.log('呵呵');
+        } 
+        function fn2(){
+            console.log('哈哈');
+        } 
+        function fn3(){
+            console.log('嘻嘻');
+        } 
+        setTimeout(() => {
+            emit(box,'boiling')
+        }, 3000);
+
+    
+    
+    
+    </script>
+</body>
+</html>

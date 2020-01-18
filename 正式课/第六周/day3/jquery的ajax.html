@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        $.ajax({
+            url:'data.txt',
+            type:'get',
+            async:false,//不写，默认是异步
+            data:{},
+            dataType:'json',//请求来的数据格式
+            cache:false,//默认走缓存，true是走缓存，fasle是不走缓存
+            success:function(data){
+                //请求成功回调的函数
+            },
+            error:function(){
+                //请求失败回调的函数
+            },
+            beforeSend:function(xhr){
+                //在发送请求之前，执行回调，一般用于设置请求头
+                xhr.setRequestHeader();
+            },
+            complete:function(){
+                //不管成功失败都要调用这个方法
+            },
+            timeout:1000,//设置请求的超时时间
+            username:'',
+            password:'',
+            xhr:function(){
+                
+            }
+
+        })
+    
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box,#box1{ 
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #box1{
+            top:200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="box1"></div>
+    <script> 
+        function Drag(str){
+            let ele = document.querySelector(str);
+            this.ele = ele;
+            ele.onmousedown = this.down.bind(this);
+        }
+        Drag.prototype.down = function(e){//this --> Drag的实例
+            this.x = e.clientX;
+            this.y = e.clientY;
+            this.startL = parseFloat(getComputedStyle(this.ele).left);
+            this.startT = parseFloat(getComputedStyle(this.ele).top);
+            document.onmousemove = this.move.bind(this);
+            document.onmouseup = this.up;
+        }
+        Drag.prototype.move = function(e){
+            this.ele.style.left = e.clientX - this.x +this.startL+'px';
+            this.ele.style.top = e.clientY - this.y+this.startT+'px';
+        }
+        Drag.prototype.up = function(){
+            document.onmousemove = null;
+            document.onmouseup = null;
+        }
+        new Drag('#box');
+        new Drag('#box1');
+    
+    </script>
+</body>
+</html>

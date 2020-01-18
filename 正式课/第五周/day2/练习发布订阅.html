@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        let box = document.getElementById('box');
+        function on(curEle,type,fn){
+            if(!curEle[type]){
+                curEle[type] = [];
+            }
+            let arr = curEle[type];
+            let ishas = arr.find((item)=>{
+                return item === fn;
+            });
+            !ishas ? arr.push(fn) : null; 
+        }
+        function emit(curEle,type){
+            let arr = curEle[type];
+            for(var i=0;i<arr.length;i++){
+                typeof arr[i] === 'function' ? arr[i]():null;
+            }
+        }
+        function off(curEle,type,fn){
+            let arr = curEle[type];
+            for(var i=0;i<arr.length;i++){
+                if(arr[i] === fn){
+                    arr[i] = null;
+                }
+            }
+        }
+        on(box,'bioling',fn1);
+        on(box,'bioling',fn2);
+        on(box,'bioling',fn3);
+        off(box,'bioling',fn2);
+        function fn1(){
+            console.log('嘻嘻');
+        }
+        function fn2(){
+            console.log('哈哈');
+        }
+        function fn3(){
+            console.log('嘿嘿');
+        }
+        setTimeout(()=>{
+            emit(box,'bioling');
+        },3000)
+    
+    </script>
+</body>
+</html>

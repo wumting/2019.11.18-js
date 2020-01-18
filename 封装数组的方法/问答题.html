@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 1. JS中的数据类型都有哪些？它们之间有什么区别？该如何检测？ 
+    //     基本数据类型：Number,String,Boolean,Symbol,null,undefiend;
+    //     引用数据类型:
+    //     对象(普通对象{} 数组对象[] 正则对象regExp Math Date);function
+    //     检测:
+    //         typeof   检测基本数据类型
+    //                  1.返回字符串，字符串包含了对应数据类型
+    //                  2.不能检测null
+    //                  3.不能检测对象数据类型
+    //     constructor  基于构造函数检测数据类型    
+    //                  1.不能检测基本数据类型值得null.或undefined
+    //                  2.如果原型扩展以及继承都有可能导致原型指向发生改变，结果不准确
+    //     instanceof  检测实例是否属于某个类的方法
+    //                  1.只要当前类的原型在当前实例的原型上，都是true
+    //                  2.只有改变了当前实例的原型链，检测结果就不再准确
+    //                  3.不能检测字面量方式创建的基本数据类型值
+    //     Object.prototype.toString.call()  
+
+    // 2. 常用浏览器的内核都有哪些？
+    //     webkit(v8)大部分浏览器
+    //     Gecko:火狐
+    //     Tirdent：IE
+
+    // 3. 数组中常用的迭代方法有哪些？都是什么意思？（至少四种）   迭代方法：指的是能够对数组中的每一项进行遍历
+    //         forEach==>循环数组中每一项
+    //         map ==> 循环每一项给的函数 返回值是函数调用每一项的值组成的数组
+    //         every()对数组中的每一项执行函数，如果每一项都返回 true, 则该方法返回 true
+    //         some(): 对数组中的每一项执行函数，只要有一项返回了 true, 则该方法返回 true
+    //         filter(): 对数组中的每一项执行函数，把里面返回 true 的项，组成一个数组返回
+
+    // 4. 说一下你对闭包的理解，你写过哪些形式的闭包？
+    //         闭包理解：函数执行的瞬间形成一个闭包，保护里面的变量不受外界的干扰；这就是闭包现象
+    //         闭包： 在函数执行体中返回一个小函数，这个小函数可以访问小函数外面的变量，这种现象就是闭包
+
+    //         utils  选项卡  
+    
+
+    // 5. 阐述一下let/var/const三者之间的区别？
+    //     var、const 用来声明变量 const声明常量，var可以重复声明 let、const不可以，var 和let声明的变量 值可以改const是常量值不可以修改，let和const不存在变量提升，而且let可以识别块级作用域，存在暂时性死区，var和window存在映射机制，var一个变量window下回对应增加这个属性，而let不会
+
+    // 6.阐述一下call/apply/bind三者之间的区别，以及应用场景？
+    //     三者都是用来改变函数中this指向,call/apply都是让函数立即执行，bind返回一个新函数，新函数执行让老函数执行并且让老函数中得this指向改掉，
+    //     场景==>可以基于call让类数组借用数组原型上的方法，例如（slice.call类数组转数组），
+    //     基于apply可以实现最大值最小值，
+    //     可以基于call实现继承
+
+    // 7.怎么把一个类数组转成数组？
+    //     Array.prototype.slice.call()
+    //     Array.from()
+    //         ...ary
+    //     创建一个空数组，循环每一项放进去
+    
+    // 8.怎么让一个 div 水平垂直居中？（不少于三种解决方案）
+    //     1.position relative;top:-50% left:-50%                                  transfrom:translate(-50% -50%) 
+    //     2.position relative ;top,left,right,bottom:0
+    //       marign : 0 auto;
+    //     3. display: flex;   
+    //        justify-content: center;       
+    //        align-items: center;
+
+    // 9.获取 m-n 之间的随机整数(包含m也包含n)
+    //     Math.round(Math.random() * (m - n) + n)
+
+    // 10.箭头函数与普通函数（function）的区别是什么？构造函数（function）可以用new生成实例，箭头函数可以吗？为什么 
+    //     区别：1.箭头函数语法上比普通函数更加简洁(Es6中每一个函数都可以使用形参赋默认值和剩余运算符)
+    //         2.箭头函数没有自己的this 它里面出现this 从属于函数上下文的this(使用call和apply的任何方式都无法改变)
+    //         3.箭头函数没有arguments（类数组）只能基于... arg
+    //         4.箭头函数不能被new执行  因为=> (箭头函数没有this，也没有prototype)
+
+    // 11. 如何使用正则匹配18到108
+    //     let reg = /^(1[8,9]|[2-9][0-9]|10[0-8])$/
+    // 12. 如何使用正则匹配中文的区间范围
+    //     let reg = /[\u4E00-\u9FA5]+/
+    // 13. 什么时候会出现undefined?
+    //     1.声明变量未赋值 2.函数没有return 3.未给形参传实参 4.获取属性名对应属性值获取不到 5.
+    // 14. 你知道的面向对象继承方式有哪些?
+    //     原型继承 中间类继承  call继承  寄生组合继承
+
+    </script>
+</body>
+</html>

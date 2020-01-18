@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin: auto;
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <input type="password" id="input">
+    <script>
+        let box = document.getElementsByClassName('box')[0];
+        let input = document.getElementById('input');
+        
+
+        //tounch
+        //ontouchstart  触摸开始执行
+        //ontouchmove  触摸移动
+        //ontouchend 触摸结束
+
+        box.onclick = function(e){ 
+            console.log(e)
+        }
+        // box.ontouchstart = function(){
+        //     console.log(100)
+        // }
+        // box.addEventListener('touchstart',function(){
+        //     console.log(100)
+        // })
+        box.addEventListener('touchstart',function(e){
+            console.log(100)
+            console.log(e)
+            //e.touches[0].clientX
+        })
+        box.addEventListener('touchmove',function(e){
+            console.log(200) 
+        })
+        box.addEventListener('touchend',function(e){
+            console.log(300) 
+            console.log(e)
+        })
+        // input.addEventListener('mouseenter',function(e){
+        //     console.log(e)
+        // })
+    </script>
+</body>
+</html>

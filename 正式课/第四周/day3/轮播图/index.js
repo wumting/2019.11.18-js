@@ -6,40 +6,49 @@ xhr.onreadystatechange = function(){
         data = JSON.parse(xhr.responseText);
     }
 }
-xhr.send(); 
-
+xhr.send();
+ 
 let outer = document.getElementById('outer');
-let wrapper = document.getElementById('wrapper');
+let context = document.getElementById('context');
 let ul = document.getElementsByTagName('ul')[0];
-let bindHtml = function(){
+let bindHtml = ()=>{
     let imgs = ``;
     let lis = ``;
-    for(var i=0;i<data.length;i++){
-        let cur = data[i];
-        imgs += ` <img src="${cur.img}" alt="">`;
-        lis += `<li></li>`;
-    }
+    data.map(item=>{
+        imgs += ` <img src="${item.img}" alt="">`;
+        lis += ` <li></li>`;
+    });
     imgs += ` <img src="${data[0].img}" alt="">`;
-    wrapper.innerHTML = imgs;
+    context.innerHTML = imgs;
     ul.innerHTML = lis;
 }
 bindHtml();
+//1. 渲染数据
+//2. 自动轮播
+//3. 鼠标移上停止，移开自动轮播
+//4. 给li添加class
+//5. 点击li实现图片跟随
+//6. 实现左右箭头点击图片切换
 let step = 0;
 let autoMove = ()=>{
     step++;
     if(step === 5){
-        wrapper.style.left = '0';
+        context.style.left = '0';
         step = 1;
     }
     changeTip();
-    utils.animate(wrapper,{
-        left : -800*step,
-    },300);
+    utils.animate(context,{left:-800*step},300);
 }
 let timer = setInterval(autoMove,2000);
 
-let olis = document.getElementsByTagName('li');
+outer.onmouseover = function(){
+    clearInterval(timer);
+}
+outer.onmouseout = function(){
+    timer = setInterval(autoMove,2000);
+}
 
+let olis = document.getElementsByTagName('li');
 let changeTip = ()=>{
     for(var i=0;i<olis.length;i++){
         olis[i].classList.remove('select');
@@ -52,43 +61,29 @@ let changeTip = ()=>{
 }
 changeTip();
 
-outer.onmouseover = function(){
-    clearInterval(timer);
-}
-outer.onmouseout = function(){
-    timer = setInterval(autoMove,2000);
-}
 let focus = ()=>{
     for(let i=0;i<olis.length;i++){
-        olis[i].onclick = function(){ 
+        olis[i].onclick = function(){
             step = i-1;
             autoMove();
         }
-    } 
+    }
 }
 focus();
 
 let left = document.getElementById('left');
 let right = document.getElementById('right');
+left.onclick = function(){
+    step -= 1;
+    if(step === -1){
+        context.style.left = '-3200px';
+        step = 3;
+    }
+    utils.animate(context,{left:-800*step},300);
+    changeTip();
+}
 right.onclick = function(){
     autoMove();
 }
-left.onclick = function(){
-    step -= 2;
-    if(step === -2){
-        step = 2;
-    }
-    autoMove();
-}
-
-
-
-
-
-
-
-
-
-
 
 

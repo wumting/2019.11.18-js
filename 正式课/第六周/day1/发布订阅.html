@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        function on(curEle,type,fn){
+            !curEle[type]? curEle[type] = []:null; 
+            let ary = curEle[type];
+            let bool = ary.find(function(val){
+                    return val === fn;
+            })
+            !bool?ary.push(fn):null; 
+        }
+        function emit(curEle,type){
+            let ary = curEle[type];
+            for(let i=0;i<ary.length;i++){
+                ary[i] !== null?ary[i]() : null ;
+            }
+        }
+        function off(curEle,type,fn){
+            let ary = curEle[type];
+            for(let i=0;i<ary.length;i++){
+                if(ary[i] === fn){
+                    ary[i] = null;
+                }
+            }
+        } 
+        on(box,'boling',fn1);
+        setInterval(()=>{
+            emit(box,'boling')
+        },1000)
+    </script>
+</body>
+</html>

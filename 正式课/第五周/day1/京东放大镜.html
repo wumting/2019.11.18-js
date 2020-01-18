@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box,
+        #bigBox {
+            width: 350px;
+            height: 350px;
+            border: 1px solid black;
+            float: left;
+            margin-right: 30px;
+            overflow: hidden;
+            position: relative;
+            
+        }
+        #bigBox{
+            display: none;
+        }
+        #bigBox img {
+            width: 700px;
+            height: 700px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #mark {
+            width: 175px;
+            height: 175px;
+            position: absolute;
+            background: rgba(0, 0, 0, .3);
+            cursor: move;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img src="img/iphone.jpg" alt="">
+    </div>
+    <div id="bigBox">
+        <img src="img/iphone_big.jpg" alt="">
+    </div>
+    <script>
+        let bigBox = document.getElementById('bigBox');
+        let img = bigBox.getElementsByTagName('img')[0];
+        let box = document.getElementById('box');
+        let mark;
+        box.onmouseenter = function () {
+            bigBox.style.display = 'block';
+            mark = document.createElement('div');
+            box.appendChild(mark);
+            mark.id = 'mark';
+        }
+        box.onmousemove = function (e) {
+            let curLeft = e.clientX - box.offsetLeft - mark.offsetWidth / 2;
+            let curTop = e.clientY - box.offsetTop - mark.offsetHeight / 2;
+            let maxL = box.offsetWidth - mark.offsetWidth;
+            let minL = 0;
+            let maxT = box.offsetHeight - mark.offsetHeight;
+            let minT = 0;
+            curLeft > maxL ? curLeft = maxL:null; 
+            curLeft < minL? curLeft = minL:null; 
+            curTop > maxT? curTop = maxT:null;
+            curTop < minT ? curTop = minT : null;
+            mark.style.left = curLeft + 'px';
+            mark.style.top = curTop + 'px';
+            img.style.left = -2*curLeft + 'px';
+            img.style.top = -2*curTop + 'px';
+        }
+        box.onmouseleave = function () {
+            box.removeChild(mark);
+            bigBox.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

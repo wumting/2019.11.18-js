@@ -54,28 +54,28 @@ outer.onmouseout = function () {
 let olis = document.getElementsByTagName('li');
  
 let changeTip = () => {
-        // for(var i=0;i<olis.length;i++){
-        //     olis.classList.remove('select');
-        // }
-        // if(step === 5){
-        //     olis[0].classList.add('select');
-        //    return;
-        // }
-        // olis[step].classList.add('select');
-
-        for (let i = 0; i < olis.length; i++) {
-            if (step === i) {
-                // 如果step 和li的索引相同，那么给当前的li加上select;
-                olis[i].classList.add("select");
-            } else {
-                olis[i].classList.remove("select");
-            }
-            // 如果step为4，那么让第一个li加上class；
-            if (step === 4) {
-                olis[0].classList.add("select");
-            }
-
+        for(var i=0;i<olis.length;i++){
+            olis[i].classList.remove('select');
         }
+        if(step === 4){
+            olis[0].classList.add('select');
+           return;
+        }
+        olis[step].classList.add('select');
+
+        // for (let i = 0; i < olis.length; i++) {
+        //     if (step === i) {
+        //         // 如果step 和li的索引相同，那么给当前的li加上select;
+        //         olis[i].classList.add("select");
+        //     } else {
+        //         olis[i].classList.remove("select");
+        //     }
+        //     // 如果step为4，那么让第一个li加上class；
+        //     if (step === 4) {
+        //         olis[0].classList.add("select");
+        //     }
+
+        // }
 }
 changeTip();
 

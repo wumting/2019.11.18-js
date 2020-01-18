@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./node_modules/axios/dist/axios.js"></script>
+    <script>
+        // axios.get('data.txt',{params:{user:1}}).then(function(res){
+        //     //这个res是被包装的数据，数据放到了res的data的属性名上
+        //     console.log(res.data)
+        // }).catch(function(){
+
+        // })
+        // //post:直接传入对象作为参数
+        // axios.post('data.txt',{a:1,b:2}).then(function(val){});
+        //最后把数据都放在val的data属性上
+
+        // function getUserAccount() {
+        //     return axios.get('/user/12345');
+        // }
+
+        // function getUserPermissions() {
+        //     return axios.get('/user/12345/permissions');
+        // }
+
+        // axios.all([getUserAccount(), getUserPermissions()]).then(axios.spread(function (acct, perms) {//只有当两个请求都执行完成，才执行这个函数   两个请求现在都执行完成
+        // }));
+
+        // axios.defaults.baseURL = 'https://api.example.com';
+        // axios({
+        //     url: '/data.txt',
+        //     method: 'get',
+        //     data: {
+        //         firstName: '1',
+        //         lastName: 2,
+        //     }
+        // })
+        // 添加请求拦截器
+        // axios.interceptors.request.use(function (config) {
+        //     // 在发送请求之前做些什么
+        //     return config;
+        // }, function (error) {
+        //     // 对请求错误做些什么
+        //     return Promise.reject(error);
+        // });
+
+        // 添加响应拦截器
+        // axios.interceptors.response.use(function (response) {
+        //     // 对响应数据做点什么
+        //     return response;
+        // }, function (error) {
+        //     // 对响应错误做点什么
+        //     return Promise.reject(error);
+        // });
+    </script>
+</body>
+
+</html>

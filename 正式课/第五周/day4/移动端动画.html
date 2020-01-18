@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            /* transition-duration: 2s;
+            transition-timing-function: linear;
+            transition-property: all; */
+            /* transition-delay: 2s;  */
+            transition: all linear 2s;
+        }
+        #box:hover{
+            /*translate(x,y) x轴向右是正，y轴向下是正 
+             *skew(90deg) 倾斜
+             */
+            transform: translate(200px,100px) rotate(360deg) skew(90deg) scale(2);
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

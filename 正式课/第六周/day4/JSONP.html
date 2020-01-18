@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  
+    <script src="../.././jquery-1.11.3.js"></script>
+    <script>
+        //ajax不能访问不同源下的数据或内容
+        // $.ajax({
+        //     // url:'http://matchweb.sports.qq.com/kbs/calendar?columnId=100000',
+        //     type:'get',
+        //     success:function(){
+
+        //     }
+        // })
+        function fn(data){
+            console.log(data);
+            
+        } 
+    </script>
+      <script src="http://matchweb.sports.qq.com/kbs/calendar?columnId=100000&callback=fn"></script>
+</body>
+</html>

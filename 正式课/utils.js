@@ -213,9 +213,18 @@ var utils = (function () {
     function millimeter() { //1234455555
         return this.replace(/\d{1,3}(?=(\d{3})+$)/g, content => content + ",");
     }
-
-
-
+    // 13. myBind
+    
+    
+    function myBind(a){
+        var arg = arguments ;
+        var that = this;
+        var arr = Array.prototype.slice.call(arg,1); 
+        return function (b){ 
+            b !== 'undefined' ? that.apply(a,arr.concat(b)) : that.call(a,arr);
+        }
+    }
+    Function.prototype.myBind = myBind;
     return {
         toArray, //类数组转数组
         mean, //求一组数的平均数 
@@ -233,6 +242,8 @@ var utils = (function () {
         css,
         setGroupCss,
         setCss,
+        myBind,
 
     }
 })()
+ 

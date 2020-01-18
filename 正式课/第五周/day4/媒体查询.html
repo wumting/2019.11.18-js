@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }  
+        .box{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        @media screen and (min-width: 1200px){
+            .box{
+                background: black;
+            }
+        }
+        @media screen and (max-width:800px) and (min-width:600px){
+            .box{
+                background: yellow;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    
+    
+</body>
+</html>

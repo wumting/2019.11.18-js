@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            background: green;
+            margin: 100px auto;
+            position: relative;
+        }
+        #box div{
+            width: 30px;
+            height: 30px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        let box = document.getElementById('box');
+        let mark;
+        // onmouseenter onmouseleave : 不存在冒泡
+        box.onmouseenter = function(e){//鼠标划上执行一次
+            mark = document.createElement('div');
+            box.appendChild(mark); 
+        }
+        box.onmousemove = function(e){//鼠标在盒子上滑动，就会触发 
+            mark.style.left = e.clientX - box.offsetLeft + 10 + 'px';
+            mark.style.top = e.clientY - box.offsetTop+ 10 + 'px';
+            // console.log(l);
+        }
+
+        box.onmouseleave = function(){ 
+            box.removeChild(mark);
+        }
+    </script>
+</body>
+</html>

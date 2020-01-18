@@ -1,0 +1,23 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6013910",
+      "name": "定位",
+      "font_class": "location2",
+      "unicode": "e501",
+      "unicode_decimal": 58625
+    },
+    {
+      "icon_id": "6323404",
+      "name": "长箭头",
+      "font_class": "jiang-up-left",
+      "unicode": "e50c",
+      "unicode_decimal": 58636
+    }
+  ]
+}

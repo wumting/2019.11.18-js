@@ -9,22 +9,35 @@
 </head>
 <body>
     <div id="outer">
-        <div id="wrapper">
+        <div id="context">
             <!-- <img src="./img/banner1.jpg" alt="">
-            <img src="./img/banner1.jpg" alt="">
-            <img src="./img/banner1.jpg" alt="">
+            <img src="./img/banner2.jpg" alt="">
+            <img src="./img/banner3.jpg" alt="">
+            <img src="./img/banner4.jpg" alt="">
             <img src="./img/banner1.jpg" alt=""> -->
         </div>
         <ul>
+            <!-- <li></li> -->
             <!-- <li></li>
-            <li></li>
             <li></li>
             <li></li> -->
         </ul>
-        <a href="javascript:;" id="left"><</a>
-        <a href="javascript:;" id="right">></a>
+        <span id="left"><</span>
+        <span id="right">></span>
     </div>
-    <script src="./zfanimate.js"></script>
-    <script src="./index.js"></script>
+    <!-- <script src="./zfanimate.js"></script> -->
+    <!-- <script src="./index.js"></script> -->
+    <script src="../../../utils.js"></script>
+    <script>
+        
+     
+    let obj = {};
+    function aa(){
+        console.log(this);
+        
+    }
+    let b = aa.myBind(obj);
+    b()
+    </script>
 </body>
 </html>

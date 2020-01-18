@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 4.编写new方法
+        //      1.     // 1.拿到传入的参数中的第一个参数，即构造函数名Func
+        //             var Func = [].shift.call(arguments);
+        //             //2.创建一个空对象obj,并让其继承Func.prototype
+        //             var obj = Object.create(Func.prototype);
+        //             //3.执行构造函数，并将this指向创建的空对象obj
+        //             Func.apply(obj, arguments)
+        //             //4.返回创建的对象obj
+        //             return obj
+        //      2. function _new(...arg) {
+        //         //  ...arg  就相当于  Person,name,age
+        //         var obj = {};
+        //         var Constructor = arg.shift();
+        //         // 把obj.__proto__指向Constructor的原型
+        //         obj.__proto__ = Constructor.prototype;
+        //         // res就是引用数据类型
+        //         var res = Constructor.call(obj, ...arg);
+        //         return typeof res === 'object' ? res : obj;
+        //         }
+        //         Function.prototype._new = _new;
+
+        // 7.实现一个$attr(name,value)遍历,获取页面中所有class为box的元素
+        // function $attr(property, value) {
+        // 	let elements = document.getElementsByTagName('*'),
+        // 		arr = [];
+        // 	elements = Array.from(elements);
+        // 	elements.forEach(item => {
+        // 		let itemValue = item.getAttribute(property);
+        // 		if (property==='class') {
+        // 			new RegExp("\\b" + value + "\\b").test(itemValue)?arr.push(item):null;
+        // 			return;
+        // 		}
+        // 		if (itemValue === value) {
+        // 			arr.push(item);
+        // 		}
+        // 	});
+        // 	return arr;
+        // }
+        // console.log($attr('class', 'box'));
+ 
+
+
+
+
+    </script>
+</body>
+
+</html>

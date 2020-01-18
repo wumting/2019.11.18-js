@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function fn1(){
+        //     console.log(666);
+        // }
+        // setTimeout(()=>{
+        //     console.log(800);
+        // },10)
+        // console.log(900);
+        // async function fn(){
+        //     console.log(999);
+        //     await fn1();
+        //     console.log(888);
+        // }
+        // let p = new Promise(function(resolve,reject){
+        //     console.log(200);
+        //     setTimeout(()=>{
+        //         resolve();
+        //     },0); 
+        //     console.log(300);
+        // });
+        // p.then(function(){//微任务
+        //     console.log(100);
+        // });
+        // console.log(600);
+
+
+        // function fn1(){
+        //     console.log(666);
+        // }
+        // setTimeout(function(){
+        //     console.log(800);
+        // },0)
+        // console.log(900);
+        // async function fn(){
+        //     console.log(999);
+        //     await fn1();
+        //     console.log(888); 
+        // }
+        // let  p = new Promise(function(resolve,reject){
+        //     console.log(200);
+        //     resolve();
+        //     console.log(300);
+        // })
+        // fn();
+        // p.then(function(){
+        //     console.log(100);// 异步的
+        // }) 
+        //900  200 300 999 666 888  100  800
+
+        // async function async1() {
+        //     console.log('async1 start');//2
+        //     await async2();
+        //     console.log('async1 end');//6
+        // }
+        // async function async2() {
+        //     console.log('async2'); //3
+        // }
+        // console.log('script start');//1
+        // setTimeout(() => {
+        //     console.log('setTimeout');//8
+        // }, 0);
+        // async1();
+        // new Promise(resolve => {
+        //     console.log('promise1');//4
+        //     resolve();
+        // }).then(() => {
+        //     console.log('promise2');//7
+        // });
+        // console.log('script end');//5
+        //'script start'  'async1 start'  'async2' 'promise1' 'script end'  'async1 end'  'promise2'  'setTimeout'
+        //事件循环机制：js代码执行分为主任务队列和等待任务队列，在执行主栈的代码遇到同步的代码会立即执行，遇到一步的代码会先放到等待队列中，放入时区分宏任务和微任务，按照不同的任务放到等待队列不同的池子里，当主栈执行完成时，那么要先去等待队列的微任务中去遍历，按照放入的时间先后依次执行，把微任务放到主栈中去执行，微任务执行完毕，再去执行宏任务
+
+        console.log('1');//1
+        setTimeout(function () {//宏1
+            console.log('2');//4
+            new Promise(function (resolve) {
+                console.log('4');//5
+                resolve();
+            }).then(function () {
+                console.log('5');//6
+            });
+        });
+        new Promise(function (resolve) {
+            console.log('7');//2
+            resolve();//微1
+        }).then(function () {
+            console.log('8');//3
+        });
+        setTimeout(function () {//宏2
+            console.log('9');//7
+            new Promise(function (resolve) {
+                console.log('11');//8
+                resolve();
+            }).then(function () {
+                console.log('12');//9
+            });
+        });
+    </script>
+</body>
+
+</html>

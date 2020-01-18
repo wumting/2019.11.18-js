@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ajax(options){
+            let default_op = {
+                type:'get',
+                async:true,
+                cache:true,
+                success:null,
+                data:null, 
+            }
+            for(let key in options){
+                default_op[key] = options[key];
+            }
+            if(default_op.type.toLowerCase() === 'get'){
+                let str = `?`;
+                for(let key in default_op.data){
+                    str += `${key}=${default_op.data[key]}&`;
+                }
+                str = str.slice(0,str.length-1);
+                default_op.url += str;
+                if(!default_op.cache){
+                    default_op.url += `&time = ${Date.now}`;
+                }
+            }
+            let xhr = new XMLHttpRequest;
+            xhr.open(default_op.type,default_op.url,default_op.async);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4&&/^2\d{2}$/.test(xhr.status)){
+                    let val = JSON.parse(xhr.responseText) ;
+                    default_op.success(val);
+                }else if(xhr.readyState === 4){
+                    default_op.error();
+                }
+            }
+            if(default_op.type.toLowerCase() === 'get'){
+                default_op.data = null;
+            }
+            xhr.send(default_op.data);
+        }
+        ajax({
+            url:'data.txt',
+        });
+    
+    
+    
+    
+    </script>
+</body>
+</html>

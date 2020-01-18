@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <audio src="./img/myDream.m4a" controls id="music"></audio>
+    <button id="btn">播放</button>
+    <button id="btn1">暂停</button>
+    <script>
+        //controls 控制是否显示
+        //play 
+        //paused :属性名，当音乐播放状态时，该值是false状态，如果是暂停状态，该值是true
+        //duration:当前音频所对应的总时长，是秒
+        //currentTime:当前音乐播放过的时间
+        //canplay：当音频加载完毕，会立即触发这个canplay的事件
+        window.onload = function(){
+            console.log(music.duration);
+        }
+        music.addEventListener('canplay',function(){
+            console.log(music.duration);
+        })
+        btn.onclick = function(){
+            music.play();
+            console.log(music.duration);
+        }
+        btn1.onclick = function(){
+            music.pause();//暂停
+        }
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+
+//less中定义的变量还存在变量提升
+//如果私有作用域存在，就不再向上查找
+//如果在类名后面加上小括号，就不再进行编译
+
+
+// @w:100px;
+// @URl:'../img/';
+// .box{
+//     @w:300px;
+//     width: @w;
+//     .box1{
+//         height: @w*2;
+//         background: url('@{URl}1.jpg');
+//     }
+//     .box2{
+//         background: url('@{URl}2.jpg');
+//     }
+// }
+
+
+// .public(@a){
+//     width: @a;
+//     height: 200px;
+// }
+// .box{
+//     .public(@a:100px);
+// }
+
+//& 连接符
+// .public{
+//     width: 100px;
+//     height: 200px;
+// }
+
+// .box{
+//     // width: 100px;
+//     // &:hover{
+//     //     background: red;
+//     // }
+//     // &-box1{
+//     //     width: 99px;
+//     // }
+//     &:extend(.public);
+// }
+
+//mix 可以有判断条件
+// .layout(@a) when(isNumber(@a)){
+//     background: red;
+// }
+// .box{
+//     .layout(123px);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

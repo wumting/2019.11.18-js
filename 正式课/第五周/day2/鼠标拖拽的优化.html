@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+           /* left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -150px; */
+            background: yellowgreen;
+            
+        }
+        h3{
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: white;
+            background: lightseagreen;
+            cursor: move;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h3 id="title">珠峰培训welcome you！</h3>
+    </div>
+    <script>  
+        /*这个方法会导致鼠标拖拽丢失 有bug*/
+        let title = document.getElementById('title');
+        let left = (document.documentElement.clientWidth - box.offsetWidth)/2;
+        let t = (document.documentElement.clientHeight - box.offsetHeight)/2;
+        box.style.left = left + 'px';
+        box.style.top = t + 'px';
+        title.onmousedown = function(e){  
+            this.curL = e.clientX;
+            this.curT = e.clientY;
+            this.titleL = parseFloat(box.style.left);
+            this.titleT = parseFloat(box.style.top);
+            
+            document.onmousemove = move.bind(title);
+            document.onmouseup =  up;
+ 
+            // document.onmousemove = function(e){
+            //     move.call(title,e);
+            // }; 
+            // document.onmouseup = function(){
+            //     up.call(title);
+            // }; 
+        }
+        function move(e){ 
+            box.style.left = e.clientX - this.curL + this.titleL +"px";
+            box.style.top = e.clientY - this.curT + this.titleT +"px"; 
+        }
+        function up(){
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
+
+
+
+
+
+
+    </script>
+</body>
+</html>

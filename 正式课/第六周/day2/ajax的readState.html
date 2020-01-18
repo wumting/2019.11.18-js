@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //XMLHttpRequest 是一个内置的类，
+        //xhr.readystate 取值：0  1  2  3  4；代表了实例的不同的状态
+        //0：创建ajax实例成功
+        //1: 确定好了请求的方式，请求的路径以及同步异步
+        //2: 代表服务器已经接收到了客户端的请求，并且把响应头传给了客户端
+        //3: 服务器正在向客户端发送数据
+        //4： 客户端全部接收到了服务器传过来的数据
+
+        
+        //如果是同步，只输出4；如果是异步，就会输出2 3 4
+        //如果是同步，如果请求不完，不会执行这个回调，但是readystate也会发生2-->3-->4的变化，只是不能执行而已，等上面执行完，那么readyState已经变成了4，所以只会输出4
+
+
+
+        //1.创建了一个ajax的实例
+        let xhr = new XMLHttpRequest();
+        //2. 请求方式请求路径，同异步
+        xhr.open('get','',false)
+        //3. 监听readystate发生改变的方法
+        xhr.onreadystatechange = function(){
+
+        }
+        //4. 发送请求
+        xhr.send()
+    
+    </script>
+</body>
+</html>

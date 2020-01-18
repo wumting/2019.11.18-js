@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            /* width: 350px; */
+            height: 400px;
+            /* border: 1px solid #333333; */
+            margin: 100px auto;
+            position: relative;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        ul li{
+            float: left;
+            width: 98px;
+            height: 50px;
+            border: 1px solid orange;
+            text-align: center;
+            line-height: 50px;
+            margin-right: 10px;
+        }
+        ul li.select{
+            border-bottom: 1px solid white;
+        }
+        #box div{
+            width: 350px;
+            height: 300px;
+            border: 1px solid black;
+            position: absolute;
+            top: 50px; 
+            text-align: center;
+            line-height: 300px;
+            display: none;
+        }
+        #box div.select{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li>电视剧</li>
+            <li>电影</li>
+            <li>综艺</li>
+            <li>综艺</li>
+        </ul>
+        <div>第二次</div>
+        <div>泰囧</div>
+        <div>亲爱的客栈</div>
+        <div>亲爱的客栈</div>
+    </div>
+    <script>
+        function changeTip(str){
+            let curEle = document.querySelector(str); 
+            this.child = curEle.children;//获取ul
+            this.brother = Array.from(this.child).slice(1);
+            this.childs = this.child[0].children; //获取每个li
+            this.curEle = curEle; 
+            curEle.btnChoose = this.btnChoose.apply(this);
+        }
+        changeTip.prototype.btnChoose = function(){
+            console.log(this.childs); 
+            let childs = this.childs;
+            let bro = this.brother;
+            for(let i=0;i<childs.length;i++){
+                childs[i].onclick = function(){
+                    for(let j=0;j<childs.length;j++){
+                        childs[j].classList.remove('select');
+                        bro[j].classList.remove('select');
+                    }
+                    this.classList.add('select');
+                    bro[i].classList.add('select'); 
+                }
+            } 
+        }
+        new changeTip('#box');
+    
+    
+    
+    </script>
+</body>
+</html>

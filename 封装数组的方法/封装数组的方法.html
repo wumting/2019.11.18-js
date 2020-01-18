@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let ary = [1, 2, 3, 1, 2, 3, 4];
+        //***********1.数组去重********************
+        // Array.prototype.unique = function(){
+        //     let obj = {};
+        //     for(var i=0;i<this.length;i++){
+        //         if(obj[this[i]] ===undefined){
+        //             obj[this[i]] = this[i];
+        //         }else{
+        //             ary[i]= ary[ary.length-1];
+        //             ary.length--;
+        //             i--;
+        //         }
+        //     }
+        //     return this;
+        // }
+        // let f = ary.unique();
+        // console.log(f)
+
+        //********************2.向数组末尾新增内容***************************
+        //push ：1.返回值是新数组的length  
+        //       2.原数组发生改变(改变后的新数组)
+        //       3.传递多个值
+
+        // Array.prototype.myPush = function (...ary){
+        //     for(var i=0;i<arguments.length;i++){
+        //         this[this.length] = arguments[i];
+        //     }
+        //     return this.length;
+        // }
+        // console.log(ary.myPush(1,2,1),ary)
+
+        //********************3.向数组开头新增内容***************************
+        //unshift：方法的定义:向数组开头增加内容
+        //         方法的参数:传递多个值
+        //         方法的返回值：新数组的length
+        //         原有数组是否发生改变：是
+        // let ary = [1, 2, 3, 1, 2, 3, 4];
+        // Array.prototype.myUnshift = function(...ary){
+        //    let length1 = arguments.length;
+        //    this.length = this.length+length1;
+        //    for(var i=this.length-1;i>=0;i--){
+        //         this[i] = this[i-length1];
+        //    }
+        //    for(var j=0;j<length1;j++){
+        //        this[j] = arguments[j];
+        //    }
+        //     return this.length;
+        // }
+        // // console.log(ary.myUnshift(1,2))
+        // console.log(ary.unshift(1,2))
+        // console.log(ary)
+
+        //********************4.向数组末尾删除一项***************************
+        //pop ：   方法的定义:向数组末尾删除一项
+        //         方法的参数: 不传参
+        //         方法的返回值：删除的那一项 
+        //         原有数组是否发生改变：是
+        // let ary = [1, 2, 3, 1, 2, 3, 4];
+        // Array.prototype.myPop= function(){
+        //     let arr = this[this.length-1];
+        //     this.length--;
+        //     return arr;
+        // }
+        // console.log(ary.myPop());
+        // console.log(ary.pop())
+
+        //********************5.向数组开头删除一项***************************
+        //shift ： 方法的定义:向数组开头删除一项
+        //         方法的参数: 不传参
+        //         方法的返回值：删除的那一项 
+        //         原有数组是否发生改变：是
+        // let ary = [1, 2, 3, 1, 2, 3, 4];
+        // Array.prototype.myShift=function (){
+        //     let arr = this[0];
+        //     for(var i =0;i<this.length;i++){
+        //         this[i]=this[i+1];
+        //     }
+        //     this.length--;
+        //     return arr;
+        // }
+        // console.log(ary.myShift(),ary);
+        // console.log(ary.shift(),ary);
+
+        //********************6.实现数组的倒叙***************************
+        //reverse : 方法的定义：实现数组的倒叙
+        //          方法的参数：无
+        //          方法的返回值：排序之后的数组
+        //          原有数组是否发生改变：是
+        // Array.prototype.myReverse=function (){
+        //     let arr = [];
+        //     let curArr=this;
+        //     for(var i=this.length-1;i>=0;i--){
+        //         arr[arr.length] = this[i];
+        //     }
+        //     curArr = arr;
+        //     return curArr;
+        // }
+        // let a=[1,2,true,4]
+        // console.log(a.myReverse());
+        // console.log(a.reverse());
+
+        //********************7.检测数组中是否包含某一项***************************
+        // indexOf  :   方法的定义：检测数组中是否包含某一项
+        //              方法的参数：不定
+        //              方法的返回值：如果检测是有，不定，如果没有就是-1
+        //              原有数组是否发生改变：否
+        //(n,m):n是被检测的值，m是开始检测的位置
+        //（n）：从头开始检测
+        // let a = [5,6, 3 ,  1, 8 ];
+        // Array.prototype.myIndexOf = function(num,index){
+        //         if(index === undefined){
+        //             for(var i=0;i<this.length;i++){
+        //                  if(this[i] === num){
+        //                     return i;
+        //                  }else{
+        //                      return -1;
+        //                  }
+        //             }
+        //         }else{
+        //             for(var i = index;i<this.length-index;i++){
+        //                 console.log(this[i])
+        //                 if(this[i] === num){
+        //                     return i;
+        //                 } 
+        //             }
+        //             return -1;
+        //         }
+        // };
+        // console.log(a.myIndexOf(5,1));
+        // console.log(a.indexOf(5,1))
+
+        //********************8.检测数组中是否包含某一项***************************
+        // lastIndexOf  :   方法的定义：检测数组中是否包含某一项
+        //              方法的参数：不定
+        //              方法的返回值：如果检测是有，不定，如果没有就是-1
+        //              原有数组是否发生改变：否
+        //(n,m):n是被检测的值，m是检测结束的位置
+        //(n):检测到末尾
+        // let a = [5,6, 3 ,5,  1, 8 ];
+        // Array.prototype.myLastIndexOf = function(num,index){
+        //         if(index === undefined){
+        //             for(var i=this.length-1;i>=0;i--){
+        //                  if(this[i] === num){
+        //                     return i;
+        //                  } 
+        //             }
+        //             return -1;
+        //         }else{
+        //             for(var i = index;i>=0;i--){
+        //                 if(this[i] === num){
+        //                     return i;
+        //                 } 
+        //             }
+        //             return -1;
+        //         }
+        // };
+        // console.log(a.myLastIndexOf(5,5));
+        // console.log(a.lastIndexOf(5,5))
+
+        //********************9.检测数组中是否包含某一项***************************
+        //includes : 方法的定义：检测数组中是否包含某一项
+        //   方法的参数：检测的值
+        //   方法的返回值：有，返回true，如果没有返回false
+        //   原有数组是否发生改变：否
+        // let a = [5,6,3,5,1,8];
+        // Array.prototype.myIncludes = function(num){
+        //     for(var i=0;i<this.length;i++){
+        //         if(this[i] === num){
+        //             return true;
+        //         }
+        //     }
+        //     return false;
+        // };
+        // console.log(a.myIncludes(2));
+        // console.log(a.includes(2));
+
+        //********************10.实现数组的拼接***************************
+        //concat : 方法的定义：实现数组的拼接
+        // 方法的参数：可以是多个值
+        // 方法的返回值：是一个拼接后的新数组
+        // 原有数组是否发生改变：否
+        // let ary = [1,2,34,54,65];
+        // let a = [1,23,7];
+        // let b = [5,6,8,9]
+        // Array.prototype.myConcat = function(){
+        //     let arr = [];
+        //     arr = this;
+        //      for(var i =0;i<arguments.length;i++){ 
+        //         if(typeof arguments[i] === 'object'){
+
+        //             arguments[i].forEach((item,index) => {
+        //                 arr[arr.length] = item;
+        //             });
+        //         }else{
+        //             arr[arr.length] = arguments[i];
+        //         }
+
+        //      }
+        //     return arr;
+        // };
+        // console.log(ary.myConcat( a,b,1));
+        // console.log(ary.concat(a,b))
+
+        //********************11.数组的 增删改***************************
+        //splice ：方法的定义：数组的 增删改
+        //         方法的参数：不定
+        //         方法的返回值：是一个新的数组，数组里边存储的事删除的内容
+        //         原有数组是否发生改变：是 
+
+        // let ary = [1, 2, 34, 54, 65];
+        // console.log(ary.splice(),ary);//[]
+        // console.log(ary.splice(0));//[1, 2, 34, 54, 65]
+        // console.log(ary.splice(1),ary);// [2, 34, 54, 65]
+        // console.log(ary.splice(3,1));//[54]
+        // console.log(ary.splice(3,1,4,5),ary);// [54]   [1, 2, 34, 4, 65]   
+        // console.log(ary.splice(1,0,4,5,6),ary)//[] [1, 4, 2, 34, 54, 65]
+        // let ary1 = [1, 2, 34, 54, 65];
+        // Array.prototype.mySplice = function () {
+            // let arr = [];
+            // let temp;
+            // let oriAry = this;
+            // if (arguments.length === 0) {//不传参
+            //     return arr;
+            // } else if (arguments.length === 1) {//传一个参
+            //     for (var i = arguments[0]; i < oriAry.length; i++) {
+            //         arr[arr.length] = oriAry[i];//返回值
+            //     };
+            //     oriAry.length = arguments[0];//改变后的原数组
+            //     return arr;
+            // } else if (arguments.length === 2) {//传两个参
+            //     for (var i = arguments[0]; i < arguments[0] + arguments[1]; i++) {
+            //         arr[arr.length] = oriAry[i];//返回值
+            //     };
+
+            //     let arr1 = [];
+            //     let arr2 = [];
+            //     for (var i = 0; i < arguments[0]; i++) {
+            //         arr1[arr1.length] = oriAry[i];
+            //     };
+            //     for (var i = arguments[0] + 1; i < oriAry.length; i++) {
+            //         arr2[arr2.length] = oriAry[i];
+            //     }
+            //     oriAry.length = 0;
+            //     for (var i = 0; i < arr1.length; i++) {
+            //         oriAry[oriAry.length] = arr1[i];
+            //     }
+            //     for (var i = 0; i < arr2.length; i++) {
+            //         oriAry[oriAry.length] = arr2[i];
+            //     }
+            //     return arr;
+            // } else {//传多个参
+            //     let len = arguments.length - 2;
+            //     if (arguments[1] === 0) {//(m,n,x) n=0的情况 
+            //         oriAry.length += len;
+            //         for (var i = oriAry.length - 1; i > arguments[0]; i--) {
+            //             oriAry[i] = oriAry[i - len];
+            //         };
+            //         for (var i = arguments[0]; i < len + 1; i++) {
+            //             oriAry[i] = arguments[i + 1];
+            //         };
+            //         return arr;
+            //     } else {//(m,n,x) n不为0的情况(3,1,4,5)
+            //          for(var i = arguments[0];i<arguments[1]+arguments[0];i++){
+            //             arr[arr.length] = oriAry[i];
+            //          } 
+            //         let arr1 = [];
+            //         let arr2 = [];
+            //         let arr3 = [];
+                    // for (var i = 0; i < arguments[0]; i++) {
+                    //     arr1[arr1.length] = oriAry[i];
+                    // };
+                    // for (var i = arguments[0] + 1; i < oriAry.length; i++) {
+                    //     arr2[arr2.length] = oriAry[i];
+                    // }
+                    // for (var i = 2; i < arguments.length; i++) {
+                    //     console.log(arguments[i])
+                    //     arr3[arr3.length] = arguments[i];
+                    // }
+                    // console.log(arr3)
+                    // oriAry.length = 0;
+                    // for (var i = 0; i < arr1.length; i++) {
+                    //     oriAry[oriAry.length] = arr1[i];
+                    // }
+                    // for (var i = 0; i < arr3.length; i++) {
+                    //     oriAry[oriAry.length] = arr3[i];
+        //             }
+        //             for (var i = 0; i < arr2.length; i++) {
+        //                 oriAry[oriAry.length] = arr2[i];
+        //             } 
+        //             return arr;
+        //         }
+        //     }
+        // };
+        // console.log(ary1.mySplice(3, 1,4,5), ary1);
+
+        //********************12.实现数组的截取（查询）***************************
+        // slice : 方法的定义：实现数组的截取（查询）
+        // 方法的参数：不定
+        // 方法的返回值：是一个新的数组，数组里边存储的是截取的内容
+        // 原有数组是否发生改变：否
+        // let ary = [12, 33, 56, 76, 98]
+        // Array.prototype.mySlice = function () {
+        //     let len = arguments.length;
+        //     let arr = [];
+        //     if (len === 1) {//传一个参
+        //         if (arguments[0] < 0) {
+        //             return this;
+        //         } else {
+        //             for (var i = arguments[0]; i < this.length; i++) {
+        //                 arr[arr.length] = this[i];
+        //             };
+        //             return arr;
+        //         } 
+        //     } else {//传两个参
+        //         if (arguments[0] < 0) {//如果第一个参数小于零的情况
+        //             if (arguments[1] > this.length) {//如果第二个参数大于原数组的长度的情况
+        //                 for (var i = arguments[0] + this.length; i < this.length; i++) {
+        //                     arr[arr.length] = this[i];
+        //                 };
+        //                 return arr;
+        //             } else { //如果第二个参数小于原数组的长度的情况
+        //                 if (arguments[1] < 0) {//如果第二个参数小于零
+        //                     for (var i = arguments[0] + this.length; i < arguments[1] + this.length; i++) {
+        //                         arr[arr.length] = this[i];
+        //                     };
+        //                 } else {//如果第二个参数不小于零
+        //                     for (var i = arguments[0] + this.length; i < arguments[1]; i++) {
+        //                         arr[arr.length] = this[i];
+        //                     };
+        //                     return arr;
+        //                 }
+        //             }
+        //         } else {//如果第一个参数不小于零的情况
+        //             if (arguments[1] > this.length) {//如果第二个参数大于原数组的长度的情况
+        //                 for (var i = arguments[0]; i < this.length; i++) {
+        //                     arr[arr.length] = this[i];
+        //                 };
+        //                 return arr;
+        //             } else {//如果第二个参数不大于原数组的长度的情况
+        //                 for (var i = arguments[0]; i < arguments[1]; i++) {
+        //                     arr[arr.length] = this[i];
+        //                 };
+        //                 return arr;
+        //             }
+        //         }
+        //     }
+        // };
+        // console.log(ary.mySlice(-2, -4));
+        // // console.log(ary.mySlice(6));//克隆数组
+        // // console.log(ary.slice(6));
+        // console.log(ary.slice(-2, -4));
+
+        //********************实现数组的排序***************************
+        //sort : 方法的定义：实现数组的排序
+        // 方法的参数：无，可以传一个函数
+        // 方法的返回值：排序之后的数组
+        // 原有数组是否发生改变：是
+        // let ary = [55, 'a', 'j', 'b', 6, 58, true, '222', 6, 3, 12, 8];
+        // let b = [1, -4, 22, -17, 3, true];
+        // Array.prototype.mySort = function () {
+        //     let temp;
+        //     if (typeof arguments[0] === 'function') {//传的参数是一个函数 
+        //         for (var i = 0; i < this.length; i++) {
+        //             for (var j = 0; j < this.length - 1; j++) {
+        //                 if (this[j] > this[j + 1]) {
+        //                     temp = this[j];
+        //                     this[j] = this[j + 1];
+        //                     this[j + 1] = temp;
+        //                 }
+        //                 var b = arguments[0](this[j],this[j+1]) 
+        //                 if(b>0){
+        //                     temp = this[j];
+        //                     this[j] = this[j + 1];
+        //                     this[j + 1] = temp;
+        //                 }
+        //             }
+        //         }
+        //         return this;
+        //     } else if (arguments.length === 0) {//不传参的情况下 
+        //         for (var i = 0; i < this.length; i++) {
+        //             for (var j = 0; j < this.length - 1; j++) {
+        //                 //处理原数组里面是否有负数
+        //                 if (this[j] > 0) {
+        //                     var str = this[j].toString()[0];
+        //                     var nexStr = this[j + 1].toString()[0];
+        //                 } else {
+        //                     var str = this[j].toString()[1];
+        //                     var nexStr = this[j + 1].toString()[1];
+        //                 }
+        //                 if (str > nexStr) {
+        //                     temp = this[j];
+        //                     this[j] = this[j + 1];
+        //                     this[j + 1] = temp;
+        //                 }
+        //             }
+        //         }
+        //         return this;
+        //     } 
+        // }
+        // console.log(ary.mySort());
+        // console.log(ary.sort());
+        // console.log(b.mySort(function(a,b){return a-b}));
+        // console.log(b.sort(function(a,b){return a-b}));
+
+        //********************join***************************
+        // let b = [1, -4, 22, -17, 3, true];
+        // Array.prototype.myJoin = function (){
+        //     let arr = '';
+        //     let reg = /./; 
+        //     if(arguments[0] === ''){
+        //         for(var i=0;i<this.length;i++){
+        //             arr+= this[i].toString();
+        //         } 
+        //         return arr
+        //     }else if(reg.test(arguments[0])){
+        //         for(var i=0;i<this.length;i++){ 
+        //             arr+= this[i].toString()+arguments[0]; 
+        //         } 
+        //         let aa = arr.substring(0,arr.length-1); 
+        //         return aa
+        //     } 
+        // };
+        // console.log(b.myJoin('/'));
+        // console.log(b.join('/'))
+
+
+
+    </script>
+</body>
+
+</html>
