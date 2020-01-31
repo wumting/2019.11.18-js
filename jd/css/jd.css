@@ -61,19 +61,15 @@ a {
     top: 5px;
     right: 5px;
     width: 20px;
-    height: 20px;
-    font-weight: 700;
+    height: 20px; 
     cursor: pointer;
-    background: #666;
-  
-}
-.jd_container .icon-guanbi{
-    color: #fff;
+    background: #666; 
     text-align: center;
     line-height: 20px;
-}
-
-
+    font-size: 12px;
+    color: #fff;
+    opacity: .8;
+}  
 .nav {
     width: 1190px;
     height: 30px;
@@ -461,6 +457,61 @@ a {
     box-sizing: border-box; 
     height: 32px; 
 }
+
+.w_search .w_search_logo{
+    width: 125px;
+    height: 40px;
+    float: left;
+    display: none;
+}
+.w_search .w_search_logo a{
+    background: url('../images/jingdonglogo.png');
+    background-position: 0 -120px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 125px;
+    height: 40px;
+
+}
+.w_search_fixed{
+    position: fixed; 
+    width: 100%;
+    height: 52px;
+    margin: 0 0; 
+    left: 50%;
+    top: 0;
+    margin-left: -50%;
+    border-bottom: 2px solid #f10214;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px rgba(0,0,0,.2);
+    z-index: 21; 
+    animation: searchTop .5s ease-in-out;
+}
+@keyframes searchTop{0%{top:-50px}to{top:0}}
+.w_search_fixed .w_search_fix{
+     overflow: hidden;
+     width: 1190px;
+     height: 100%;
+     margin: 0 auto;
+     position: relative;
+} 
+.w_search_fixed .w_search_logo{
+    position: absolute;
+    left: 0;
+    top: 4px; 
+}
+.w_search_fixed .w_search1{
+    position: absolute;
+    left: 260px;
+    top: 50%;
+    margin-top: -16px;
+}
+.w_search_fixed .shop{
+    position: absolute;
+    right: 230px;
+    top: 50%;
+    margin-top: -16px;
+} 
 .w_search .w_search1{
     float: left;
     width: 550px;
@@ -678,6 +729,9 @@ a {
     padding-left: 26px;
     display: none;
 }
+.J_popCtn .right_con{
+    display: none;
+}
 .J_popCtn .J_popCtn_tit{
     overflow: hidden; 
     box-sizing: border-box;
@@ -733,8 +787,7 @@ a {
     color: #666;
 }
 .class_left:hover .J_popCtn{
-    display: block;
-    
+    display: block; 
 }
 .class_left_list1 a:hover{
     color: red;
@@ -1015,7 +1068,8 @@ a {
 .seckill {
     width: 100%;
     height: 260px;
-    overflow: hidden;
+    /* overflow: hidden; */
+    position: relative;
 }
 
 .seckill_content {
@@ -1038,7 +1092,7 @@ a {
     width: 100%;
     font-size: 30px;
     font-weight: 700;
-
+    margin-top: 30px;
     color: #fff;
     text-align: center;
 }
@@ -1046,7 +1100,7 @@ a {
 .seckill_time p {
     text-align: center;
     color: #fff;
-    margin-top: 116px;
+    margin-top: 100px;
     font-size: 14px;
 }
 
@@ -1059,10 +1113,14 @@ a {
     text-align: center;
     margin-top: 10px;
     overflow: hidden;
-    box-sizing: border-box;
-    padding-left: 29px;
+    box-sizing: border-box; 
 }
-
+.times .endSign{
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    display: inline-block; 
+}
 .times .time {
     width: 30px;
     height: 30px;
@@ -1071,10 +1129,10 @@ a {
     color: #fff;
     text-align: center; 
 }
-.times span{
-    float: left;
+.times span{ 
+    display: inline-block;
 }
-.times  .wenhao{ 
+.times .colon{ 
     display: inline-block;
     height: 30px;
     line-height: 30px;
@@ -1082,17 +1140,7 @@ a {
     font-weight: 700;
     font-size: 19px;
     color: #fff;
-}
-/* .times  .wenhao:after {
-    content: ":";
-    width: 20px;
-    height: 30px;
-    line-height: 30px;
-    color: #fff;
-    background: #e83632;
-    font-weight: 700;
-} */
-
+} 
 #swiper1 {
     margin: 0;
     width: 800px;
@@ -1195,7 +1243,80 @@ a {
     float: right;
     background: #fff;
 }
-
+.seckill .elevator{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: 615px;
+    background: #fff;
+}
+@keyframes eleShow{
+    0%{top: 0;}to{top: 75px;}
+}
+.seckill .elevator_fix {
+    position: fixed;
+    top: 75px;
+    animation: eleShow .5s ease both;
+}
+.elevator li{
+    width: 60px;
+    height: 58px;
+  
+} 
+.elevator li img{
+    width: 57px;
+    margin-top: 1px;
+   
+} 
+.elevator .elevator_item{
+    width: 28px;
+    height: 37px;
+    line-height: 19px;
+    padding: 10px 16px; 
+    text-align: center;
+}
+.elevator .elevator_item1{
+    padding: 0;
+    width: 60px;
+    height: 58px;
+}
+.elevator li::after{
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 28px;
+    height: 1px;
+    background: linear-gradient(white,#eeeeee,#eeeeee,white);
+}
+.elevator li .elevator_item .icon-kefu:before {
+   opacity: .6;
+} 
+.elevator_toTop{
+    display: block;
+    height: 50px;
+    padding-top: 10px;
+}
+.elevator_toTop:hover{
+    background: #e1251b; 
+    color: #fff;
+}
+.elevator_toTop:hover span{
+    color: #fff;
+}
+.elevator_toTop span{
+    display: block; 
+    text-align: center; 
+    color:#e1251b; 
+} 
+.elevator .icon-up{ 
+    font-size: 20px; 
+    opacity: .6;
+    height: 22px;
+    line-height: 22px;
+} 
+.elevator_toTop_txt{
+    height: 18px;
+}
 .last_pic {
     width: 100%;
     text-align: center;
@@ -1524,9 +1645,7 @@ a {
 }
 
 .body_list_arrow {
-    display: inline-block;
-    background-image: url(https://xyq.res.netease.com/pc/gw/20170118103441/img/spriter/index_z_670b19d.png);
-    background-position: -430px -237px;
+    display: inline-block;  
     width: 4px;
     height: 7px;
     margin: 17px 26px 0 0;
@@ -1585,48 +1704,38 @@ a {
     text-align: center; 
     color: #666;
     margin-bottom: 13px;
-    margin-top: 1px;
-
-}
-
+    margin-top: 1px; 
+} 
 .desc_price {
-    padding-right: 5px;
-
-}
-
+    padding-right: 5px; 
+} 
 .desc_last {
     display: inline-block;
-}
-
+} 
 .desc_last::before {
     width: 1px;
     height: 10px;
     background-color: rgba(102, 102, 102, .4);
     content: "";
-}
-
+} 
 .desc_day {
     display: inline-block;
-}
-
+} 
 .desc_day_teo {
     font-weight: 800;
-}
-
+} 
 .con_right_tit_left .shoe {
     display: block;
     width: 130px;
     height: 130px;
     margin: 0 auto;
     background-color: #f4f4f4;
-}
-
+} 
 .con_right_tit_right {
     width: 270px;
     display: inline-block;
     margin-top: -40px;
-}
-
+} 
 .con_right_tit_right a {
     float: left;
     width: 135px;
@@ -1634,13 +1743,11 @@ a {
     padding: 14px 0;
     text-align: center;
     position: relative;
-}
-
+} 
 .con_right_tit_right img {
     width: 100px;
     height: 50px;
-}
-
+} 
 .con_right_tit_right p {
     color: #666;
     margin-top: 6px; 
@@ -1649,8 +1756,7 @@ a {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
-
+} 
 .con_right_tit_right .border::after {
     position: absolute;
     width: 1px;
@@ -1660,20 +1766,17 @@ a {
     margin-top: -30px;
     background-color: #ccc6c68c;
     content: "";
-}
-
+} 
 /* 排行榜和品牌闪购 end */
 
 /* 发现好货 begin */
 .niceGoods {
     width: 100%;
-}
-
+} 
 .niceGood {
     width: 1190px;
     margin: 0 auto;
-}
-
+} 
 .logo_container {
     background: url(../images/faxianhaohuo.png) no-repeat center;
     height: 260px;
@@ -1713,8 +1816,7 @@ a {
     top: 0;
     right: 0;
     background: url(../images/xiaoicon.png) 0 0;
-    opacity: 0;
-    /* transition: all .2s ease; */
+    opacity: 0; 
 }
 
 .nice_goods {
@@ -1750,15 +1852,7 @@ a {
 .item1 {
     margin: 0 40px 38px 0;
 }
-
-
-
-
-
-
-
-
-
+ 
 /*  为你推荐 begin */
 .j_feeds {
     width: 100%;
@@ -1866,8 +1960,7 @@ a {
     font-size: 14px;
 }
 .floor_items{
-    overflow: hidden;
-  
+    overflow: hidden; 
     margin:20px -5px 0 -5px;
 }
 .floor_item{
@@ -1903,14 +1996,12 @@ a {
 .item_price i{ 
     font-weight: 700;
     font-style: normal;
-    color: #e1251b;
-    
+    color: #e1251b; 
 }
 .item_price .price{
     font-size: 20px;
     font-weight: 700;
-    color: #e1251b;
-   
+    color: #e1251b; 
 }
 
 .item_price .pag{ 
@@ -1918,9 +2009,8 @@ a {
     padding: 0 6px;
     border: 1px solid #e1251b;
     border-radius: 2px;
-   margin: 10px 20px auto auto;
-    float: right;
-
+    margin: 10px 20px auto auto;
+    float: right; 
 }
 /* 底部 begin */
 .jd_footer{
@@ -1953,8 +2043,7 @@ a {
 .container_icon h4{
     background: url(https://misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/img/23f3ddf914b1b527d0429a3d713cfe3a.png) no-repeat 0 -192px;
     width: 36px;
-    height: 42px;
-    
+    height: 42px; 
     float: left;
 }
 .container_icon p{
@@ -1983,9 +2072,9 @@ a {
     height: 22px;
 }
 .footer_nav li{ 
-color: #666;
-height: 22px;
-line-height: 22px;
+    color: #666;
+    height: 22px;
+    line-height: 22px;
 }
 .jd_help{
     float: right;
