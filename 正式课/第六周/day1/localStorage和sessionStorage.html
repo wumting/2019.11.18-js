@@ -21,7 +21,17 @@
         // sessionStorage.removeItem('a','100');
 
 
-
+        let p = new Promise(function(resolve,reject){
+            resolve();
+        });
+        let ss = p.then(function(){
+            return new Promise((resolve,reject)=>{
+                resolve();
+            })
+        })
+        // ss.then(function(){});
+        console.log(ss);
+        
     </script>
 </body>
 </html>

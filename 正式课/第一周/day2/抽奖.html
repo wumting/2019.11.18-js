@@ -37,32 +37,56 @@
 
 <body>
     <div id="num">1111</div>
-    <button id="btn">开始</button>
+    <button id="btn">开始</button> 
     <script>
-        let num = document.getElementById('num');
-        let btn = document.getElementById('btn');
-        let inter = null;
-        btn.onclick = function () {
-            let val = btn.innerHTML;
-            if (val === '开始') {
-                inter = setInterval(random, 20);
-                btn.innerHTML = '停止';
-            } else {
-                clearInterval(inter);
-                btn.innerHTML = '开始';
-            }
-        }
-        random();
-        function random() {
-            // let str = '0123456789';
-            let ran = '';
-            for (var i = 0; i < 4; i++) {
-                let ss = Math.round(Math.random() * 9);
+         let num = document.getElementById('num');
+         let btn = document.getElementById('btn');
+         let timer;
+         btn.onclick = function(){
+             let val = btn.innerHTML;
+             if(val === '开始'){
+                timer = setInterval(random,20);
+                btn.innerHTML = '暂停';
+             }else{
+                 clearInterval(timer);
+                 btn.innerHTML = '开始';
+             }
+         }
+         random();
+         function random(){
+             let str = '';
+             for(var i=0;i<4;i++){
+                let ss = Math.round(Math.random()*9);
+                str += ss;
+             }
+             num.innerHTML = str; 
+         }
+
+
+        // let num = document.getElementById('num');
+        // let btn = document.getElementById('btn');
+        // let inter = null;
+        // btn.onclick = function () {
+        //     let val = btn.innerHTML;
+        //     if (val === '开始') {
+        //         inter = setInterval(random, 20);
+        //         btn.innerHTML = '停止';
+        //     } else {
+        //         clearInterval(inter);
+        //         btn.innerHTML = '开始';
+        //     }
+        // }
+        // random();
+        // function random() {
+        //     // let str = '0123456789';
+        //     let ran = '';
+        //     for (var i = 0; i < 4; i++) {
+        //         let ss = Math.round(Math.random() * 9);
                 
-                ran += ss;
-            }
-            num.innerHTML = ran;
-        }
+        //         ran += ss;
+        //     }
+        //     num.innerHTML = ran;
+        // }
     </script>
 </body>
 

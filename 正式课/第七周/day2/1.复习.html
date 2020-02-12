@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin-top: 200px;
+            margin-left: 300px;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        // let obj = {};
+        //Object.prototype.__proto__ --> null
+        // var t = obj.toString;
+        // console.log(t);//内置类
+            
+        function fn(a,b){ 
+            console.log(this,a,b)
+        }
+        // function fn1(){
+        //     console.log(1)
+        // }
+        // fn.call.call(fn1,200)
+        // fn.apply(100,[1,23,3,4]);
+        // let f = fn.bind(100,1,2,3);
+        // fn();
+        // f();
+        // Function.prototype.myBind = function(){
+        //     var that = this;
+        //     var arg = arguments[0]; 
+        //     var ary = [].slice.call(arguments,1);
+        //     return function (){ 
+        //         that.apply(arg,ary.concat(Array.from(arguments)));
+        //     }
+        // }
+        // var f = fn.myBind(100,12,3,34);
+        // console.log(f(88,99))
+
+        // function bar(){
+        //     var a = [];
+        //     let b = a.concat(Array.from(arguments));
+        //     console.log(b)
+        // }
+        // bar(12,23,46,56);
+        // Function.prototype.myCall = function(context){
+            //this-->fn
+        //     context = context || window;
+        //     let arg = [];
+        //     let a ;
+        //     context.$fn = this;
+        //     for(var i=1;i<arguments.length;i++){
+        //         arg.push(arguments[i]);
+        //     }
+        //     a = context.$fn(...arg);
+        //     delete context.$fn;
+        //     return a; 
+        // }
+        // // fn.myCall(100,1)
+        // fn.call(100,1)
+
+        //深克隆和浅克隆
+        //浅克隆：改变其中一个，另一个也会发生改变；
+        // var b = {c:1,d:{f:1}};
+        // var a = {};
+        // var y = JSON.parse(JSON.stringify(b));
+        // b.d.f = 100;
+        // console.log(b,y)
+
+        //ES6新增的特性
+        //let const 收缩运算符  结构赋值  箭头函数  块级作用域  class创建类
+        //Set  async  promise  
+        
+        //箭头函数: 没有this，没有arguments，不能被new，不能作为generator函数
+
+        // new Promise(function(resolve,reject){
+        //     setTimeout(()=>{
+        //         resolve();
+        //     },1000);
+        //     // reject();
+        //     throw new Error;
+        // }).then(function(){
+        //     console.log(1);
+        // }).then(function(){
+        //     console.log(3);
+        // }).catch(function(){
+        //     //捕获错误
+        //     console.log(4);
+        // })
+
+        // function fn1(){
+        //     console.log(111);
+        //     return new Promise(function(resolve,reject){
+        //         // setTimeout(function(){
+        //         //     resolve();
+        //         // },2000);
+        //         $.ajax({
+        //             async:true,
+        //             success:function(data){
+        //                 resolve();
+        //             }
+        //         });
+        //     });
+        // };
+        // function f(){
+        //     // console.log(999);
+        //     $.ajax({
+        //             async:true,
+        //             success:function(data){
+        //                 resolve();
+        //             }
+        //     });
+        // }
+        // async function fn(){
+        //     var a = await fn1();//fn1中的代码是同步的,await 下面的代码是异步的，如果await后面的函数返回一个promise的实例，那么就会把await下面的代码当做then中第一个回调函数中的代码
+        //     var b = await f();
+        //     console.log(100);
+        // }
+        // fn();
+        // console.log(200);
+
+        //主线程执行完以后，该执行等待队列中的任务，等待队列中又分为微任务和宏任务，先执行微任务队列中的事件，然后在执行宏任务队列中的事件；
+        //promise  async await 都是微任务    定时器，ajax是宏任务
+        // setTimeout(()=>{
+        //     console.log(100);//6
+        // },0);
+        // new Promise(function(resolve,reject){
+        //     console.log(500);//1
+        //     resolve();
+        // }).then(function(){
+        //     console.log(200);//4
+        // });
+      
+        // function f(){
+        //     console.log(300);
+        // }
+        // async function fn(){
+        //     await f();//2
+        //     console.log(666);//5
+        // }
+        // fn();
+        // console.log(400);//3
+
+        //正则：元字符、修饰符
+        // let num = 123.345;
+        // let reg = /^[-+]?(\d|[1-9]\d+)(\.\d+)?$/;
+        // console.log(reg.test(num)); 
+        // replace(reg,function(){})
+
+        //js 盒子模型
+        //clientWidth  clientHeight clientTop  clientLeft 
+        //offsetWidth  offsetHeight offsetTop  offsetLeft offsetParent
+        //scrollWidth  scrollHeight scrollTop scrollLeft
+
+        //元素.style.width 这个只能获取行间属性
+        //getComputedStyle 这个行间属性和css属性都可以获取到，但是不兼容
+        //currentStyle
+
+        // function offset(curEle){
+        //     let parent = curEle.offsetParent;
+        //     let left = curEle.offsetLeft;
+        //     let top = curEle.offsetTop;
+        //     while(parent &&parent.nodeName !== 'BODY'){ 
+        //             left += parent.offsetLeft + parent.clientLeft;
+        //             top += parent.offsetTop + parent.clientTop;
+        //             parent = parent.offsetParent;  
+        //     }
+        //     return {
+        //         left,
+        //         top,
+        //     }
+        // }
+        // console.log(offset(box).top);
+
+        //防抖节流
+        // function fn(){
+
+        // }
+        // box.onmousemove = debounce(fn,1000);
+        // function debounce(func, wait) {
+        //     let timeout;
+        //     return function () { 
+        //         let context = this;
+        //         let args = arguments; 
+        //         if (timeout) clearTimeout(timeout); 
+        //         timeout = setTimeout(() => {
+        //             func.apply(context, args)
+        //         }, wait);
+        //     }
+        // }
+
+        // box.onclick = function(e){
+        //     console.log(e)
+        // }
+
+        // function on(curEle,type,fn){
+        //     if(!curEle[type]){
+        //         curEle[type] = [];
+        //     }
+        //     let ary = curEle[type];
+        //     let a = ary.find(function(item){
+        //         return item === fn;
+        //     })
+        //     !a ? ary.push(fn) : null; 
+        // }
+        // function emit(curEle,type,fn){
+        //     let ary = curEle[type];
+        //     for(var i=0;i<ary.length;i++){
+        //        ary[i] !== null? ary[i]():null;
+        //     }
+        // }
+        // function off(curEle,type,fn){
+        //     let ary = curEle[type];
+        //     for(var i=0;i<ary.length;i++){
+        //         if(fn === ary[i]){
+        //             ary[i] = null;
+        //         }
+        //     }
+         
+        // }
+        // on(box,'boling',fn);
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

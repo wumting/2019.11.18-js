@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <script src="../jquery-1.11.3.js"></script>
+     <!-- <script src="../jquery-1.11.3.js"></script> -->
     <script>
         var originObj = {
             n: {
@@ -17,6 +17,26 @@
                 ]
             }
         };
+        let ary = [];
+        function getKey(obj){
+            if(obj instanceof Array){
+                for(var i=0;i<obj.length;i++){
+                    getKey(obj[i]);
+                }
+            }else{
+                for(key in obj){
+                    ary.push(key);
+                    getKey(obj[key]);
+                } 
+            }
+            return ary;
+        }
+        console.log(getKey(originObj));
+
+
+
+
+
         // let obj = {
         //     name: 'erYa',
         //     age: 13,
@@ -84,18 +104,18 @@
         // fn(2);
         // console.log(x, obj.x);
 
-        var fn = {
-            bar:function(){
-                console.log(this)//fn
-            },
-            er:function(){
-                console.log(this)
-            }
-        }
-        fn.bar();
-        // (fn.bar)()
-        (fn.er)()
-        fn.er()
+        // var fn = {
+        //     bar:function(){
+        //         console.log(this)//fn
+        //     },
+        //     er:function(){
+        //         console.log(this)
+        //     }
+        // }
+        // fn.bar();
+        // // (fn.bar)()
+        // (fn.er)()
+        // fn.er()
 
 
 

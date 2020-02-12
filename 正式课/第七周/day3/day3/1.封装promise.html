@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class myPromise{
+            constructor(excutor){
+                this.state = 'pending';
+                this.fulfilledEvent = [];
+                this.rejectedEvent = [];
+                let resolve = (result)=>{
+                    if(this.state !== 'pending')return;
+                    this.state = 'fulfilled';
+                    clearTimeout(this.timer);
+                    this.timer = setTimeout(()=>{
+                        this.fulfilledEvent.forEach(item=>{
+                            if(typeof item === 'function'){
+                                item(result);
+                            }
+                        });
+                    },0); 
+                };
+                let reject = (result)=>{ 
+                    if(this.state !== 'pending')return;
+                    this.state = 'rejected';
+                    clearTimeout(this.timer);
+                    this.timer = setTimeout(()=>{
+                        this.rejectedEvent.forEach(item=>{
+                            if(typeof item === 'function'){
+                                item(result);
+                            }
+                        });
+                    },0);
+                };
+                try{
+                    excutor(resolve,reject);
+                }catch(e){
+                    reject(e);
+                } 
+            }
+            then(resolveFn,rejectFn){
+                if(resolveFn === undefined){
+                    resolveFn = ()=>{};
+                }
+                if(rejectFn === undefined){
+                    rejectFn = ()=>{};
+                }
+                // this.fulfilledEvent.push(resolveFn);
+                // this.rejectedEvent.push(rejectFn);
+                return new myPromise((resolve,reject)=>{
+                    this.fulfilledEvent.push((result)=>{
+                        try{
+                            let x = resolveFn(result);
+                            x instanceof myPromise?x.then(resolve,reject):resolve();
+                        }catch(e){
+                            reject();
+                        }
+                    });
+                    this.rejectedEvent.push((result)=>{    
+                        try{
+                            let x = resolveFn(result);
+                            x instanceof myPromise?x.then(resolve,reject):resolve();
+                        }catch(e){
+                            reject();
+                        };
+                    });
+                })
+            }
+        } 
+        let p1 = new myPromise(function(resolve,reject){ 
+            // console.log(resolve);
+        });
+        p1.then(function(a){
+            console.log(a);
+        },function(){
+            console.log(66);
+        });
+        console.log(p1);
+
+        // let p = new Promise(function(resolve,reject){
+
+        // });
+        // p.then();
+        // console.log(p);
+    
+    </script>
+</body>
+</html>

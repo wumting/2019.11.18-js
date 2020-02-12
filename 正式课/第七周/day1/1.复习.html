@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div id="a"></div>
+        <div id="b"></div>
+    </div>
+    <script>
+        //免费课第一周：变量  数据类型  函数
+        //变量：
+        //变量的组成：1.是由数字、字母、下划线、$组成 2.不能以数字开头，3.遵循驼峰命名法，4.不能以关键字作为变量名
+        // var num = 100;
+        // var n;//undefined    
+        
+        //数据类型：基本数据类型和引用数据类型
+        //区别：1.基本数据类型存储到栈内存中，引用数据类型存储到堆内存中
+        //2. 栈内存是提供代码的运行环境的
+
+        //Number : 数字 NaN 都是number类型的
+
+        //1. Number ：将其他数据类型的强制转换为Number，如果里面不是字符串，会先转成字符串，再转数字
+
+        //2. isNaN : 会把后边的值先转数字在校验 
+
+        //3.parseFloat:能识别小数点
+
+        //4.parseInt
+
+        //5.toFixed:保留小数点位数,会得到有个字符串
+        // var num = 100;
+        // num.toFixed(2);
+
+        //字符串
+        //1. ''  ""  ``
+        //2. 索引
+        //3. length
+        //字符串方法：charAt  charCodeAt  substr substring  slice split replace toUpperCase  toLowerCase  trim trimRight trimLeft indexOf lastIndexOf  concat 
+
+        //Boolean : true false
+        //有且只有五个null，undefined，NaN，'',0是false
+        // var obj = {};
+        // Boolean(obj.a); //false
+
+        //null  
+        // let a = document.getElementById('a');
+        // console.log(a.previousElementSibling)//null
+
+        //undefined
+
+        //对象
+        //字段：是属性名
+        // var obj = {a:100};
+        // $.ajax({
+        //     url:'',
+        //     data:{
+        //         //这里面的键值对是根据接口文档里面来的
+        //         username:'',
+        //     },//前端传递给后端的数据
+        //     success:function(data){//后端返回给前端的数据 
+        //     }
+        // })
+
+        //增删改查
+        //对象中的属性名不能重复
+        //数组的去重
+       
+        // var obj = {a:1};
+        // // var b = 'a';
+        // obj.a = 200;
+        // // obj[b] = 100;
+
+        // console.log(obj);
+        // var arr = [12,23,34,24,34,23,25,66]
+        // function unique(arr){
+        //     var obj = {};
+        //     for(var i=0;i<arr.length;i++){  
+        //         if(obj[arr[i]] !== undefined){
+        //             arr.splice(i,1);
+        //             i--;
+        //         } 
+        //         obj[arr[i]] = arr[i];
+        //     }
+        // }
+        // unique(arr);
+        // console.log(arr)
+
+        //数组
+        //pop push shift unshift splice slice concat reverse sort((a,b)=>{return a-b})  join indexof lastIndexof  map forEach includes reduce
+        // let arr = [1,23,4,6,34,8];
+        // let a = arr.map(function(a,b){
+        //     return 100;
+        // });
+        // console.log(a);
+        // console.log(arr)
+
+        // let arr = [1,23,4,6,34,8];
+        // let a = arr.find(function(item,index){//找到符合条件的第一项,如果没有就是undefined；
+        //     return item>100;
+        // });
+        // console.log(a)
+
+        // // let arr = [1,23,4,6,34,8];
+        // let b = arr.filter(function(item,index){//找到符合条件的放到一个数组里，如果没有就是[]；
+        //     return item>100;
+        // });
+        // console.log(b)
+
+        // let c = arr.every(function(item,index){//保证每一项都得满足条件，有一项不满足就返回false【找false】
+        //     return item>=1;
+        // });
+        // console.log(c)
+
+        // let d = arr.some(function(item,index){//只要有一项满足就返回true，都不满足返回false 【找true】
+        //     return item>100;
+        // });
+        // console.log(d)
+
+        // // reduce 收敛
+        // let sum = arr.reduce(function(prev,next){
+        //     //prev : 代表上一次回调函数的返回值
+        //     return prev+next;
+        // },0);
+        // console.log(sum);
+        
+        // var arr = [12,23,34,24,34,23,25,66];
+        // console.log(arr.splice(2,1),arr);
+        
+        //函数定义、
+        //执行:1.形成私有作用域 2. 形参赋值  3.变量提升 4.代码从上到下执行 5.作用域是否销毁
+        // function fn(){
+        //     let a = 100;
+        // }
+        // fn();
+        //1.函数的形参实参，如果没有实参，那么形参默认存储的值就是undefined
+        //2.arguments：实参集合【任意数求和】，非严格模式下，arguments和形参存在一一映射的关系，改变其中一个，另一个也会随着发生变化
+        //3.return
+
+        //匿名函数：没有名字的函数  自执行函数
+        // (function(){})();
+        // var rr = function(){};
+
+        //箭头函数
+        // let ss = ()=>{};
+
+
+    //     function getBro(curEle){
+    //         let cur = curEle.previousSibling;
+    //         while(cur){
+    //             if(cur.nodeType === 1){
+    //                 return cur;
+    //             }
+    //             cur = cur.previousSibling;
+    //         }
+    //         return cur;
+    //     }
+    //    let ss = getBro(b);
+    //     console.log(ss)
+
+    //1. 利用ES6  Set去重
+    // let arr = [1,23,43,45,65,1,23,43,45]; 
+    // function unique(arr){
+    //     return Array.from(new Set(arr));
+    // }
+    // console.log(unique(arr));
+
+    //2. 利用双for循环
+    // function unique(arr){
+    //     for(var i=0;i<arr.length;i++){
+    //         let cur = arr[i];
+    //         for(var j=i+1;j<arr.length;j++){
+    //             let next = arr[j];
+    //             if(cur === next){
+    //                 arr.splice(j,1);
+    //                 j--;
+    //             }
+    //         }
+    //     }
+    //     return arr;
+    // }
+    // console.log(unique(arr));
+
+    //3. 利用indexof去重
+    // function unique(arr){
+    //     let ary = [];
+    //     for(var i=0;i<arr.length;i++){
+    //         if(ary.indexOf(arr[i]) === -1){
+    //             ary.push(arr[i]);
+    //         } 
+    //     }
+    //     return ary;
+    // }
+    // console.log(unique(arr));
+    
+    //4.利用sort()
+    // function unique(arr){
+    //     arr = arr.sort();
+    //     var ary = [arr[0]];
+    //     for(var i=1;i<arr.length;i++){
+    //         if(arr[i] !== arr[i-1]){
+    //             ary.push(arr[i]);
+    //         }
+    //     }
+    //     return ary;
+    // }
+    // console.log(unique(arr));
+
+    //5. 利用对象的属性不能相同的特点进行去重
+    // function unique(arr){
+    //     let obj = {};
+    //     for(var i=0;i<arr.length;i++){
+    //         if(obj[arr[i]] !== undefined){
+    //             arr.splice(i,1);
+    //             i--;
+    //         }
+    //         obj[arr[i]] = arr[i];
+    //     }
+    //     return arr;
+    // }
+    // console.log(unique(arr));
+
+    //6. includes 
+    //  let arr = [1,23,43,45,65,1,23,43,45]; 
+    // function unique(arr){
+    //     var ary = [];
+    //     for(var i=0;i<arr.length;i++){
+    //         if(!ary.includes(arr[i])){
+    //             ary.push(arr[i]);
+    //         }
+    //     }
+    //     return ary;
+    // }
+    // console.log(unique(arr));
+    
+    //7. hasOwnProperty
+    // function unique(arr){
+    //     var obj = {};
+    //     return arr.filter(function(item){ 
+    //         return obj.hasOwnProperty(typeof item +item)?false:(obj[typeof item+item] = true)
+    //     })
+    // }
+    // console.log(unique(arr));
+
+    //8. 利用filter 
+    // function unique(arr){
+    //     return arr.filter(function(item,index,arr){
+    //         return arr.indexOf(item,0) === index;
+    //     });
+    // }
+    // console.log(unique(arr));
+
+    //9. 利用递归
+    // function unique(arr){
+    //     var ary = arr;
+    //     var len = ary.length;
+    //     ary = ary.sort((a,b)=>{return a-b});
+    //     function loop(index){
+    //         if(index>=1){
+    //             if(ary[index] === ary[index-1]){
+    //                 ary.splice(index,1);
+    //             }
+    //             loop(index-1);
+    //         }
+    //     }
+    //     loop(len-1);
+    //     return ary;
+    // }   
+    // console.log(unique(arr));
+    // console.log(arr)
+
+    //10. reduce+includes
+    let arr = [1,23,43,45,65,1,23,43,45]; 
+    function unique(arr){
+        return arr.reduce((prev,cur)=> prev.includes(cur)?prev:[...prev,cur],[]);
+    }
+    console.log(unique(arr));
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

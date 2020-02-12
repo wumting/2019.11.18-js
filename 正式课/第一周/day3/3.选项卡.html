@@ -72,17 +72,42 @@
         var tab = document.getElementById("tab");
         var oLis = document.getElementsByTagName("li");
         var divs = tab.getElementsByTagName("div");
-        for (let i = 0; i < oLis.length; i++) {
-            oLis[i].onclick = function () {
-                for (var j = 0; j < oLis.length; j++) {
-                    oLis[j].className = "";
-                    divs[j].className = "";
-                }
-                oLis[i].className = "select";
-                divs[i].className = "select";
-            }
-        }         
+        // for(let i=0;i<oLis.length;i++){
+        //     oLis[i].onclick = function(){ 
+        //         for(let i=0;i<oLis.length;i++){
+        //             oLis[i].className = "";
+        //             divs[i].className = "";
+        //         }
+        //         oLis[i].className = "select";
+        //         divs[i].className = "select";
+        //     }
+        // }      
 
+        // for (var i = 0; i < oLis.length; i++) {
+        //     oLis[i].index = i;
+        //     oLis[i].onclick = function () {
+        //         for (var i = 0; i < oLis.length; i++) {
+        //             oLis[i].className = '';
+        //             divs[i].className = '';
+        //         }
+        //         this.className = 'select';
+        //         divs[this.index].className = 'select';
+        //     }
+        // }
+
+        // for(var i=0;i<oLis.length;i++){
+        //     oLis[i].onclick = (function(a){
+        //         return function(){
+        //             for(var j=0;j<oLis.length;j++){
+        //                 oLis[j].className = '';
+        //                 divs[j].className = '';
+        //             }
+        //             oLis[a].className = 'select';
+        //             divs[a].className = 'select';
+        //         }
+        //     })(i)
+        // }
+ 
 
         // for (var i = 0; i < oLis.length; i++) {
         //     (function (a) {
@@ -95,22 +120,7 @@
         //             divs[a].className = "select";
         //         }
         //     })(i)
-        // }
-
-
-        // for (var i = 0; i < oLis.length; i++) {
-        //     oLis[i].onclick = (function (i) {
-        //         return function () {
-        //             for (var j = 0; j < oLis.length; j++) {
-        //                 oLis[j].className = "";
-        //                 divs[j].className = "";
-        //             }
-        //             oLis[i].className = "select";
-        //             divs[i].className = "select";
-        //         }
-        //     })(i)
-        // }
-
+        // } 
 
         // for(var i=0;i<oLis.length;i++){
         //     oLis[i].flag=i;

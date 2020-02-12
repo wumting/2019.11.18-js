@@ -34,16 +34,14 @@
     </div>
     <script>
         let box = document.getElementById('box');
-        let img = box.querySelector('img');
+        let img = box.querySelector('img'); 
         function lazyImg(curImg){
             let trueImg = curImg.getAttribute('trueImg');
             curImg.src = trueImg;
             curImg.onload = function(){
                  curImg.style.display = 'block';
             };
-            curImg.isLoad = true;
-
-           
+            curImg.isLoad = true; 
         }
         //监听事件
         window.onscroll = function(){

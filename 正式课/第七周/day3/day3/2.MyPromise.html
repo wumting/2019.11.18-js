@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    p.then().then()
+    class MyPromise{
+        constructor(excutor){
+            this.state = "pending";// 当前实例有个state,默认值是pending；
+            // 当初始化promise实例时，新增两个事件池；一个成功一个失败；
+            this.fulfilledEvent = [];
+            this.rejectedEvent=[];
+            // resolve : 1. 改变状态；2.让成功事件池中的方法都执行；
+            let resolve=(result)=>{
+                // 如果不是pending状态，那么promise状态已经发生了改变，不需要再执行；
+                if(this.state!=="pending")return;
+                this.state="fulfilled";
+                clearTimeout(this.timer);
+                this.timer = setTimeout(()=>{
+                    // 事件池中的方法执行是一个异步的；
+                    this.fulfilledEvent.forEach(item=>{
+                        if(typeof item==="function"){
+                            item(result)
+                        }
+                    })
+                },0)
+            };
+            let reject = (result)=>{
+                if(this.state!=="pending")return;
+                this.state="rejected";
+                clearTimeout(this.timer);
+                this.timer = setTimeout(()=>{
+                    this.rejectedEvent.forEach(item=>{
+                        if(typeof item==="function"){
+                            item(result)
+                        }
+                    })
+                },0)
+            };
+           try{
+               excutor(resolve,reject)
+           }catch(e){
+               reject(e);
+           }
+        }
+        // 订阅方法；
+        then(resolveFn,rejectFn){
+            //如果then不传参数；给函数赋默认的匿名函数；
+            if(resolveFn===undefined){
+                resolveFn=()=>{};
+            }
+            if(rejectFn===undefined){
+                rejectFn=()=>{
+                    throw new Error();
+                }
+            }
+            // this.fulfilledEvent.push(resolveFn)
+            return new MyPromise((resolve,reject)=>{// p1  p1中的resolve--> this指向p1;
+                // 必须验证resolveFn是否是一个promise的实例
+                this.fulfilledEvent.push((result)=>{
+                    try{
+                        let x = resolveFn(result);
+                        // x===p2 resolve 存储到了p2的事件池中；
+                        x instanceof MyPromise?x.then(resolve,reject):resolve();
+                    }catch(e){
+                        rejectFn(e);
+                    }
+                });
+                this.rejectedEvent.push((result)=>{
+                  try{
+                      let x = rejectFn(result);
+                      // x===p2 resolve 存储到了p2的事件池中；
+                      x instanceof MyPromise?x.then(resolve,reject):resolve();
+                  }catch(e){
+                      rejectFn(e)
+                  }
+                });
+            })
+        }
+    }
+
+    let  p  = new MyPromise(function (resolve,reject) {
+       setTimeout(function () {
+          resolve(1)
+       },2000)
+    })
+    p.then(function (val) {
+
+        /*return new MyPromise(function (resolve,reject) {
+            setTimeout(function () {
+                resolve(2);
+            },2000)
+        })*/
+    },function () {
+        
+    }).then(function () {
+            
+    })
+    /*let p = new MyPromise(function (resolve,reject) {
+        // resolve形参可以执行；所以该实参一定是个函数
+        // resolve : 改变当前实例的状态
+        resolve()
+    });
+    p.then(function () {
+        return new MyPromise(function (resolve,reject) { // p2
+            resolve();//  执行p2事件池中的方法；p2事件池中有个p1 的resolve，p1的resolve执行；会把p1成功事件池中的方法执行；
+        })
+    }).then(function () {
+
+    });*/
+
+    // 第一个resolve  要执行p这个实例中成功事件池中的方法；这是一个异步的操作；暂时异步事件池中的方法是不执行；
+
+    // 第二个resolve :  执行p2事件池中的方法；p2事件池中有个p1 的resolve，p1的resolve执行；会把p1成功事件池中的方法执行；
+
+    // 第一个then : 把then中的方法放入到p的成功事件池中；并且返回一个p1的promise实例；
+
+    // 第二个then ：p1.调用的then；把then中放到了p1.的成功事件池中；
+
+
+   /* let p1 = new Promise(function (resolve) {
+        resolve()
+    })
+    p1.then(function () {
+
+        // then : 向事件池中存储方法；
+    })
+    p1.then(function () {
+
+    })
+    console.log(p1);*/
+
+
+    /*class A{
+        constructor(num){
+            // this--> 实例
+            this.num = num;
+        }
+        // 原型上的方法
+        then(){
+            console.log(this);
+        }
+    }
+    let a = new A(100);
+    a.then()*/
+
+</script>
+</body>
+</html>

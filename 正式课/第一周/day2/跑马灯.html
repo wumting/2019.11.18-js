@@ -24,30 +24,54 @@
     <div id="box"></div>
     <script>
         let body = document.body;
-       let box = document.getElementById('box');
+        let box = document.getElementById('box');
         let num = 0;
-        // console.log(back)
-       
-
-        function fn() {
+        function fn(){
             num++;
-            console.log(num)
-            if (num>10) {
-                clearInterval(ss);
+            if(num>10){
+                clearInterval(timer);
                 body.style.background = 'white';
                 box.style.top = 0;
                 return;
             }
-            let back = body.style.background;
-            if (back === 'violet') {
-                body.style.background = 'green';
-            } else if ( back === 'green') {
+            if(body.style.background === 'violet'){
                 body.style.background = 'red';
-            } else {
+                console.log(1)
+            }else if(body.style.background === 'red'){
+                console.log(2)
+                body.style.background = 'green';
+            }else {
+                console.log(3)
                 body.style.background = 'violet';
             }
         }
-        let ss = setInterval(fn, 100); 
+        let timer = setInterval(fn,200);
+
+
+
+        // let body = document.body;
+        // let box = document.getElementById('box');
+        // let num = 0;
+        // // console.log(back) 
+        // function fn() {
+        //     num++;
+        //     console.log(num)
+        //     if (num>10) {
+        //         clearInterval(ss);
+        //         body.style.background = 'white';
+        //         box.style.top = 0;
+        //         return;
+        //     }
+        //     let back = body.style.background;
+        //     if (back === 'violet') {
+        //         body.style.background = 'green';
+        //     } else if ( back === 'green') {
+        //         body.style.background = 'red';
+        //     } else {
+        //         body.style.background = 'violet';
+        //     }
+        // }
+        // let ss = setInterval(fn, 100); 
 
 
 
